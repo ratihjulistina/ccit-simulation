@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { CcitMark } from "@/components/CcitLogo";
 import heroImg from "@/assets/hero-cfd.jpg";
 import thermalImg from "@/assets/service-thermal.jpg";
 import windImg from "@/assets/service-wind.jpg";
@@ -74,7 +75,7 @@ function Index() {
       <header className="sticky top-0 z-50 border-b border-border/80 bg-background/85 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
           <a href="#top" className="flex items-center gap-2.5">
-            <span className="flag-rule h-8 w-8 rounded-md border border-border" aria-hidden="true" />
+            <CcitMark className="h-9 w-9 text-primary" />
             <span className="font-display text-base font-bold tracking-tight text-ink">
               CCIT <span className="text-primary">Simulation</span>
             </span>
@@ -317,7 +318,10 @@ function Index() {
 
       <footer className="border-t border-border bg-muted/50">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-display font-semibold text-ink">CCIT Simulation</p>
+          <span className="flex items-center gap-2.5">
+            <CcitMark className="h-8 w-8 text-primary" />
+            <span className="font-display font-semibold text-ink">CCIT Simulation</span>
+          </span>
           <p>© {new Date().getFullYear()} CCIT Simulation · Engineering simulation consultancy, Indonesia</p>
         </div>
       </footer>
