@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/SectionHeading";
+import { ShareButtons } from "@/components/ShareButtons";
 import { SITE_URL } from "@/lib/site-content";
 import thermalImg from "@/assets/service-thermal.jpg";
 import windImg from "@/assets/service-wind.jpg";
@@ -18,6 +19,8 @@ export const Route = createFileRoute("/case-studies")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/case-studies` },
+      { property: "og:image", content: `${SITE_URL}/og-case-studies.jpg` },
+      { name: "twitter:image", content: `${SITE_URL}/og-case-studies.jpg` },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/case-studies` }],
