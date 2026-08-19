@@ -73,8 +73,12 @@ function ContactPage() {
               type="submit"
               className="w-full rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-red)] transition-transform hover:-translate-y-0.5"
             >
-              Send enquiry
+              Open enquiry in your email app
             </button>
+            <p className="mt-3 text-center text-xs text-muted-foreground">
+              This opens a pre-filled draft in your email app — the enquiry reaches us only once
+              you press send there.
+            </p>
           </form>
         </div>
       </div>
