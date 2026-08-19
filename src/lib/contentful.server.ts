@@ -2,7 +2,7 @@ import type { Document } from "@contentful/rich-text-types";
 
 const GATEWAY_URL = "https://connector-gateway.lovable.dev/contentful";
 
-export const CASE_STUDY_CONTENT_TYPE = "blogPost";
+export const CASE_STUDY_CONTENT_TYPE = "products";
 
 export type CaseStudyEntry = {
   id: string;
