@@ -29,7 +29,7 @@ export function ShareButtons({ url, title }: Props) {
   }
 
   async function nativeShare() {
-    if (typeof navigator !== "undefined" && navigator.share) {
+    if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
       try {
         await navigator.share({ title, url });
         return true;
@@ -55,7 +55,7 @@ export function ShareButtons({ url, title }: Props) {
           title={label}
           className={cls}
           onClick={async (e) => {
-            if (typeof navigator !== "undefined" && navigator.share) {
+            if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
               e.preventDefault();
               const ok = await nativeShare();
               if (!ok) window.open(href, "_blank", "noopener,noreferrer");
