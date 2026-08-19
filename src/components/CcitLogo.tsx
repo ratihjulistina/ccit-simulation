@@ -1,5 +1,9 @@
 type Props = { className?: string; title?: string };
 
+/**
+ * Nested spiral arcs resolving into a "C" — the mark used on the CCIT
+ * Simulation case-study artwork. Outer arcs red (primary), inner arcs ink.
+ */
 export function CcitMark({ className, title = "CCIT Simulation" }: Props) {
   return (
     <svg
@@ -10,21 +14,33 @@ export function CcitMark({ className, title = "CCIT Simulation" }: Props) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <circle cx="32" cy="32" r="31" fill="currentColor" opacity="0.06" />
-      <g
-        stroke="currentColor"
-        strokeLinecap="round"
-        fill="none"
-        strokeWidth="4.5"
-      >
-        <path d="M46 17.5C40.5 12.5 32.5 11 25.5 14.5 16.5 19 12.5 30 15.5 39.5" />
-        <path d="M46 46.5C40.5 51.5 32.5 53 25.5 49.5 21.4 47.4 18.3 43.7 16.6 39.4" opacity="0.75" />
-        <path d="M52 32c-6.6 0-12 2.4-16.4 6" opacity="0.5" strokeWidth="4" />
-      </g>
-      <g stroke="currentColor" strokeLinecap="round" strokeWidth="3" opacity="0.35">
-        <path d="M4 24h9" />
-        <path d="M4 32h6" />
-        <path d="M4 40h9" />
+      <g fill="none" strokeLinecap="round">
+        <path
+          className="text-primary"
+          stroke="currentColor"
+          strokeWidth="5"
+          d="M11.32 14.64A27 27 0 1 1 11.32 49.36"
+        />
+        <path
+          className="text-primary"
+          stroke="currentColor"
+          strokeWidth="4.5"
+          opacity="0.62"
+          d="M16.3 18.82A20.5 20.5 0 1 1 16.3 45.18"
+        />
+        <path
+          className="text-ink"
+          stroke="currentColor"
+          strokeWidth="4"
+          d="M21.28 23A14 14 0 1 1 21.28 41"
+        />
+        <path
+          className="text-ink"
+          stroke="currentColor"
+          strokeWidth="3.5"
+          opacity="0.55"
+          d="M25.87 26.86A8 8 0 1 1 25.87 37.14"
+        />
       </g>
     </svg>
   );
@@ -33,9 +49,14 @@ export function CcitMark({ className, title = "CCIT Simulation" }: Props) {
 export function CcitLogo({ className }: { className?: string }) {
   return (
     <span className={`flex items-center gap-2.5 ${className ?? ""}`}>
-      <CcitMark className="h-8 w-8 text-primary" />
-      <span className="font-display text-base font-bold tracking-tight text-ink">
-        CCIT <span className="text-primary">Simulation</span>
+      <CcitMark className="h-9 w-9" />
+      <span className="flex flex-col leading-none">
+        <span className="font-display text-lg font-bold tracking-tight text-ink">
+          CCIT
+        </span>
+        <span className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-primary">
+          Simulation
+        </span>
       </span>
     </span>
   );
