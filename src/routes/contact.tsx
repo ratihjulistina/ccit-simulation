@@ -75,6 +75,10 @@ function ContactPage() {
             >
               Open enquiry in your email app
             </button>
+            <p className="mt-3 text-center text-xs text-muted-foreground">
+              This opens a pre-filled draft in your email app — the enquiry reaches us only once
+              you press send there.
+            </p>
           </form>
         </div>
       </div>
