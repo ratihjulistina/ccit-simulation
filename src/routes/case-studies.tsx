@@ -1,16 +1,24 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { BLOCKS, INLINES, type Document } from "@contentful/rich-text-types";
+import type { ReactNode } from "react";
 import { PageHero } from "@/components/SectionHeading";
 import { ShareButtons } from "@/components/ShareButtons";
 import { SITE_URL } from "@/lib/site-content";
-import thermalImg from "@/assets/service-thermal.jpg";
-import windImg from "@/assets/service-wind.jpg";
-import multiphaseImg from "@/assets/service-multiphase.jpg";
+import { getCaseStudies } from "@/lib/case-studies.functions";
 
 const title = "CFD Case Studies | CCIT Simulation Indonesia";
 const description =
   "Selected computational fluid dynamics projects by CCIT Simulation — the engineering challenge, the simulation approach, the CFD results, and the client outcome.";
 
+const caseStudiesQuery = queryOptions({
+  queryKey: ["case-studies"],
+  queryFn: () => getCaseStudies(),
+});
+
 export const Route = createFileRoute("/case-studies")({
+  loader: ({ context }) => context.queryClient.ensureQueryData(caseStudiesQuery),
   head: () => ({
     meta: [
       { title },
@@ -28,78 +36,49 @@ export const Route = createFileRoute("/case-studies")({
   component: CaseStudiesPage,
 });
 
-type CaseStudy = {
-  id: string;
-  sector: string;
-  discipline: string;
-  title: string;
-  image: string;
-  challenge: string;
-  approach: string;
-  results: { label: string; value: string }[];
-  outcome: string;
+const richTextOptions = {
+  renderNode: {
+    [BLOCKS.PARAGRAPH]: (_n: unknown, children: ReactNode) => (
+      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{children}</p>
+    ),
+    [BLOCKS.HEADING_2]: (_n: unknown, children: ReactNode) => (
+      <h3 className="mt-6 text-xs font-semibold uppercase tracking-wider text-primary">{children}</h3>
+    ),
+    [BLOCKS.HEADING_3]: (_n: unknown, children: ReactNode) => (
+      <h4 className="mt-5 text-sm font-semibold text-ink">{children}</h4>
+    ),
+    [BLOCKS.UL_LIST]: (_n: unknown, children: ReactNode) => (
+      <ul className="mt-3 list-disc space-y-1 pl-5 text-sm leading-relaxed text-muted-foreground">
+        {children}
+      </ul>
+    ),
+    [BLOCKS.OL_LIST]: (_n: unknown, children: ReactNode) => (
+      <ol className="mt-3 list-decimal space-y-1 pl-5 text-sm leading-relaxed text-muted-foreground">
+        {children}
+      </ol>
+    ),
+    [BLOCKS.LIST_ITEM]: (_n: unknown, children: ReactNode) => <li>{children}</li>,
+    [BLOCKS.QUOTE]: (_n: unknown, children: ReactNode) => (
+      <blockquote className="mt-4 rounded-xl border-l-2 border-primary bg-muted/60 p-4">
+        {children}
+      </blockquote>
+    ),
+    [INLINES.HYPERLINK]: (node: any, children: ReactNode) => (
+      <a
+        href={node.data.uri}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-medium text-primary underline underline-offset-2"
+      >
+        {children}
+      </a>
+    ),
+  },
 };
 
-// TEMPLATE CONTENT — replace every [bracketed] value with real project data
-// before publishing. Nothing here is a verified client claim.
-const caseStudies: CaseStudy[] = [
-  {
-    id: "separator",
-    sector: "[Oil & Gas]",
-    discipline: "Multiphase flow",
-    title: "[Three-phase separator internals redesign]",
-    image: multiphaseImg,
-    challenge:
-      "[Describe the operational problem the client faced — e.g. liquid carry-over above spec at design throughput, forcing a production rate limit.]",
-    approach:
-      "[Describe the modelling approach — geometry source, mesh size and independence study, turbulence and multiphase models, boundary conditions, and how the baseline was validated.]",
-    results: [
-      { label: "[Carry-over reduction]", value: "[--%]" },
-      { label: "[Mesh cells]", value: "[-- M]" },
-      { label: "[Validation deviation]", value: "[±--%]" },
-    ],
-    outcome:
-      "[State the client-facing result — what decision was made, what was avoided or gained, and over what timeframe. Only include figures the client has confirmed.]",
-  },
-  {
-    id: "thermal",
-    sector: "[Power Generation]",
-    discipline: "Conjugate heat transfer",
-    title: "[Heat exchanger thermal performance uprate]",
-    image: thermalImg,
-    challenge:
-      "[Describe the thermal limitation — e.g. outlet temperature drifting outside the process window during high-ambient operation.]",
-    approach:
-      "[Describe the CHT setup — solid/fluid domains, radiation model, material properties, and the benchmark data used for validation.]",
-    results: [
-      { label: "[Duty improvement]", value: "[--%]" },
-      { label: "[Peak metal temp]", value: "[-- °C]" },
-      { label: "[Pressure drop change]", value: "[-- kPa]" },
-    ],
-    outcome:
-      "[State the outcome — modification adopted, downtime avoided, or capital deferred. Confirmed figures only.]",
-  },
-  {
-    id: "wind",
-    sector: "[Building & HVAC]",
-    discipline: "External aerodynamics",
-    title: "[High-rise wind load and pedestrian comfort study]",
-    image: windImg,
-    challenge:
-      "[Describe the design question — e.g. plaza-level wind speeds needed to be assessed against a comfort criterion before permit submission.]",
-    approach:
-      "[Describe the wind study setup — domain sizing, terrain roughness, wind rose and directional sectors, turbulence model, and the standard applied.]",
-    results: [
-      { label: "[Sectors simulated]", value: "[--]" },
-      { label: "[Comfort criterion met]", value: "[--% of area]" },
-      { label: "[Peak cladding pressure]", value: "[-- Pa]" },
-    ],
-    outcome:
-      "[State what the client did with the result — mitigation adopted, approval obtained, redesign avoided.]",
-  },
-];
-
 function CaseStudiesPage() {
+  const { data } = useSuspenseQuery(caseStudiesQuery);
+
   return (
     <>
       <PageHero
@@ -108,68 +87,50 @@ function CaseStudiesPage() {
         body="Each project below follows the same structure: the engineering challenge, how we modelled and validated it, the CFD results, and what the client did next."
       />
 
-      <section className="mx-auto max-w-6xl px-5 pt-10">
-        <p className="rounded-xl border border-dashed border-primary/50 bg-accent px-4 py-3 text-sm text-accent-foreground">
-          <strong className="font-semibold">Template content.</strong> The three entries below are
-          placeholders showing the case-study format. Replace every [bracketed] field with real
-          project data and confirmed client figures before publishing this page.
-        </p>
-      </section>
+      {(data.error || data.items.length === 0) && (
+        <section className="mx-auto max-w-6xl px-5 py-16">
+          <p className="rounded-2xl border border-dashed border-border bg-muted/60 px-6 py-10 text-center text-sm text-muted-foreground">
+            {data.error ?? "No case studies published yet — check back soon."}
+          </p>
+        </section>
+      )}
 
       <section className="mx-auto max-w-6xl space-y-10 px-5 py-14">
-        {caseStudies.map((cs) => (
+        {data.items.map((cs) => (
           <article
             key={cs.id}
-            id={cs.id}
+            id={cs.slug}
             className="overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)]"
           >
             <div className="flag-rule h-1.5 w-full" aria-hidden="true" />
             <div className="grid gap-0 lg:grid-cols-[0.85fr_1.15fr]">
-              <img
-                src={cs.image}
-                width={900}
-                height={700}
-                loading="lazy"
-                alt={`CFD result visualisation for ${cs.title}`}
-                className="h-56 w-full object-cover lg:h-full"
-              />
+              {cs.image && (
+                <img
+                  src={cs.image}
+                  width={900}
+                  height={700}
+                  loading="lazy"
+                  alt={cs.imageAlt}
+                  className="h-56 w-full object-cover lg:h-full"
+                />
+              )}
               <div className="p-8 md:p-10">
-                <div className="flex flex-wrap gap-2">
+                {cs.category && (
                   <span className="rounded-full bg-accent px-2.5 py-1 text-[11px] font-semibold text-accent-foreground">
-                    {cs.sector}
+                    {cs.category}
                   </span>
-                  <span className="rounded-full border border-border px-2.5 py-1 text-[11px] font-semibold text-muted-foreground">
-                    {cs.discipline}
-                  </span>
-                </div>
+                )}
                 <h2 className="mt-4 text-2xl font-bold text-ink">{cs.title}</h2>
 
-                <div className="mt-6 space-y-5 text-sm leading-relaxed">
-                  <Block label="Challenge" body={cs.challenge} />
-                  <Block label="Simulation approach" body={cs.approach} />
-                </div>
-
-                <dl className="mt-7 grid gap-4 border-t border-border pt-6 sm:grid-cols-3">
-                  {cs.results.map((r) => (
-                    <div key={r.label}>
-                      <dt className="text-xs uppercase tracking-wider text-muted-foreground">
-                        {r.label}
-                      </dt>
-                      <dd className="font-display mt-1 text-2xl font-bold text-primary">{r.value}</dd>
-                    </div>
-                  ))}
-                </dl>
-
-                <div className="mt-6 rounded-xl border-l-2 border-primary bg-muted/60 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-primary">
-                    Client outcome
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{cs.outcome}</p>
+                <div className="mt-4">
+                  {cs.body
+                    ? documentToReactComponents(cs.body as Document, richTextOptions)
+                    : null}
                 </div>
 
                 <div className="mt-6 border-t border-border pt-5">
                   <ShareButtons
-                    url={`${SITE_URL}/case-studies#${cs.id}`}
+                    url={`${SITE_URL}/case-studies#${cs.slug}`}
                     title={`${cs.title} — CFD case study by CCIT Simulation`}
                   />
                 </div>
@@ -195,14 +156,5 @@ function CaseStudiesPage() {
         </div>
       </section>
     </>
-  );
-}
-
-function Block({ label, body }: { label: string; body: string }) {
-  return (
-    <div>
-      <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{label}</p>
-      <p className="mt-1.5 text-muted-foreground">{body}</p>
-    </div>
   );
 }
