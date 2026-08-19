@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-cfd.jpg";
 import { SectionHeading } from "@/components/SectionHeading";
+import { Reveal } from "@/components/Reveal";
 import { services, industries, stats, SITE_URL } from "@/lib/site-content";
 
 const title = "CCIT Simulation | CFD & Engineering Simulation Consulting";
@@ -46,11 +47,11 @@ function Index() {
   return (
     <>
       <section className="surface-ink relative overflow-hidden">
-        <div className="grid-mesh absolute inset-0 opacity-60" aria-hidden="true" />
+        <div className="grid-mesh animate-mesh-drift absolute inset-0 opacity-60" aria-hidden="true" />
         <div className="relative mx-auto grid max-w-6xl gap-12 px-5 py-20 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:py-28">
-          <div>
+          <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary" /> CFD Consulting · Indonesia
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" /> CFD Consulting · Indonesia
             </span>
             <h1 className="mt-6 text-4xl font-bold leading-[1.05] sm:text-5xl lg:text-6xl">
               Simulation-driven engineering,{" "}
@@ -76,41 +77,42 @@ function Index() {
                 Explore services
               </Link>
             </div>
-          </div>
-          <div className="relative">
+          </Reveal>
+          <Reveal delay={150} className="relative">
             <div className="flag-rule absolute -left-3 top-6 hidden h-40 w-1.5 rounded-full lg:block" aria-hidden="true" />
             <img
               src={heroImg}
               width={1600}
               height={1008}
               alt="CFD velocity streamlines over a turbine stage and a car body"
-              className="w-full rounded-2xl border border-white/10 shadow-[var(--shadow-card)]"
+              className="animate-float-soft w-full rounded-2xl border border-white/10 shadow-[var(--shadow-card)]"
             />
-          </div>
+          </Reveal>
         </div>
         <div className="relative border-t border-white/10">
           <dl className="mx-auto grid max-w-6xl grid-cols-2 gap-px px-5 py-8 sm:grid-cols-4">
-            {stats.map(([value, label]) => (
-              <div key={label}>
+            {stats.map(([value, label], i) => (
+              <Reveal key={label} delay={i * 100}>
                 <dt className="font-display text-3xl font-bold text-primary">{value}</dt>
                 <dd className="mt-1 text-xs uppercase tracking-wider text-white/55">{label}</dd>
-              </div>
+              </Reveal>
             ))}
           </dl>
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-20">
-        <SectionHeading
-          eyebrow="Services"
-          title="CFD expertise across the full flow spectrum"
-          body="Every study is scoped around a decision you need to make — not a pretty picture."
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="Services"
+            title="CFD expertise across the full flow spectrum"
+            body="Every study is scoped around a decision you need to make — not a pretty picture."
+          />
+        </Reveal>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {services.map((s) => (
-            <article
-              key={s.title}
-              className="group overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-transform duration-300 hover:-translate-y-1.5"
+          {services.map((s, i) => (
+            <Reveal key={s.title} delay={i * 120} as="article"
+              className="group overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-[transform,box-shadow,opacity] duration-500 hover:-translate-y-1.5 hover:shadow-[var(--shadow-red)]"
             >
               <img
                 src={s.image}
@@ -118,48 +120,52 @@ function Index() {
                 height={700}
                 loading="lazy"
                 alt={s.title}
-                className="h-44 w-full object-cover"
+                className="h-44 w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="flag-rule h-1 w-full" aria-hidden="true" />
               <div className="p-6">
                 <h3 className="text-lg font-semibold text-ink">{s.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
-        <div className="mt-10">
+        <Reveal className="mt-10">
           <Link to="/services" className="text-sm font-semibold text-primary hover:underline">
             See all simulation services →
           </Link>
-        </div>
+        </Reveal>
       </section>
 
       <section className="border-y border-border bg-muted/60">
         <div className="mx-auto max-w-6xl px-5 py-20">
-          <SectionHeading
-            eyebrow="Industries"
-            title="Trusted by engineering teams across the archipelago"
-            body="Oil & gas, power, marine, buildings and manufacturing — each with its own codes, constraints, and validation basis."
-          />
+          <Reveal>
+            <SectionHeading
+              eyebrow="Industries"
+              title="Trusted by engineering teams across the archipelago"
+              body="Oil & gas, power, marine, buildings and manufacturing — each with its own codes, constraints, and validation basis."
+            />
+          </Reveal>
           <div className="mt-10 flex flex-wrap gap-3">
-            {industries.map((i) => (
-              <span
+            {industries.map((i, idx) => (
+              <Reveal
                 key={i}
-                className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-ink"
+                as="span"
+                delay={idx * 60}
+                className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-ink transition-transform duration-300 hover:-translate-y-0.5"
               >
                 {i}
-              </span>
+              </Reveal>
             ))}
           </div>
-          <div className="mt-10 flex flex-wrap gap-6">
+          <Reveal className="mt-10 flex flex-wrap gap-6">
             <Link to="/capabilities" className="text-sm font-semibold text-primary hover:underline">
               Full capability list →
             </Link>
             <Link to="/process" className="text-sm font-semibold text-primary hover:underline">
               How we work →
             </Link>
-          </div>
+          </Reveal>
         </div>
       </section>
     </>
