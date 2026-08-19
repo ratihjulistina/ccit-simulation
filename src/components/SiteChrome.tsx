@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { CcitMark } from "@/components/CcitLogo";
+import { CcitLogo } from "@/components/CcitLogo";
 
 const nav = [
   { to: "/services", label: "Services" },
@@ -13,11 +13,8 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/80 bg-background/85 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
-        <Link to="/" className="flex items-center gap-2.5">
-          <CcitMark className="h-9 w-9 text-primary" />
-          <span className="font-display text-base font-bold tracking-tight text-ink">
-            CCIT <span className="text-primary">Simulation</span>
-          </span>
+        <Link to="/" aria-label="CCIT Simulation home">
+          <CcitLogo />
         </Link>
         <nav className="hidden items-center gap-7 text-sm font-medium text-muted-foreground md:flex">
           {nav.map((item) => (
@@ -47,10 +44,7 @@ export function SiteFooter() {
     <footer className="border-t border-border bg-muted/50">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-10 text-sm text-muted-foreground">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <span className="flex items-center gap-2.5">
-            <CcitMark className="h-8 w-8 text-primary" />
-            <span className="font-display font-semibold text-ink">CCIT Simulation</span>
-          </span>
+          <CcitLogo />
           <nav className="flex flex-wrap gap-x-6 gap-y-2">
             {nav.map((item) => (
               <Link key={item.to} to={item.to} className="transition-colors hover:text-primary">
