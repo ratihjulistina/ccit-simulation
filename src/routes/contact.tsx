@@ -73,7 +73,7 @@ function ContactPage() {
               type="submit"
               className="w-full rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-red)] transition-transform hover:-translate-y-0.5"
             >
-              Send enquiry
+              Open enquiry in your email app
             </button>
           </form>
         </div>
