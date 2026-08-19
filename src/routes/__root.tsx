@@ -78,12 +78,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "CCIT Simulation | CFD Consulting Indonesia" },
-      {
-        name: "description",
-        content:
-          "Indonesian engineering consultancy for computational fluid dynamics, thermal, and structural simulation.",
-      },
       { name: "author", content: "CCIT Simulation" },
       { property: "og:site_name", content: "CCIT Simulation" },
       { property: "og:type", content: "website" },
