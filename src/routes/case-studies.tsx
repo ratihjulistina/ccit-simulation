@@ -166,6 +166,13 @@ function CaseStudiesPage() {
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{cs.outcome}</p>
                 </div>
+
+                <div className="mt-6 border-t border-border pt-5">
+                  <ShareButtons
+                    url={`${SITE_URL}/case-studies#${cs.id}`}
+                    title={`${cs.title} — CFD case study by CCIT Simulation`}
+                  />
+                </div>
               </div>
             </div>
           </article>
