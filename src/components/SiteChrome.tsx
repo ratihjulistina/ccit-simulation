@@ -4,6 +4,7 @@ import { CcitMark } from "@/components/CcitLogo";
 const nav = [
   { to: "/services", label: "Services" },
   { to: "/capabilities", label: "Capabilities" },
+  { to: "/case-studies", label: "Case studies" },
   { to: "/process", label: "Process" },
   { to: "/industries", label: "Industries" },
 ] as const;
