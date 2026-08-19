@@ -17,7 +17,7 @@ const caseStudiesQuery = queryOptions({
   queryFn: () => getCaseStudies(),
 });
 
-export const Route = createFileRoute("/case-studies")({
+export const Route = createFileRoute("/case-studies/")({
   loader: ({ context }) => context.queryClient.ensureQueryData(caseStudiesQuery),
   head: () => ({
     meta: [
