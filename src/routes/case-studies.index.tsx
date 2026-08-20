@@ -1,113 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
-import type { Document } from "@contentful/rich-text-types";
 import { PageHero } from "@/components/SectionHeading";
 import { SITE_URL } from "@/lib/site-content";
 import { getCaseStudies } from "@/lib/case-studies.functions";
-import windImg from "@/assets/service-wind.jpg";
-import thermalImg from "@/assets/service-thermal.jpg";
-import multiphaseImg from "@/assets/service-multiphase.jpg";
+import { dummyCaseStudies } from "@/lib/case-studies.dummy";
 
 const title = "CFD Case Studies | CCIT Simulation Indonesia";
 const description =
   "Selected computational fluid dynamics projects by CCIT Simulation — the engineering challenge, the simulation approach, the CFD results, and the client outcome.";
-
-const dummyCaseStudies: {
-  id: string;
-  slug: string;
-  title: string;
-  category: string;
-  image: string;
-  imageAlt: string;
-  excerpt: string;
-  body: Document;
-}[] = [
-  {
-    id: "dummy-1",
-    slug: "wind-loading-high-rise-jakarta",
-    title: "Wind Loading Assessment for a High-Rise Tower in Jakarta",
-    category: "Wind Engineering",
-    image: windImg,
-    imageAlt: "Streamlines showing wind pressure distribution around a high-rise building.",
-    excerpt:
-      "Pedestrian comfort and cladding pressure study for a 40-storey mixed-use development in central Jakarta, using steady-state RANS and validated wind-tunnel correlations.",
-    body: {
-      nodeType: "document" as const,
-      data: {},
-      content: [
-        {
-          nodeType: "paragraph" as const,
-          data: {},
-          content: [
-            {
-              nodeType: "text" as const,
-              value:
-                "This dummy case study demonstrates the full card structure. When Contentful is restored, live entries will replace these placeholders.",
-              marks: [],
-              data: {},
-            },
-          ],
-        },
-      ],
-    } as Document,
-  },
-  {
-    id: "dummy-2",
-    slug: "thermal-comfort-shopping-mall",
-    title: "Thermal Comfort Study for a Shopping Mall Expansion",
-    category: "Thermal & HVAC",
-    image: thermalImg,
-    imageAlt: "Temperature contours showing HVAC performance inside a retail atrium.",
-    excerpt:
-      "Conjugate heat transfer and air-distribution analysis to verify cooling capacity, avoid hot spots, and meet ASHRAE 55 comfort criteria across peak loads.",
-    body: {
-      nodeType: "document" as const,
-      data: {},
-      content: [
-        {
-          nodeType: "paragraph" as const,
-          data: {},
-          content: [
-            {
-              nodeType: "text" as const,
-              value: "Placeholder detail for thermal comfort study. Click through to see the full page layout.",
-              marks: [],
-              data: {},
-            },
-          ],
-        },
-      ],
-    } as Document,
-  },
-  {
-    id: "dummy-3",
-    slug: "multiphase-separator-optimization",
-    title: "Multiphase Separator Optimization for Offshore Platform",
-    category: "Multiphase Flow",
-    image: multiphaseImg,
-    imageAlt: "Volume-of-fluid simulation of oil-water separation inside a vessel.",
-    excerpt:
-      "Eulerian multiphase and VOF simulation of a three-phase separator to reduce liquid carry-over, resize inlet distributors, and extend maintenance intervals.",
-    body: {
-      nodeType: "document" as const,
-      data: {},
-      content: [
-        {
-          nodeType: "paragraph" as const,
-          data: {},
-          content: [
-            {
-              nodeType: "text" as const,
-              value: "Placeholder detail for multiphase separator optimization.",
-              marks: [],
-              data: {},
-            },
-          ],
-        },
-      ],
-    } as Document,
-  },
-];
 
 const caseStudiesQuery = queryOptions({
   queryKey: ["case-studies"],
