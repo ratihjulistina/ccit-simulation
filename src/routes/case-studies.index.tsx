@@ -136,6 +136,8 @@ export const Route = createFileRoute("/case-studies/")({
 
 function CaseStudiesPage() {
   const { data } = useSuspenseQuery(caseStudiesQuery);
+  const items = data.items.length > 0 ? data.items : dummyCaseStudies;
+  const showDummyBanner = data.items.length === 0;
 
   return (
     <>
@@ -145,16 +147,16 @@ function CaseStudiesPage() {
         body="Each project below follows the same structure: the engineering challenge, how we modelled and validated it, the CFD results, and what the client did next."
       />
 
-      {(data.error || data.items.length === 0) && (
-        <section className="mx-auto max-w-6xl px-5 py-16">
-          <p className="rounded-2xl border border-dashed border-border bg-muted/60 px-6 py-10 text-center text-sm text-muted-foreground">
-            {data.error ?? "No case studies published yet — check back soon."}
+      {showDummyBanner && (
+        <section className="mx-auto max-w-6xl px-5 pt-16">
+          <p className="rounded-2xl border border-dashed border-border bg-muted/60 px-6 py-4 text-center text-sm text-muted-foreground">
+            Contentful is temporarily unavailable, so these are dummy cards showing the layout.
           </p>
         </section>
       )}
 
       <section className="mx-auto grid max-w-6xl gap-6 px-5 py-14 sm:grid-cols-2 lg:grid-cols-3">
-        {data.items.map((cs) => (
+        {items.map((cs) => (
           <Link
             key={cs.id}
             to="/case-studies/$slug"
