@@ -32,15 +32,15 @@ const dummyCaseStudies: {
     excerpt:
       "Pedestrian comfort and cladding pressure study for a 40-storey mixed-use development in central Jakarta, using steady-state RANS and validated wind-tunnel correlations.",
     body: {
-      nodeType: "document",
+      nodeType: "document" as const,
       data: {},
       content: [
         {
-          nodeType: "paragraph",
+          nodeType: "paragraph" as const,
           data: {},
           content: [
             {
-              nodeType: "text",
+              nodeType: "text" as const,
               value:
                 "This dummy case study demonstrates the full card structure. When Contentful is restored, live entries will replace these placeholders.",
               marks: [],
@@ -49,7 +49,7 @@ const dummyCaseStudies: {
           ],
         },
       ],
-    },
+    } as Document,
   },
   {
     id: "dummy-2",
@@ -61,15 +61,15 @@ const dummyCaseStudies: {
     excerpt:
       "Conjugate heat transfer and air-distribution analysis to verify cooling capacity, avoid hot spots, and meet ASHRAE 55 comfort criteria across peak loads.",
     body: {
-      nodeType: "document",
+      nodeType: "document" as const,
       data: {},
       content: [
         {
-          nodeType: "paragraph",
+          nodeType: "paragraph" as const,
           data: {},
           content: [
             {
-              nodeType: "text",
+              nodeType: "text" as const,
               value: "Placeholder detail for thermal comfort study. Click through to see the full page layout.",
               marks: [],
               data: {},
@@ -77,7 +77,7 @@ const dummyCaseStudies: {
           ],
         },
       ],
-    },
+    } as Document,
   },
   {
     id: "dummy-3",
@@ -89,15 +89,15 @@ const dummyCaseStudies: {
     excerpt:
       "Eulerian multiphase and VOF simulation of a three-phase separator to reduce liquid carry-over, resize inlet distributors, and extend maintenance intervals.",
     body: {
-      nodeType: "document",
+      nodeType: "document" as const,
       data: {},
       content: [
         {
-          nodeType: "paragraph",
+          nodeType: "paragraph" as const,
           data: {},
           content: [
             {
-              nodeType: "text",
+              nodeType: "text" as const,
               value: "Placeholder detail for multiphase separator optimization.",
               marks: [],
               data: {},
@@ -105,7 +105,7 @@ const dummyCaseStudies: {
           ],
         },
       ],
-    },
+    } as Document,
   },
 ];
 
