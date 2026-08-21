@@ -89,8 +89,8 @@
 
   --ink: oklch(0.16 0.014 258);
   --ink-soft: oklch(0.24 0.016 258);
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-body: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Rubik", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Rubik", ui-sans-serif, system-ui, sans-serif;
   --gradient-flag: linear-gradient(180deg, var(--primary) 0%, var(--primary) 50%, oklch(1 0 0) 50%, oklch(1 0 0) 100%);
   --gradient-ink: linear-gradient(150deg, oklch(0.18 0.015 258) 0%, oklch(0.13 0.012 258) 55%, oklch(0.26 0.09 25) 130%);
   --gradient-red: linear-gradient(120deg, oklch(0.53 0.213 27.5), oklch(0.63 0.19 33));

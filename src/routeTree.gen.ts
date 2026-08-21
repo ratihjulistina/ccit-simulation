@@ -10,11 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as CapabilitiesRouteImport } from './routes/capabilities'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as IndustriesRouteImport } from './routes/industries'
-import { Route as ProcessRouteImport } from './routes/process'
+import { Route as ProjectsTrainingRouteImport } from './routes/projects-training'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
@@ -24,9 +23,9 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CapabilitiesRoute = CapabilitiesRouteImport.update({
-  id: '/capabilities',
-  path: '/capabilities',
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CaseStudiesRoute = CaseStudiesRouteImport.update({
@@ -39,14 +38,9 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndustriesRoute = IndustriesRouteImport.update({
-  id: '/industries',
-  path: '/industries',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProcessRoute = ProcessRouteImport.update({
-  id: '/process',
-  path: '/process',
+const ProjectsTrainingRoute = ProjectsTrainingRouteImport.update({
+  id: '/projects-training',
+  path: '/projects-training',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesRoute = ServicesRouteImport.update({
@@ -67,21 +61,19 @@ const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/capabilities': typeof CapabilitiesRoute
+  '/about': typeof AboutRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
-  '/industries': typeof IndustriesRoute
-  '/process': typeof ProcessRoute
+  '/projects-training': typeof ProjectsTrainingRoute
   '/services': typeof ServicesRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/capabilities': typeof CapabilitiesRoute
+  '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/industries': typeof IndustriesRoute
-  '/process': typeof ProcessRoute
+  '/projects-training': typeof ProjectsTrainingRoute
   '/services': typeof ServicesRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies': typeof CaseStudiesIndexRoute
@@ -89,11 +81,10 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/capabilities': typeof CapabilitiesRoute
+  '/about': typeof AboutRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
-  '/industries': typeof IndustriesRoute
-  '/process': typeof ProcessRoute
+  '/projects-training': typeof ProjectsTrainingRoute
   '/services': typeof ServicesRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
@@ -102,32 +93,29 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/capabilities'
+    | '/about'
     | '/case-studies'
     | '/contact'
-    | '/industries'
-    | '/process'
+    | '/projects-training'
     | '/services'
     | '/case-studies/$slug'
     | '/case-studies/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/capabilities'
+    | '/about'
     | '/contact'
-    | '/industries'
-    | '/process'
+    | '/projects-training'
     | '/services'
     | '/case-studies/$slug'
     | '/case-studies'
   id:
     | '__root__'
     | '/'
-    | '/capabilities'
+    | '/about'
     | '/case-studies'
     | '/contact'
-    | '/industries'
-    | '/process'
+    | '/projects-training'
     | '/services'
     | '/case-studies/$slug'
     | '/case-studies/'
@@ -135,11 +123,10 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  CapabilitiesRoute: typeof CapabilitiesRoute
+  AboutRoute: typeof AboutRoute
   CaseStudiesRoute: typeof CaseStudiesRouteWithChildren
   ContactRoute: typeof ContactRoute
-  IndustriesRoute: typeof IndustriesRoute
-  ProcessRoute: typeof ProcessRoute
+  ProjectsTrainingRoute: typeof ProjectsTrainingRoute
   ServicesRoute: typeof ServicesRoute
 }
 
@@ -152,11 +139,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/capabilities': {
-      id: '/capabilities'
-      path: '/capabilities'
-      fullPath: '/capabilities'
-      preLoaderRoute: typeof CapabilitiesRouteImport
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/case-studies': {
@@ -173,18 +160,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/industries': {
-      id: '/industries'
-      path: '/industries'
-      fullPath: '/industries'
-      preLoaderRoute: typeof IndustriesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/process': {
-      id: '/process'
-      path: '/process'
-      fullPath: '/process'
-      preLoaderRoute: typeof ProcessRouteImport
+    '/projects-training': {
+      id: '/projects-training'
+      path: '/projects-training'
+      fullPath: '/projects-training'
+      preLoaderRoute: typeof ProjectsTrainingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services': {
@@ -227,11 +207,10 @@ const CaseStudiesRouteWithChildren = CaseStudiesRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  CapabilitiesRoute: CapabilitiesRoute,
+  AboutRoute: AboutRoute,
   CaseStudiesRoute: CaseStudiesRouteWithChildren,
   ContactRoute: ContactRoute,
-  IndustriesRoute: IndustriesRoute,
-  ProcessRoute: ProcessRoute,
+  ProjectsTrainingRoute: ProjectsTrainingRoute,
   ServicesRoute: ServicesRoute,
 }
 export const routeTree = rootRouteImport

@@ -2,12 +2,13 @@ import { Link } from "@tanstack/react-router";
 import { CcitLogo } from "@/components/CcitLogo";
 
 const nav = [
+  { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
-  { to: "/capabilities", label: "Capabilities" },
   { to: "/case-studies", label: "Case studies" },
-  { to: "/process", label: "Process" },
-  { to: "/industries", label: "Industries" },
+  { to: "/projects-training", label: "Projects & Training" },
+  { to: "/about", label: "About" },
 ] as const;
+
 
 export function SiteHeader() {
   return (
@@ -23,6 +24,7 @@ export function SiteHeader() {
               to={item.to}
               className="transition-colors hover:text-primary"
               activeProps={{ className: "text-primary" }}
+              activeOptions={{ exact: item.to === "/" }}
             >
               {item.label}
             </Link>
