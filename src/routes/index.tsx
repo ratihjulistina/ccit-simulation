@@ -101,7 +101,10 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-20">
+      <ClientLogos />
+
+      <section className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
+
         <Reveal>
           <SectionHeading
             eyebrow="Services"
