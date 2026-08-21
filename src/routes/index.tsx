@@ -158,12 +158,53 @@ function Index() {
               </Reveal>
             ))}
           </div>
-          <Reveal className="mt-10 flex flex-wrap gap-6">
-            <Link to="/capabilities" className="text-sm font-semibold text-primary hover:underline">
-              Full capability list →
-            </Link>
-            <Link to="/process" className="text-sm font-semibold text-primary hover:underline">
-              How we work →
+        </div>
+      </section>
+
+      <section id="capabilities" className="mx-auto max-w-6xl px-5 py-20 scroll-mt-24">
+        <Reveal>
+          <SectionHeading
+            eyebrow="Capabilities"
+            title="Beyond flow: a complete simulation partner"
+            body="Fluids, heat, structures and optimisation under one roof, using ANSYS Fluent, CFX, OpenFOAM, and Mechanical."
+          />
+        </Reveal>
+        <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          {capabilities.map((c, i) => (
+            <Reveal key={c.title} delay={i * 80} className="border-l-2 border-primary/70 pl-4">
+              <h3 className="text-base font-semibold text-ink">{c.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section id="process" className="border-t border-border bg-muted/60 scroll-mt-24">
+        <div className="mx-auto max-w-6xl px-5 py-20">
+          <Reveal>
+            <SectionHeading
+              eyebrow="How we work"
+              title="A transparent, validation-first workflow"
+              body="You see the assumptions, the mesh study, and the validation basis — every step of the way."
+            />
+          </Reveal>
+          <ol className="mt-12 grid gap-6 md:grid-cols-4">
+            {processSteps.map((p, i) => (
+              <Reveal
+                key={p.step}
+                as="li"
+                delay={i * 100}
+                className="rounded-2xl border border-border bg-card p-6"
+              >
+                <span className="font-display text-sm font-bold tracking-widest text-primary">{p.step}</span>
+                <h3 className="mt-3 text-base font-semibold text-ink">{p.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
+              </Reveal>
+            ))}
+          </ol>
+          <Reveal className="mt-10">
+            <Link to="/contact" className="text-sm font-semibold text-primary hover:underline">
+              Discuss your project with us →
             </Link>
           </Reveal>
         </div>
@@ -171,3 +212,4 @@ function Index() {
     </>
   );
 }
+
