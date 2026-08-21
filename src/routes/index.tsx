@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-cfd.jpg";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
-import { services, industries, stats, SITE_URL } from "@/lib/site-content";
+import { services, industries, stats, capabilities, processSteps, SITE_URL } from "@/lib/site-content";
 
 const title = "CCIT Simulation | CFD & Engineering Simulation Consulting";
 const description =
@@ -188,11 +188,10 @@ function Index() {
               body="You see the assumptions, the mesh study, and the validation basis — every step of the way."
             />
           </Reveal>
-          <ol className="mt-12 grid gap-6 md:grid-cols-4">
+          <div className="mt-12 grid gap-6 md:grid-cols-4">
             {processSteps.map((p, i) => (
               <Reveal
                 key={p.step}
-                as="li"
                 delay={i * 100}
                 className="rounded-2xl border border-border bg-card p-6"
               >
@@ -201,7 +200,7 @@ function Index() {
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
               </Reveal>
             ))}
-          </ol>
+          </div>
           <Reveal className="mt-10">
             <Link to="/contact" className="text-sm font-semibold text-primary hover:underline">
               Discuss your project with us →
