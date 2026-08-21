@@ -46,6 +46,20 @@ export const industries = [
   "Building & HVAC", "Automotive", "Mining", "Food & Pharma",
 ];
 
+export const clients: { name: string }[] = [
+  { name: "Nusantara Energi" },
+  { name: "Bahari Shipyard" },
+  { name: "Garuda Petrokimia" },
+  { name: "Cakra Power" },
+  { name: "Meranti Manufaktur" },
+  { name: "Sinar Hydro" },
+  { name: "Andalas Mining" },
+  { name: "Rekayasa Teknik" },
+  { name: "Institut Teknologi" },
+  { name: "Samudra Offshore" },
+];
+
+
 export const stats: [string, string][] = [
   ["120+", "Simulation studies delivered"],
   ["15+", "Industrial sectors served"],
