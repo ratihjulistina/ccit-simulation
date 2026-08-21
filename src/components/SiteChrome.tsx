@@ -24,6 +24,7 @@ export function SiteHeader() {
               to={item.to}
               className="transition-colors hover:text-primary"
               activeProps={{ className: "text-primary" }}
+              activeOptions={{ exact: item.to === "/" }}
             >
               {item.label}
             </Link>
