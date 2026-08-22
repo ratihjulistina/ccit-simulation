@@ -13,20 +13,21 @@ export function ClientLogos() {
             Trusted by engineering teams &amp; partners
           </h2>
         </Reveal>
-        <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-3 lg:grid-cols-6">
           {clients.map((c, i) => (
             <Reveal key={c.name} delay={i * 70}>
-              <div className="group flex h-16 items-center justify-center rounded-xl border border-border bg-background px-3 transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[var(--shadow-card)]">
-                <span className="font-display text-center text-sm font-bold uppercase leading-tight tracking-tight text-ink-soft transition-colors group-hover:text-primary sm:text-base">
-                  {c.name}
-                </span>
+              <div className="group flex h-20 items-center justify-center rounded-xl border border-border bg-background px-4 transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[var(--shadow-card)]">
+                <img
+                  src={c.logo}
+                  alt={`${c.name} logo`}
+                  loading="lazy"
+                  className="max-h-12 w-auto max-w-full object-contain opacity-90 transition-opacity duration-300 group-hover:opacity-100"
+                />
               </div>
             </Reveal>
           ))}
         </div>
-        <p className="mt-6 text-center text-xs text-muted-foreground">
-          Placeholder client marks — send us your logo files and we will swap these in.
-        </p>
+
       </div>
     </section>
   );
