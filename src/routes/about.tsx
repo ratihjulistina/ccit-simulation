@@ -46,7 +46,7 @@ function AboutPage() {
         body="CCIT Simulation helps plants, shipyards, and manufacturers understand exactly what the flow, heat, and loads are doing inside their equipment."
       />
 
-      <section className="mx-auto max-w-6xl px-5 py-20">
+      <section className="mx-auto max-w-7xl px-5 py-20">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr]">
           <div>
             <h2 className="text-2xl font-bold text-ink sm:text-3xl">Who we are</h2>
@@ -74,7 +74,7 @@ function AboutPage() {
       </section>
 
       <section className="border-y border-border bg-muted/60">
-        <div className="mx-auto max-w-6xl px-5 py-20">
+        <div className="mx-auto max-w-7xl px-5 py-20">
           <h2 className="text-2xl font-bold text-ink sm:text-3xl">How we think</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {values.map((v) => (
@@ -87,7 +87,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-20">
+      <section className="mx-auto max-w-7xl px-5 py-20">
         <h2 className="text-2xl font-bold text-ink sm:text-3xl">Industries we serve</h2>
         <ul className="mt-8 flex flex-wrap gap-3">
           {industries.map((i) => (
