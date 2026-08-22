@@ -5,10 +5,10 @@ import { Menu, X } from "lucide-react";
 
 const nav = [
   { to: "/", label: "Home", exact: true },
-  { to: "/services", label: "Services" },
-  { to: "/case-studies", label: "Case studies" },
-  { to: "/projects-training", label: "Projects & Training" },
-  { to: "/about", label: "About" },
+  { to: "/services", label: "Services", exact: false },
+  { to: "/case-studies", label: "Case studies", exact: false },
+  { to: "/projects-training", label: "Projects & Training", exact: false },
+  { to: "/about", label: "About", exact: false },
 ] as const;
 
 export function SiteHeader() {
