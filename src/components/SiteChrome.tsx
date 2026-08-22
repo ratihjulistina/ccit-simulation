@@ -16,7 +16,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/80 bg-background/85 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5">
         <Link to="/" aria-label="CCIT Simulation home">
           <CcitLogo />
         </Link>
@@ -64,7 +64,7 @@ export function SiteHeader() {
           id="mobile-nav"
           className="border-t border-border/80 bg-background md:hidden"
         >
-          <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-4 text-base font-medium text-muted-foreground">
+          <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-5 py-4 text-base font-medium text-muted-foreground">
             {nav.map((item) => (
               <Link
                 key={item.to}
@@ -94,7 +94,7 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-muted/50">
-      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-10 text-sm text-muted-foreground">
+      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-10 text-sm text-muted-foreground">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <CcitLogo />
           <nav className="flex flex-wrap gap-x-6 gap-y-2">

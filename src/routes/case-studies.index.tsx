@@ -48,14 +48,14 @@ function CaseStudiesPage() {
       />
 
       {showDummyBanner && (
-        <section className="mx-auto max-w-6xl px-5 pt-16">
+        <section className="mx-auto max-w-7xl px-5 pt-16">
           <p className="rounded-2xl border border-dashed border-border bg-muted/60 px-6 py-4 text-center text-sm text-muted-foreground">
             Contentful is temporarily unavailable, so these are dummy cards showing the layout.
           </p>
         </section>
       )}
 
-      <section className="mx-auto grid max-w-6xl gap-6 px-5 py-14 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="mx-auto grid max-w-7xl gap-6 px-5 py-14 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((cs) => (
           <Link
             key={cs.id}
@@ -92,7 +92,7 @@ function CaseStudiesPage() {
         ))}
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 pb-20">
+      <section className="mx-auto max-w-7xl px-5 pb-20">
         <div className="rounded-2xl border border-border bg-muted/60 p-8 text-center">
           <h2 className="text-xl font-semibold text-ink">Have a similar problem?</h2>
           <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">

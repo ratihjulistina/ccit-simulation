@@ -31,7 +31,7 @@ function ServicesPage() {
         title="CFD expertise across the full flow spectrum"
         body="Every study is scoped around a decision you need to make — not a pretty picture."
       />
-      <section className="mx-auto max-w-6xl px-5 py-20">
+      <section className="mx-auto max-w-7xl px-5 py-20">
         <SectionHeading
           eyebrow="What we solve"
           title="Three core simulation practices"

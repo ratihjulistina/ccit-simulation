@@ -50,7 +50,7 @@ function Index() {
     <>
       <section className="surface-ink relative overflow-hidden">
         <div className="grid-mesh animate-mesh-drift absolute inset-0 opacity-60" aria-hidden="true" />
-        <div className="relative mx-auto grid max-w-6xl gap-12 px-5 py-20 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:py-28">
+        <div className="relative mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:py-28">
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" /> CFD Consulting · Indonesia
@@ -92,7 +92,7 @@ function Index() {
           </Reveal>
         </div>
         <div className="relative border-t border-white/10">
-          <dl className="mx-auto grid max-w-6xl grid-cols-2 gap-px px-5 py-8 sm:grid-cols-4">
+          <dl className="mx-auto grid max-w-7xl grid-cols-2 gap-px px-5 py-8 sm:grid-cols-4">
             {stats.map(([value, label], i) => (
               <Reveal key={label} delay={i * 100}>
                 <dt className="font-display text-3xl font-bold text-primary">{value}</dt>
@@ -105,7 +105,7 @@ function Index() {
 
       <ClientLogos />
 
-      <section className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
+      <section className="mx-auto max-w-7xl px-5 py-16 sm:py-20">
 
         <Reveal>
           <SectionHeading
@@ -143,7 +143,7 @@ function Index() {
       </section>
 
       <section className="border-y border-border bg-muted/60">
-        <div className="mx-auto max-w-6xl px-5 py-20">
+        <div className="mx-auto max-w-7xl px-5 py-20">
           <Reveal>
             <SectionHeading
               eyebrow="Industries"
@@ -166,7 +166,7 @@ function Index() {
         </div>
       </section>
 
-      <section id="capabilities" className="mx-auto max-w-6xl px-5 py-20 scroll-mt-24">
+      <section id="capabilities" className="mx-auto max-w-7xl px-5 py-20 scroll-mt-24">
         <Reveal>
           <SectionHeading
             eyebrow="Capabilities"
@@ -185,7 +185,7 @@ function Index() {
       </section>
 
       <section id="process" className="border-t border-border bg-muted/60 scroll-mt-24">
-        <div className="mx-auto max-w-6xl px-5 py-20">
+        <div className="mx-auto max-w-7xl px-5 py-20">
           <Reveal>
             <SectionHeading
               eyebrow="How we work"

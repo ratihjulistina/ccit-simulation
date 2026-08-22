@@ -4,7 +4,7 @@ import { Reveal } from "@/components/Reveal";
 export function ClientLogos() {
   return (
     <section aria-labelledby="clients-heading" className="border-y border-border bg-card">
-      <div className="mx-auto max-w-6xl px-5 py-12 sm:py-14">
+      <div className="mx-auto max-w-7xl px-5 py-12 sm:py-14">
         <Reveal>
           <h2
             id="clients-heading"

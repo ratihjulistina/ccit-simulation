@@ -73,7 +73,7 @@ function ProjectsTrainingPage() {
         body="We deliver simulation work for industry, and we teach engineering teams to build the same capability in-house."
       />
 
-      <section className="mx-auto max-w-6xl px-5 py-20">
+      <section className="mx-auto max-w-7xl px-5 py-20">
         <h2 className="text-2xl font-bold text-ink sm:text-3xl">How we engage on projects</h2>
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {projectTypes.map((p) => (
@@ -92,7 +92,7 @@ function ProjectsTrainingPage() {
       </section>
 
       <section className="border-t border-border bg-muted/60">
-        <div className="mx-auto max-w-6xl px-5 py-20">
+        <div className="mx-auto max-w-7xl px-5 py-20">
           <h2 className="text-2xl font-bold text-ink sm:text-3xl">Training programmes</h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
             Run on-site in Jakarta and across Indonesia, or online. Every session is worked on your
