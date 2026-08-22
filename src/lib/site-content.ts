@@ -46,18 +46,22 @@ export const industries = [
   "Building & HVAC", "Automotive", "Mining", "Food & Pharma",
 ];
 
-export const clients: { name: string }[] = [
-  { name: "Nusantara Energi" },
-  { name: "Bahari Shipyard" },
-  { name: "Garuda Petrokimia" },
-  { name: "Cakra Power" },
-  { name: "Meranti Manufaktur" },
-  { name: "Sinar Hydro" },
-  { name: "Andalas Mining" },
-  { name: "Rekayasa Teknik" },
-  { name: "Institut Teknologi" },
-  { name: "Samudra Offshore" },
+import plnLogo from "@/assets/clients/pln.jpg.asset.json";
+import plnEnjiniringLogo from "@/assets/clients/pln-enjiniring.jpg.asset.json";
+import pertaminaLogo from "@/assets/clients/pertamina.jpg.asset.json";
+import pupukLogo from "@/assets/clients/pupuk-iskandar-muda.jpg.asset.json";
+import esdmLogo from "@/assets/clients/kementerian-esdm.jpg.asset.json";
+import rekindLogo from "@/assets/clients/rekind.jpg.asset.json";
+
+export const clients: { name: string; logo: string }[] = [
+  { name: "PLN", logo: plnLogo.url },
+  { name: "PLN Enjiniring", logo: plnEnjiniringLogo.url },
+  { name: "Pertamina", logo: pertaminaLogo.url },
+  { name: "PT Pupuk Iskandar Muda", logo: pupukLogo.url },
+  { name: "Kementerian ESDM", logo: esdmLogo.url },
+  { name: "Rekind", logo: rekindLogo.url },
 ];
+
 
 
 export const stats: [string, string][] = [
