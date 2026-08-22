@@ -89,7 +89,7 @@ function CaseStudyDetail() {
     <>
       <PageHero eyebrow={cs.category || "Case study"} title={cs.title} body={cs.excerpt} />
 
-      <article className="mx-auto max-w-3xl px-5 py-14">
+      <article className="mx-auto max-w-4xl px-5 py-14">
         <Link to="/case-studies" className="text-sm font-semibold text-primary">
           ← All case studies
         </Link>
