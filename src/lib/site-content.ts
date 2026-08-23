@@ -74,23 +74,9 @@ export const stats: [string, string][] = [
 export const testimonials = [
   {
     quote:
-      "CCIT Simulation helped us resolve a persistent separator carry-over issue. Their CFD report gave clear operating envelopes we could hand straight to operations.",
-    name: "Andi Wijaya",
-    role: "Process Engineering Manager",
-    company: "Upstream Oil & Gas Operator",
-  },
-  {
-    quote:
-      "The wind-loading study on our flare stack saved us from a costly redesign. Fast turnaround, validated results, and a team that understood our code requirements.",
-    name: "Dewi Kusuma",
-    role: "Lead Structural Engineer",
-    company: "EPC Contractor",
-  },
-  {
-    quote:
-      "We brought CCIT in for a turbine blade cooling optimisation. The parametric study pointed to a geometry change that cut hot-spot temperature by nearly 12%.",
-    name: "Rizky Pratama",
-    role: "Rotating Equipment Engineer",
-    company: "Power Generation Utility",
+      "The complexity of the North Jakarta reclamation project presented a significant risk to our cooling water systems. CCIT Group’s thermal dispersion study was instrumental in helping us visualize the long-term impact on PLTGU Muara Karang. Their proprietary CFDSOF solver provided a level of detail that gave our engineering team the confidence to proceed with critical infrastructure adjustments.",
+    name: "Senior Engineer",
+    role: "Power Generation",
+    company: "PT PLN (Persero)",
   },
 ];
