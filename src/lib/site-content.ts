@@ -93,4 +93,11 @@ export const testimonials = [
     role: "Oil & Gas",
     company: "PT Pertamina",
   },
+  {
+    quote:
+      "Working with CCIT on the Suralaya 8 thermal deflector project was a seamless experience. Their ability to recalculate complex thermal dispersion models quickly as reclamation plans evolved was vital to our project timeline. They are more than consultants; they are high-level technical partners who understand the rigors of EPC requirements.",
+    name: "Project Director",
+    role: "EPC & Infrastructure",
+    company: "PT Rekayasa Industri",
+  },
 ];
