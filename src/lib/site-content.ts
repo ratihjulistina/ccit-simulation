@@ -86,4 +86,11 @@ export const testimonials = [
     role: "Petrochemical & Process",
     company: "PT Pupuk Iskandar Muda (PIM)",
   },
+  {
+    quote:
+      "In offshore operations, vibration and erosion are constant threats to asset integrity. CCIT Group analyzed our compressor piping headers with extreme precision. By identifying the specific turbulence kinetic energy nodes, they provided a mitigation strategy that reduced pipe vibration by 40%, significantly extending our maintenance cycles.",
+    name: "Lead Specialist",
+    role: "Oil & Gas",
+    company: "PT Pertamina",
+  },
 ];
