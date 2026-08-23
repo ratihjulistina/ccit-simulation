@@ -79,4 +79,11 @@ export const testimonials = [
     role: "Power Generation",
     company: "PT PLN (Persero)",
   },
+  {
+    quote:
+      "We faced persistent efficiency drops in our CO2 Stripper Reboiler that standard maintenance couldn’t solve. The CCIT team performed a ‘digital autopsy’ using CFD that revealed internal flow stagnation we hadn’t considered. Their subsequent redesign didn’t just fix the problem—it optimized our steam consumption and stabilized the entire process string.",
+    name: "Plant Manager",
+    role: "Petrochemical & Process",
+    company: "PT Pupuk Iskandar Muda (PIM)",
+  },
 ];
