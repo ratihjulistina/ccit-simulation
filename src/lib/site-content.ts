@@ -70,3 +70,27 @@ export const stats: [string, string][] = [
   ["40%", "Average prototyping cost saved"],
   ["±5%", "Typical validation deviation"],
 ];
+
+export const testimonials = [
+  {
+    quote:
+      "CCIT Simulation helped us resolve a persistent separator carry-over issue. Their CFD report gave clear operating envelopes we could hand straight to operations.",
+    name: "Andi Wijaya",
+    role: "Process Engineering Manager",
+    company: "Upstream Oil & Gas Operator",
+  },
+  {
+    quote:
+      "The wind-loading study on our flare stack saved us from a costly redesign. Fast turnaround, validated results, and a team that understood our code requirements.",
+    name: "Dewi Kusuma",
+    role: "Lead Structural Engineer",
+    company: "EPC Contractor",
+  },
+  {
+    quote:
+      "We brought CCIT in for a turbine blade cooling optimisation. The parametric study pointed to a geometry change that cut hot-spot temperature by nearly 12%.",
+    name: "Rizky Pratama",
+    role: "Rotating Equipment Engineer",
+    company: "Power Generation Utility",
+  },
+];
