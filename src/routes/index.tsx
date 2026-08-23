@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 import { ClientLogos } from "@/components/ClientLogos";
 
-import { services, industries, stats, capabilities, processSteps, SITE_URL } from "@/lib/site-content";
+import { services, industries, stats, capabilities, processSteps, testimonials, SITE_URL } from "@/lib/site-content";
 
 const title = "CCIT Simulation | CFD & Engineering Simulation Consulting";
 const description =
