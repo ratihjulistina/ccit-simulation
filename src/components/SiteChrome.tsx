@@ -121,7 +121,7 @@ export function FloatingWhatsApp() {
   );
   return (
     <a
-      href={`https://wa.me/${phone}?text=${message}`}
+      href={`https://api.whatsapp.com/send?phone=${phone}&text=${message}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
