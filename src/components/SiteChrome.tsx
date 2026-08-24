@@ -120,14 +120,19 @@ export function FloatingWhatsApp() {
     "Hi CCIT Simulation, I would like to discuss a CFD / engineering simulation project. Could you share more about your services and how you can support our needs?"
   );
   return (
-    <a
-      href={`https://api.whatsapp.com/send?phone=${phone}&text=${message}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Chat with us on WhatsApp"
-      className="fixed bottom-4 right-4 z-50 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:bottom-6 md:right-6 md:h-14 md:w-14"
-    >
-      <MessageCircle className="h-6 w-6 md:h-7 md:w-7" fill="currentColor" aria-hidden="true" />
-    </a>
+    <div className="fixed bottom-4 right-4 z-50 md:bottom-6 md:right-6">
+      <a
+        href={`https://api.whatsapp.com/send?phone=${phone}&text=${message}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat with us on WhatsApp"
+        className="whatsapp-pulse relative inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:h-14 md:w-14"
+      >
+        <MessageCircle className="h-6 w-6 md:h-7 md:w-7" fill="currentColor" aria-hidden="true" />
+      </a>
+      <span className="pointer-events-none absolute right-full top-1/2 mr-3 -translate-y-1/2 whitespace-nowrap rounded-md bg-foreground px-3 py-1.5 text-xs font-medium text-background opacity-0 shadow-md transition-opacity duration-200 group-hover:opacity-100 peer-hover:opacity-100 md:text-sm">
+        Chat with us
+      </span>
+    </div>
   );
 }
