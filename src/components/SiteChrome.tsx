@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { CcitLogo } from "@/components/CcitLogo";
-import { Menu, X } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 
 const nav = [
   { to: "/", label: "Home", exact: true },
@@ -111,5 +111,21 @@ export function SiteFooter() {
         <p>© {new Date().getFullYear()} CCIT Simulation · Engineering simulation consultancy, Indonesia</p>
       </div>
     </footer>
+  );
+}
+
+export function FloatingWhatsApp() {
+  const phone = "6281904290795";
+  const message = encodeURIComponent("Hi CCIT Simulation, I would like to discuss a simulation project.");
+  return (
+    <a
+      href={`https://wa.me/${phone}?text=${message}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat with us on WhatsApp"
+      className="fixed bottom-4 right-4 z-50 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:bottom-6 md:right-6 md:h-14 md:w-14"
+    >
+      <MessageCircle className="h-6 w-6 md:h-7 md:w-7" fill="currentColor" aria-hidden="true" />
+    </a>
   );
 }
