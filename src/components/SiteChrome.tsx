@@ -116,7 +116,9 @@ export function SiteFooter() {
 
 export function FloatingWhatsApp() {
   const phone = "6281904290795";
-  const message = encodeURIComponent("Hi CCIT Simulation, I would like to discuss a simulation project.");
+  const message = encodeURIComponent(
+    "Hi CCIT Simulation, I would like to discuss a CFD / engineering simulation project. Could you share more about your services and how you can support our needs?"
+  );
   return (
     <a
       href={`https://wa.me/${phone}?text=${message}`}
