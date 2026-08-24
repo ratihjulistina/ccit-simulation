@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { CcitLogo } from "@/components/CcitLogo";
-import { Menu, X } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 
 const nav = [
   { to: "/", label: "Home", exact: true },
