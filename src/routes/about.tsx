@@ -51,15 +51,19 @@ function AboutPage() {
           <div>
             <h2 className="text-2xl font-bold text-ink sm:text-3xl">Who we are</h2>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-              We are a Jakarta-based team of simulation engineers specialising in computational
-              fluid dynamics, heat transfer, and structural analysis. Our work sits between design
-              intent and physical reality: we build the model, prove it against evidence, and hand
-              back a clear answer your team can act on.
+              PT CCIT Group Indonesia is a prominent company in Indonesia specializing in
+              Computational Fluid Dynamics (CFD). Established in 2004, the company is based in
+              Depok, West Java, and is known for its engineering expertise.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              Clients come to us to cut prototyping cost, de-risk retrofits, troubleshoot equipment
-              that underperforms in the field, and to build simulation capability inside their own
-              engineering departments.
+              The company’s main product is CFDSOF Software, and it has collaborated with various
+              clients, including oil and gas companies, government agencies, and universities. PT CCIT
+              Group Indonesia has organized numerous training sessions and projects related to CFD,
+              showcasing its commitment to advancing engineering and technology in Indonesia.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              Our work sits between design intent and physical reality: we build the model, prove it
+              against evidence, and hand back a clear answer your team can act on.
             </p>
           </div>
           <dl className="grid grid-cols-2 gap-6 self-start rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)]">
