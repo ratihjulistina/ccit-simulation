@@ -48,6 +48,135 @@ const projectTypes = [
   },
 ];
 
+const portfolio = [
+  {
+    number: "01",
+    name: "Thermal Dispersion & Environmental Impact",
+    specialty:
+      "Modeling the interaction between industrial discharge and the natural ecosystem to ensure regulatory compliance and operational efficiency.",
+    body: "CCIT is a leader in simulating thermal plumes and sedimentation for large-scale power plants and reclamation projects. Our work ensures that cooling water systems remain efficient even as coastal landscapes change.",
+    items: [
+      {
+        title: "PLTU Muara Karang & Tanjung Priok",
+        client: "PT PLN, PT PJB, TEPSCO",
+        body: "Extensive studies on the impact of North Jakarta reclamation on cooling water systems, including thermal dispersion and sedimentation modeling.",
+      },
+      {
+        title: "PLTU Suralaya",
+        client: "PT Rekayasa Industri, PT Lemtek",
+        body: "Multiple recalculations and site investigations (Units 1–8) for thermal dispersion and deflector region reclamation.",
+      },
+      {
+        title: "PLTU Lontar & PLTU Banten",
+        client: "Lemtek UI",
+        body: "Thermal dispersion analysis for coastal power plant sustainability.",
+      },
+      {
+        title: "PLTU I West Kalimantan",
+        client: "PT Praba Indo Persada",
+        body: "Combined thermal dispersion and fly ash dispersion analysis to assess environmental footprint.",
+      },
+      {
+        title: "PLTU Sofifi & Takalar",
+        client: "PT Pusaka Jaya, PT PLN Enjiniring",
+        body: "3D mathematical modeling for site investigation and heat distribution.",
+      },
+    ],
+  },
+  {
+    number: "02",
+    name: "Power Plant Component Optimization & Redesign",
+    specialty:
+      "Utilizing CFD to identify mechanical failures, improve heat transfer, and redesign critical equipment for life extension.",
+    body: "We move beyond diagnosis to provide engineering redesigns that solve persistent operational issues in high-pressure environments.",
+    items: [
+      {
+        title: "CO2 Stripper Reboiler 61-105 C",
+        client: "PT Pupuk Iskandar Muda (PIM)",
+        body: "CFD evaluation and successful redesign of the CO2 Stripper Reboiler.",
+      },
+      {
+        title: "PLTU Suralaya 8",
+        client: "PLN Pusenlis",
+        body: "Engineering design for the Economizer Hopper and ash distribution systems.",
+      },
+      {
+        title: "PLTU Jeranjang",
+        client: "PLN Pusharlis",
+        body: "Fluid flow simulation inside the Unit #3 Boiler to optimize performance.",
+      },
+      {
+        title: "LP & High Pressure Heaters",
+        client: "PT PJB Muara Karang",
+        body: "Failure analysis and structural redesign of Low Pressure (LP) and High Pressure Heaters (HPH).",
+      },
+      {
+        title: "Air Cooled Heat Exchanger",
+        client: "PT Permina",
+        body: "Assessment and reuse analysis of an Air Cooled Heat Exchanger after 13 years of dormancy.",
+      },
+    ],
+  },
+  {
+    number: "03",
+    name: "Combustion, Fuels, and Aerodynamics",
+    specialty:
+      "Precise modeling of flame characteristics and aerodynamic behavior to support energy transition and efficiency.",
+    body: "Our proprietary code, CFDSOF, allows us to model complex chemical reactions and aerodynamic forces that commercial software often struggles to capture.",
+    items: [
+      {
+        title: "PLTGU Muara Priok",
+        client: "PT Indonesia Power, Koperasi PLN",
+        body: "Advanced CFD analysis of Dual Fuel Combustion flame characteristics.",
+      },
+      {
+        title: "PLTU Suralaya Units 1–7",
+        client: "PT PLN Enjiniring",
+        body: "Coal Wide Range Study to assess performance across varying fuel qualities.",
+      },
+      {
+        title: "100 KW Wind Turbine",
+        client: "Ministry of Energy (ESDM)",
+        body: "Blade design and aerodynamic analysis for a 100 KW wind turbine project.",
+      },
+      {
+        title: "Gondola Aerodynamics",
+        client: "PT Rekayasa Industri",
+        body: "Specialized calculation review for gondola structural aerodynamics.",
+      },
+    ],
+  },
+  {
+    number: "04",
+    name: "Oil, Gas, and Process Piping",
+    specialty:
+      "Flow assurance and stress analysis for high-stakes petrochemical and gas infrastructure.",
+    body: "We provide rigorous analysis of fluid patterns and structural stresses to prevent pipeline failure and optimize compressor performance.",
+    items: [
+      {
+        title: "Compressor Piping Headers",
+        client: "PT Pertamina",
+        body: "Analysis of fluid flow patterns within compressor piping headers to reduce vibration and optimize flow.",
+      },
+      {
+        title: "Singa Pipeline",
+        client: "PT Kelsri",
+        body: "Comprehensive pipeline stress analysis for the Singa Pipeline.",
+      },
+      {
+        title: "Fuel Oil Storage, PLTU #4",
+        client: "PT PJB Muara Karang",
+        body: "Fire protection system assessment for fuel oil storage.",
+      },
+      {
+        title: "PLTU Riau (Siak River)",
+        client: "PLTU Riau",
+        body: "Hydrology and sedimentation study to ensure reliable water intake for inland power operations.",
+      },
+    ],
+  },
+];
+
 export const Route = createFileRoute("/projects-training")({
   head: () => ({
     meta: [
