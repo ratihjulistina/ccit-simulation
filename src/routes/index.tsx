@@ -3,8 +3,10 @@ import heroImg from "@/assets/hero-cfd.jpg";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 import { ClientLogos } from "@/components/ClientLogos";
+import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 
-import { services, industries, stats, capabilities, processSteps, testimonials, SITE_URL } from "@/lib/site-content";
+
+import { services, industries, stats, capabilities, processSteps, SITE_URL } from "@/lib/site-content";
 
 const title = "CCIT Simulation | CFD & Engineering Simulation Consulting";
 const description =
@@ -222,25 +224,8 @@ function Index() {
             body="Real feedback from projects across energy, power, and process industries."
           />
         </Reveal>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <Reveal
-              key={t.name}
-              delay={i * 120}
-              as="article"
-              className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] transition-[transform,box-shadow] duration-500 hover:-translate-y-1 hover:shadow-[var(--shadow-red)]"
-            >
-              <span className="text-4xl leading-none text-primary/30" aria-hidden="true">“</span>
-              <blockquote className="flex-1 text-sm leading-relaxed text-ink">
-                {t.quote}
-              </blockquote>
-              <footer className="mt-6 border-t border-border pt-4">
-                <p className="text-sm font-semibold text-ink">{t.name}</p>
-                <p className="text-xs text-muted-foreground">{t.role}, {t.company}</p>
-              </footer>
-            </Reveal>
-          ))}
-        </div>
+        <TestimonialCarousel />
+
       </section>
     </>
   );
