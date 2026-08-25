@@ -100,4 +100,18 @@ export const testimonials = [
     role: "EPC & Infrastructure",
     company: "PT Rekayasa Industri",
   },
+  {
+    quote:
+      "Designing a 100 KW wind turbine for the Indonesian landscape required specialized aerodynamic analysis. CCIT’s expertise in blade design and flow simulation was world-class. Their team’s deep understanding of fluid-structure interaction ensured our design met all performance targets before the first prototype was even built.",
+    name: "Technical Advisor",
+    role: "Renewable Energy & Aerodynamics",
+    company: "Ministry of Energy and Mineral Resources (ESDM)",
+  },
+  {
+    quote:
+      "As we moved toward utilizing a wider range of coal ranks at PLTU Suralaya, we needed a roadmap for boiler safety. CCIT provided a comprehensive ‘Coal Wide Range Study’ that mapped out flame characteristics and slagging risks for every blend. This data-driven approach has been a cornerstone of our operational flexibility strategy.",
+    name: "Operations Head",
+    role: "Operational Excellence (Fuel Flexibility)",
+    company: "PT PLN Enjiniring",
+  },
 ];
