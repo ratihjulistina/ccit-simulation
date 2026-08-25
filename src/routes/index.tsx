@@ -3,6 +3,8 @@ import heroImg from "@/assets/hero-cfd.jpg";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 import { ClientLogos } from "@/components/ClientLogos";
+import { TestimonialCarousel } from "@/components/TestimonialCarousel";
+
 
 import { services, industries, stats, capabilities, processSteps, testimonials, SITE_URL } from "@/lib/site-content";
 
