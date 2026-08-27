@@ -115,3 +115,34 @@ export const testimonials = [
     company: "PT PLN Enjiniring",
   },
 ];
+
+export const successSecrets = {
+  title: "The Secret of Success",
+  subtitle: "Beyond the Black Box",
+  intro:
+    "In the world of high-stakes engineering, “good enough” is a liability. For PT. CCIT Group Indonesia, the secret of our success isn’t found in a brochure or a standard software license. It is found in our refusal to accept the limitations of the “Black Box.”",
+  points: [
+    {
+      title: "The Power of Ownership: CFDSOF",
+      body: "Most consultancy firms are users of technology; we are creators of it. The heart of our success is CFDSOF. By developing our own proprietary CFD code, we have stripped away the barriers of commercial solvers. We don’t wait for a software update to solve a unique multiphase flow problem in a Natuna Sea pipeline or a combustion instability in a Java power plant—we write the physics ourselves.",
+    },
+    {
+      title: "Bridging the Academic-Industrial Divide",
+      body: "Our success stems from our roots. Born from a deep foundation in research and computational fluid dynamics, CCIT Group maintains the rigor of a laboratory with the speed of a Tier-1 EPC contractor. We don’t just provide “pretty pictures”; we provide validated numerical certainty that stands up to the most stringent international audits.",
+    },
+    {
+      title: "Precision in the “Grey Areas”",
+      body: "Where others see a “general fluid,” we see the nuance of non-Newtonian drilling muds, the chaotic turbulence of a cooling tower plume, or the delicate thermal balance of a green building. Our secret is specialization. We focus on the high-energy, high-risk sectors—Power, Oil & Gas, and Mining—where the cost of error is highest and the demand for precision is absolute.",
+    },
+    {
+      title: "The “Engineering First” Philosophy",
+      body: "The code is our tool, but engineering is our soul. We measure our success not by the complexity of our meshes, but by the measurable ROI of our clients. Whether it is a 2% increase in boiler efficiency or a 30% reduction in erosion-driven maintenance, our results are grounded in the physical reality of the plant floor.",
+    },
+    {
+      title: "Local Insight, Global Standard",
+      body: "As an Indonesian company competing on the global stage, our success is built on local accessibility and global capability. We understand the specific environmental, regulatory, and operational challenges of the Indonesian energy landscape, and we solve them with world-class computational power.",
+    },
+  ],
+  closing:
+    "Our secret is simple: We own the code, we master the physics, and we deliver the reliability that keeps the world’s most critical industries moving.",
+};
