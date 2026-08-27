@@ -222,6 +222,52 @@ function ProjectsTrainingPage() {
 
       <section className="border-t border-border bg-muted/60">
         <div className="mx-auto max-w-7xl px-5 py-20">
+          <h2 className="text-2xl font-bold text-ink sm:text-3xl">Portfolio</h2>
+          <p className="mt-4 max-w-4xl text-base leading-relaxed text-muted-foreground">
+            While the following case studies highlight over 20 high-profile engagements with industry
+            leaders like PT PLN (Persero), PT Pertamina, and PT Rekayasa Industri, they represent only
+            a focused snapshot of our broader technical footprint. Since 1994, PT. CCIT Group Indonesia
+            has conducted hundreds of specialized simulations, ranging from secret internal R&D for global
+            energy firms to rapid-response failure analyses for local power plants. Our success is built
+            on the flexibility of our proprietary CFDSOF solver, allowing us to pivot from modeling
+            vast coastal thermal plumes in the Java Sea to the microscopic chemical reactions inside a
+            CO2 stripper. Whatever your fluid challenge—regardless of scale or complexity—our legacy of
+            completed projects is proof that we have the validated experience to engineer your solution.
+          </p>
+
+          <div className="mt-14 space-y-16">
+            {portfolio.map((category) => (
+              <div key={category.name}>
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-baseline sm:gap-6">
+                  <span className="text-4xl font-bold text-primary/30">{category.number}</span>
+                  <div>
+                    <h3 className="text-xl font-bold text-ink sm:text-2xl">{category.name}</h3>
+                    <p className="mt-1 text-sm font-medium text-primary">{category.specialty}</p>
+                  </div>
+                </div>
+                <p className="mt-4 max-w-4xl text-sm leading-relaxed text-muted-foreground sm:pl-[4.5rem]">
+                  {category.body}
+                </p>
+                <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 sm:pl-[4.5rem]">
+                  {category.items.map((item) => (
+                    <div
+                      key={item.title}
+                      className="rounded-2xl border border-border bg-card p-5 shadow-[var(--shadow-card)]"
+                    >
+                      <h4 className="text-sm font-semibold text-ink">{item.title}</h4>
+                      <p className="mt-1 text-xs font-medium text-primary">{item.client}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-border bg-muted/60">
+        <div className="mx-auto max-w-7xl px-5 py-20">
           <h2 className="text-2xl font-bold text-ink sm:text-3xl">Training programmes</h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
             Run on-site in Jakarta and across Indonesia, or online. Every session is worked on your
