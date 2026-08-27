@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/SectionHeading";
 import { industries, stats, SITE_URL } from "@/lib/site-content";
 
@@ -48,7 +49,7 @@ function AboutPage() {
 
       <section className="mx-auto max-w-7xl px-5 py-20">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr]">
-          <div>
+          <Reveal>
             <h2 className="text-2xl font-bold text-ink sm:text-3xl">Who we are</h2>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
               PT CCIT Group Indonesia is a prominent company in Indonesia specializing in
@@ -65,42 +66,44 @@ function AboutPage() {
               Our work sits between design intent and physical reality: we build the model, prove it
               against evidence, and hand back a clear answer your team can act on.
             </p>
-          </div>
-          <dl className="grid grid-cols-2 gap-6 self-start rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)]">
+          </Reveal>
+          <Reveal delay={150} className="grid grid-cols-2 gap-6 self-start rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)]">
             {stats.map(([value, label]) => (
               <div key={label}>
                 <dt className="font-display text-3xl font-bold text-primary">{value}</dt>
                 <dd className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{label}</dd>
               </div>
             ))}
-          </dl>
+          </Reveal>
         </div>
       </section>
 
       <section className="border-y border-border bg-muted/60">
         <div className="mx-auto max-w-7xl px-5 py-20">
-          <h2 className="text-2xl font-bold text-ink sm:text-3xl">How we think</h2>
+          <Reveal as="span" className="block"><h2 className="text-2xl font-bold text-ink sm:text-3xl">How we think</h2></Reveal>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {values.map((v) => (
-              <div key={v.title} className="border-l-2 border-primary/70 pl-4">
+            {values.map((v, i) => (
+              <Reveal key={v.title} delay={i * 100} className="border-l-2 border-primary/70 pl-4">
                 <h3 className="text-base font-semibold text-ink">{v.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{v.body}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-5 py-20">
-        <h2 className="text-2xl font-bold text-ink sm:text-3xl">Industries we serve</h2>
+        <Reveal as="span" className="block"><h2 className="text-2xl font-bold text-ink sm:text-3xl">Industries we serve</h2></Reveal>
         <ul className="mt-8 flex flex-wrap gap-3">
-          {industries.map((i) => (
-            <li
+          {industries.map((i, idx) => (
+            <Reveal
+              as="span"
               key={i}
+              delay={idx * 60}
               className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-ink"
             >
               {i}
-            </li>
+            </Reveal>
           ))}
         </ul>
         <Link

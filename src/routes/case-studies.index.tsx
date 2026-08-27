@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/SectionHeading";
 import { SITE_URL } from "@/lib/site-content";
 import { getCaseStudies } from "@/lib/case-studies.functions";
@@ -56,12 +57,12 @@ function CaseStudiesPage() {
       )}
 
       <section className="mx-auto grid max-w-7xl gap-6 px-5 py-14 sm:grid-cols-2 lg:grid-cols-3">
-        {items.map((cs) => (
+        {items.map((cs, i) => (
+          <Reveal key={cs.id} delay={i * 100} className="flex">
           <Link
-            key={cs.id}
             to="/case-studies/$slug"
             params={{ slug: cs.slug }}
-            className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)] transition-transform hover:-translate-y-1"
+            className="group flex w-full flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)] transition-[transform,box-shadow] duration-500 hover:-translate-y-1.5 hover:shadow-[var(--shadow-red)]"
           >
             <div className="flag-rule h-1.5 w-full" aria-hidden="true" />
             {cs.image && (
@@ -89,11 +90,12 @@ function CaseStudiesPage() {
               <span className="mt-5 text-sm font-semibold text-primary">Read full case study →</span>
             </div>
           </Link>
+          </Reveal>
         ))}
       </section>
 
       <section className="mx-auto max-w-7xl px-5 pb-20">
-        <div className="rounded-2xl border border-border bg-muted/60 p-8 text-center">
+        <Reveal className="rounded-2xl border border-border bg-muted/60 p-8 text-center">
           <h2 className="text-xl font-semibold text-ink">Have a similar problem?</h2>
           <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
             Send your geometry and operating conditions — we reply with a scope, timeline, and fixed
@@ -105,7 +107,7 @@ function CaseStudiesPage() {
           >
             Discuss your project
           </Link>
-        </div>
+        </Reveal>
       </section>
     </>
   );
