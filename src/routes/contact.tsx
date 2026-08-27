@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Reveal } from "@/components/Reveal";
 import { SITE_URL } from "@/lib/site-content";
 
 const title = "Contact CCIT Simulation | Request a CFD Quote";
@@ -24,7 +25,7 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   return (
     <section className="mx-auto max-w-7xl px-5 py-16">
-      <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)]">
+      <Reveal className="overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)]">
         <div className="flag-rule h-1.5 w-full" aria-hidden="true" />
         <div className="grid gap-10 p-8 md:grid-cols-2 md:p-12">
           <div>
@@ -81,7 +82,7 @@ function ContactPage() {
             </p>
           </form>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/SectionHeading";
 import { SITE_URL } from "@/lib/site-content";
 
@@ -203,16 +204,17 @@ function ProjectsTrainingPage() {
       />
 
       <section className="mx-auto max-w-7xl px-5 py-20">
-        <h2 className="text-2xl font-bold text-ink sm:text-3xl">How we engage on projects</h2>
+        <Reveal as="span" className="block"><h2 className="text-2xl font-bold text-ink sm:text-3xl">How we engage on projects</h2></Reveal>
         <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {projectTypes.map((p) => (
-            <div
+          {projectTypes.map((p, i) => (
+            <Reveal
               key={p.name}
-              className="rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)]"
+              delay={i * 100}
+              className="rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] transition-transform duration-500 hover:-translate-y-1"
             >
               <h3 className="text-base font-semibold text-ink">{p.name}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
         <Link to="/case-studies" className="mt-8 inline-block text-sm font-semibold text-primary hover:underline">
@@ -222,8 +224,8 @@ function ProjectsTrainingPage() {
 
       <section className="border-t border-border bg-muted/60">
         <div className="mx-auto max-w-7xl px-5 py-20">
-          <h2 className="text-2xl font-bold text-ink sm:text-3xl">Portfolio</h2>
-          <p className="mt-4 max-w-4xl text-base leading-relaxed text-muted-foreground">
+          <Reveal as="span" className="block"><h2 className="text-2xl font-bold text-ink sm:text-3xl">Portfolio</h2></Reveal>
+          <Reveal as="span" className="block"><p className="mt-4 max-w-4xl text-base leading-relaxed text-muted-foreground">
             While the following case studies highlight over 20 high-profile engagements with industry
             leaders like PT PLN (Persero), PT Pertamina, and PT Rekayasa Industri, they represent only
             a focused snapshot of our broader technical footprint. Since 1994, PT. CCIT Group Indonesia
@@ -233,11 +235,11 @@ function ProjectsTrainingPage() {
             vast coastal thermal plumes in the Java Sea to the microscopic chemical reactions inside a
             CO2 stripper. Whatever your fluid challenge—regardless of scale or complexity—our legacy of
             completed projects is proof that we have the validated experience to engineer your solution.
-          </p>
+          </p></Reveal>
 
           <div className="mt-14 space-y-16">
             {portfolio.map((category) => (
-              <div key={category.name}>
+              <Reveal key={category.name}>
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-baseline sm:gap-6">
                   <span className="text-4xl font-bold text-primary/30">{category.number}</span>
                   <div>
@@ -249,18 +251,19 @@ function ProjectsTrainingPage() {
                   {category.body}
                 </p>
                 <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 sm:pl-[4.5rem]">
-                  {category.items.map((item) => (
-                    <div
+                  {category.items.map((item, i) => (
+                    <Reveal
                       key={item.title}
-                      className="rounded-2xl border border-border bg-card p-5 shadow-[var(--shadow-card)]"
+                      delay={i * 80}
+                      className="rounded-2xl border border-border bg-card p-5 shadow-[var(--shadow-card)] transition-transform duration-500 hover:-translate-y-1"
                     >
                       <h4 className="text-sm font-semibold text-ink">{item.title}</h4>
                       <p className="mt-1 text-xs font-medium text-primary">{item.client}</p>
                       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
-                    </div>
+                    </Reveal>
                   ))}
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -268,14 +271,14 @@ function ProjectsTrainingPage() {
 
       <section className="border-t border-border bg-muted/60">
         <div className="mx-auto max-w-7xl px-5 py-20">
-          <h2 className="text-2xl font-bold text-ink sm:text-3xl">Training programmes</h2>
+          <Reveal as="span" className="block"><h2 className="text-2xl font-bold text-ink sm:text-3xl">Training programmes</h2></Reveal>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
             Run on-site in Jakarta and across Indonesia, or online. Every session is worked on your
             real geometry so the outcome is a usable workflow, not slideware.
           </p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {programmes.map((c) => (
-              <div key={c.name} className="rounded-2xl border border-border bg-card p-6">
+            {programmes.map((c, i) => (
+              <Reveal key={c.name} delay={i * 100} className="rounded-2xl border border-border bg-card p-6 transition-transform duration-500 hover:-translate-y-1">
                 <div className="flex items-baseline justify-between gap-4">
                   <h3 className="text-base font-semibold text-ink">{c.name}</h3>
                   <span className="text-xs font-semibold uppercase tracking-wider text-primary">
@@ -283,7 +286,7 @@ function ProjectsTrainingPage() {
                   </span>
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
           <Link

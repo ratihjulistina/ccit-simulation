@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { PageHero } from "@/components/SectionHeading";
 import { services, SITE_URL } from "@/lib/site-content";
@@ -32,16 +33,20 @@ function ServicesPage() {
         body="Every study is scoped around a decision you need to make — not a pretty picture."
       />
       <section className="mx-auto max-w-7xl px-5 py-20">
+        <Reveal>
         <SectionHeading
           eyebrow="What we solve"
           title="Three core simulation practices"
           body="Each engagement is delivered with a documented mesh study, validation basis, and an actionable recommendation."
         />
+        </Reveal>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {services.map((s) => (
-            <article
+          {services.map((s, i) => (
+            <Reveal
+              as="article"
               key={s.title}
-              className="group overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-transform duration-300 hover:-translate-y-1.5"
+              delay={i * 120}
+              className="group overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-[transform,box-shadow,opacity] duration-500 hover:-translate-y-1.5 hover:shadow-[var(--shadow-red)]"
             >
               <img
                 src={s.image}
@@ -49,7 +54,7 @@ function ServicesPage() {
                 height={700}
                 loading="lazy"
                 alt={s.title}
-                className="h-44 w-full object-cover"
+                className="h-44 w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="flag-rule h-1 w-full" aria-hidden="true" />
               <div className="p-6">
@@ -66,7 +71,7 @@ function ServicesPage() {
                   ))}
                 </ul>
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
       </section>
