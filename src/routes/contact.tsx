@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Reveal } from "@/components/Reveal";
 import { SITE_URL } from "@/lib/site-content";
 
 const title = "Contact CCIT Simulation | Request a CFD Quote";
