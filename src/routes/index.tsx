@@ -107,6 +107,44 @@ function Index() {
 
       <ClientLogos />
 
+      <section className="surface-ink relative overflow-hidden">
+        <div className="grid-mesh animate-mesh-drift absolute inset-0 opacity-40" aria-hidden="true" />
+        <div className="relative mx-auto max-w-7xl px-5 py-20 lg:py-28">
+          <Reveal className="max-w-3xl">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground">
+              Why we are different
+            </span>
+            <h2 className="mt-6 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
+              {successSecrets.title}: <span className="text-gradient-red">{successSecrets.subtitle}</span>
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-white/75">{successSecrets.intro}</p>
+          </Reveal>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {successSecrets.points.map((point, i) => (
+              <Reveal
+                key={point.title}
+                delay={i * 100}
+                as="article"
+                className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-[transform,box-shadow,background] duration-500 hover:-translate-y-1.5 hover:bg-white/[0.06] hover:shadow-[var(--shadow-red)]"
+              >
+                <span className="font-display text-sm font-bold tracking-widest text-primary">0{i + 1}</span>
+                <h3 className="mt-3 text-lg font-semibold text-white">{point.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/70">{point.body}</p>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={200} className="mt-12 max-w-4xl">
+            <blockquote className="rounded-2xl border-l-4 border-primary bg-white/[0.05] p-6 backdrop-blur-sm lg:p-8">
+              <p className="text-lg font-medium italic leading-relaxed text-white/90 lg:text-xl">
+                “{successSecrets.closing}”
+              </p>
+            </blockquote>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-7xl px-5 py-16 sm:py-20">
 
         <Reveal>
