@@ -129,7 +129,7 @@ export function FloatingWhatsApp() {
         className="whatsapp-pulse relative inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:px-5 md:py-3 md:text-base"
       >
         <MessageCircle className="h-5 w-5 md:h-6 md:w-6" fill="currentColor" aria-hidden="true" />
-        <span>Chat with us</span>
+        <span>WhatsApp</span>
       </a>
     </div>
   );
