@@ -51,6 +51,17 @@ function ContactPage() {
                   ccitgroupindonesia@gmail.com
                 </a>
               </p>
+              <p className="text-muted-foreground">
+                WhatsApp:{" "}
+                <a
+                  className="font-medium text-primary hover:underline"
+                  href="https://api.whatsapp.com/send?phone=6281315239718"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  +62 813-1523-9718
+                </a>
+              </p>
             </div>
           </div>
           <form
