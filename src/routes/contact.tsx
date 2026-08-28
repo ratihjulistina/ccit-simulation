@@ -35,12 +35,33 @@ function ContactPage() {
               reply with a scope, timeline, and fixed quotation within two working days.
             </p>
             <div className="mt-8 space-y-3 text-sm">
-              <p className="font-semibold text-ink">CCIT Simulation</p>
-              <p className="text-muted-foreground">Jakarta, Indonesia</p>
+              <p className="font-semibold text-ink">PT CCIT Group Indonesia</p>
+              <p className="text-muted-foreground">
+                Jl. KHM Usman No. 22A, Beji
+                <br />
+                Depok 16425, West Java, Indonesia
+              </p>
               <p className="text-muted-foreground">
                 Email:{" "}
-                <a className="font-medium text-primary hover:underline" href="mailto:info@ccitsimulation.com">
-                  info@ccitsimulation.com
+                <a className="font-medium text-primary hover:underline" href="mailto:admin@ccit.co.id">
+                  admin@ccit.co.id
+                </a>
+                {", "}
+                <a className="font-medium text-primary hover:underline" href="mailto:ccitgroupindonesia@gmail.com">
+                  ccitgroupindonesia@gmail.com
+                </a>
+              </p>
+              <p className="text-muted-foreground">
+                Contact person: <span className="font-medium text-ink">Syamila Dinda Andira</span>
+                <br />
+                WhatsApp / Mobile:{" "}
+                <a
+                  className="font-medium text-primary hover:underline"
+                  href="https://api.whatsapp.com/send?phone=6281315239718"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  +62 813-1523-9718
                 </a>
               </p>
             </div>

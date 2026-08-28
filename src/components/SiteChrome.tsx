@@ -108,14 +108,14 @@ export function SiteFooter() {
             </Link>
           </nav>
         </div>
-        <p>© {new Date().getFullYear()} CCIT Simulation · Engineering simulation consultancy, Indonesia</p>
+        <p>© {new Date().getFullYear()} PT CCIT Group Indonesia · Jl. KHM Usman No. 22A, Beji, Depok 16425, West Java · admin@ccit.co.id · +62 813-1523-9718</p>
       </div>
     </footer>
   );
 }
 
 export function FloatingWhatsApp() {
-  const phone = "6281904290795";
+  const phone = "6281315239718";
   const message = encodeURIComponent(
     "Hi CCIT Simulation, I would like to discuss a CFD / engineering simulation project. Could you share more about your services and how you can support our needs?"
   );
