@@ -122,7 +122,7 @@ export function FloatingWhatsApp() {
   return (
     <div className="group fixed bottom-4 right-4 z-50 md:bottom-6 md:right-6">
       <span className="absolute right-full top-1/2 mr-3 -translate-y-1/2 whitespace-nowrap rounded-full bg-foreground px-4 py-2 text-sm font-semibold text-background opacity-0 shadow-lg transition-opacity duration-300 group-hover:opacity-100">
-        contact with us
+        hubungi kami via Whatsapp
       </span>
       <a
         href={`https://api.whatsapp.com/send?phone=${phone}&text=${message}`}
