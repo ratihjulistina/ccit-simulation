@@ -71,7 +71,7 @@ function ContactPage() {
             onSubmit={(e) => {
               e.preventDefault();
               const data = new FormData(e.currentTarget);
-              window.location.href = `mailto:info@ccitsimulation.com?subject=${encodeURIComponent(
+              window.location.href = `mailto:admin@ccit.co.id?subject=${encodeURIComponent(
                 `CFD enquiry from ${String(data.get("name") ?? "")}`,
               )}&body=${encodeURIComponent(String(data.get("message") ?? ""))}`;
             }}
