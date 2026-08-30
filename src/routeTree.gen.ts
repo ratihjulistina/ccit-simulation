@@ -17,6 +17,7 @@ import { Route as ProjectsTrainingRouteImport } from './routes/projects-training
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
+import { Route as ApiPublicCaseStudyImageSplatRouteImport } from './routes/api/public/case-study-image.$'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -58,6 +59,12 @@ const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => CaseStudiesRoute,
 } as any)
+const ApiPublicCaseStudyImageSplatRoute =
+  ApiPublicCaseStudyImageSplatRouteImport.update({
+    id: '/api/public/case-study-image/$',
+    path: '/api/public/case-study-image/$',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -68,6 +75,7 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
+  '/api/public/case-study-image/$': typeof ApiPublicCaseStudyImageSplatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -77,6 +85,7 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies': typeof CaseStudiesIndexRoute
+  '/api/public/case-study-image/$': typeof ApiPublicCaseStudyImageSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -88,6 +97,7 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
+  '/api/public/case-study-image/$': typeof ApiPublicCaseStudyImageSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/case-studies/$slug'
     | '/case-studies/'
+    | '/api/public/case-study-image/$'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -109,6 +120,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/case-studies/$slug'
     | '/case-studies'
+    | '/api/public/case-study-image/$'
   id:
     | '__root__'
     | '/'
@@ -119,6 +131,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/case-studies/$slug'
     | '/case-studies/'
+    | '/api/public/case-study-image/$'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -128,6 +141,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   ProjectsTrainingRoute: typeof ProjectsTrainingRoute
   ServicesRoute: typeof ServicesRoute
+  ApiPublicCaseStudyImageSplatRoute: typeof ApiPublicCaseStudyImageSplatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -188,6 +202,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CaseStudiesSlugRouteImport
       parentRoute: typeof CaseStudiesRoute
     }
+    '/api/public/case-study-image/$': {
+      id: '/api/public/case-study-image/$'
+      path: '/api/public/case-study-image/$'
+      fullPath: '/api/public/case-study-image/$'
+      preLoaderRoute: typeof ApiPublicCaseStudyImageSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -212,6 +233,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   ProjectsTrainingRoute: ProjectsTrainingRoute,
   ServicesRoute: ServicesRoute,
+  ApiPublicCaseStudyImageSplatRoute: ApiPublicCaseStudyImageSplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
