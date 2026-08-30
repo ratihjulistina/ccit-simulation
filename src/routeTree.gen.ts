@@ -21,6 +21,7 @@ import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.inde
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
 import { Route as AuthenticatedAdminIdRouteImport } from './routes/_authenticated/admin.$id'
+import { Route as AuthenticatedAdminCategoriesRouteImport } from './routes/_authenticated/admin.categories'
 import { Route as ApiPublicCaseStudyImageSplatRouteImport } from './routes/api/public/case-study-image.$'
 
 const IndexRoute = IndexRouteImport.update({
@@ -82,6 +83,12 @@ const AuthenticatedAdminIdRoute = AuthenticatedAdminIdRouteImport.update({
   path: '/admin/$id',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedAdminCategoriesRoute =
+  AuthenticatedAdminCategoriesRouteImport.update({
+    id: '/admin/categories',
+    path: '/admin/categories',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const ApiPublicCaseStudyImageSplatRoute =
   ApiPublicCaseStudyImageSplatRouteImport.update({
     id: '/api/public/case-study-image/$',
@@ -100,6 +107,7 @@ export interface FileRoutesByFullPath {
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/admin/$id': typeof AuthenticatedAdminIdRoute
+  '/admin/categories': typeof AuthenticatedAdminCategoriesRoute
   '/admin/': typeof AuthenticatedAdminIndexRoute
   '/api/public/case-study-image/$': typeof ApiPublicCaseStudyImageSplatRoute
 }
@@ -113,6 +121,7 @@ export interface FileRoutesByTo {
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies': typeof CaseStudiesIndexRoute
   '/admin/$id': typeof AuthenticatedAdminIdRoute
+  '/admin/categories': typeof AuthenticatedAdminCategoriesRoute
   '/admin': typeof AuthenticatedAdminIndexRoute
   '/api/public/case-study-image/$': typeof ApiPublicCaseStudyImageSplatRoute
 }
@@ -129,6 +138,7 @@ export interface FileRoutesById {
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/_authenticated/admin/$id': typeof AuthenticatedAdminIdRoute
+  '/_authenticated/admin/categories': typeof AuthenticatedAdminCategoriesRoute
   '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
   '/api/public/case-study-image/$': typeof ApiPublicCaseStudyImageSplatRoute
 }
@@ -145,6 +155,7 @@ export interface FileRouteTypes {
     | '/case-studies/$slug'
     | '/case-studies/'
     | '/admin/$id'
+    | '/admin/categories'
     | '/admin/'
     | '/api/public/case-study-image/$'
   fileRoutesByTo: FileRoutesByTo
@@ -158,6 +169,7 @@ export interface FileRouteTypes {
     | '/case-studies/$slug'
     | '/case-studies'
     | '/admin/$id'
+    | '/admin/categories'
     | '/admin'
     | '/api/public/case-study-image/$'
   id:
@@ -173,6 +185,7 @@ export interface FileRouteTypes {
     | '/case-studies/$slug'
     | '/case-studies/'
     | '/_authenticated/admin/$id'
+    | '/_authenticated/admin/categories'
     | '/_authenticated/admin/'
     | '/api/public/case-study-image/$'
   fileRoutesById: FileRoutesById
@@ -275,6 +288,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminIdRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/admin/categories': {
+      id: '/_authenticated/admin/categories'
+      path: '/admin/categories'
+      fullPath: '/admin/categories'
+      preLoaderRoute: typeof AuthenticatedAdminCategoriesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/api/public/case-study-image/$': {
       id: '/api/public/case-study-image/$'
       path: '/api/public/case-study-image/$'
@@ -287,11 +307,13 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedAdminIdRoute: typeof AuthenticatedAdminIdRoute
+  AuthenticatedAdminCategoriesRoute: typeof AuthenticatedAdminCategoriesRoute
   AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAdminIdRoute: AuthenticatedAdminIdRoute,
+  AuthenticatedAdminCategoriesRoute: AuthenticatedAdminCategoriesRoute,
   AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
 }
 

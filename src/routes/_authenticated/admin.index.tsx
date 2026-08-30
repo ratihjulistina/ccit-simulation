@@ -128,13 +128,21 @@ function CaseStudyList() {
     <div className="rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-card)]">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h2 className="text-lg font-bold text-ink">All case studies</h2>
-        <Link
-          to="/admin/$id"
-          params={{ id: "new" }}
-          className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground"
-        >
-          + New case study
-        </Link>
+        <div className="flex flex-wrap gap-2">
+          <Link
+            to="/admin/categories"
+            className="rounded-full border border-border px-5 py-2.5 text-sm font-semibold text-ink hover:bg-muted"
+          >
+            Manage categories
+          </Link>
+          <Link
+            to="/admin/$id"
+            params={{ id: "new" }}
+            className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground"
+          >
+            + New case study
+          </Link>
+        </div>
       </div>
 
       {list.isLoading && <p className="mt-6 text-sm text-muted-foreground">Loading…</p>}
