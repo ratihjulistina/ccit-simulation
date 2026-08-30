@@ -32,7 +32,12 @@ export const Route = createFileRoute("/case-studies/$slug")({
     const title = `${loaderData.title} | CFD Case Study — CCIT Simulation`;
     const description =
       loaderData.excerpt || "A computational fluid dynamics project delivered by CCIT Simulation Indonesia.";
-    const image = loaderData.image ?? `${SITE_URL}/og-case-studies.jpg`;
+    const rawImage = loaderData.image;
+    const image = rawImage
+      ? rawImage.startsWith("http")
+        ? rawImage
+        : `${SITE_URL}${rawImage}`
+      : `${SITE_URL}/og-case-studies.jpg`;
     return {
       meta: [
         { title },
