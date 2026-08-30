@@ -92,7 +92,9 @@ export const claimFirstAdmin = createServerFn({ method: "POST" })
 
 export const grantAdminByEmail = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: { email: string }) => z.object({ email: z.string().email() }).parse(data))
+  .inputValidator((data: { email: string; redirectTo?: string }) =>
+    z.object({ email: z.string().email(), redirectTo: z.string().url().optional() }).parse(data),
+  )
   .handler(async ({ data, context }) => {
     const { data: isAdmin } = await context.supabase.rpc("has_role", {
       _user_id: context.userId,
@@ -106,16 +108,54 @@ export const grantAdminByEmail = createServerFn({ method: "POST" })
       perPage: 1000,
     });
     if (listError) throw listError;
-    const target = users.users.find(
-      (user) => user.email?.toLowerCase() === data.email.toLowerCase(),
-    );
-    if (!target) throw new Error("No account found with that email. Ask them to sign up first.");
+    const email = data.email.toLowerCase();
+    let target = users.users.find((user) => user.email?.toLowerCase() === email) ?? null;
+    let invited = false;
+
+    if (!target) {
+      const { data: invite, error: inviteError } = await supabaseAdmin.auth.admin.inviteUserByEmail(
+        email,
+        data.redirectTo ? { redirectTo: data.redirectTo } : undefined,
+      );
+      if (inviteError) throw inviteError;
+      target = invite.user;
+      invited = true;
+    }
+
+    if (!target) throw new Error("Could not create the invitation. Please try again.");
 
     const { error } = await supabaseAdmin
       .from("user_roles")
       .upsert({ user_id: target.id, role: "admin" }, { onConflict: "user_id,role" });
     if (error) throw error;
-    return { ok: true, email: target.email };
+    return { ok: true, email: target.email, invited };
+  });
+
+export const revokeAdmin = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: { userId: string }) => z.object({ userId: z.string().uuid() }).parse(data))
+  .handler(async ({ data, context }) => {
+    const { data: isAdmin } = await context.supabase.rpc("has_role", {
+      _user_id: context.userId,
+      _role: "admin",
+    });
+    if (!isAdmin) throw new Error("Forbidden");
+    if (data.userId === context.userId) throw new Error("You cannot remove your own access.");
+
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { count } = await supabaseAdmin
+      .from("user_roles")
+      .select("id", { count: "exact", head: true })
+      .eq("role", "admin");
+    if ((count ?? 0) <= 1) throw new Error("At least one admin must remain.");
+
+    const { error } = await supabaseAdmin
+      .from("user_roles")
+      .delete()
+      .eq("user_id", data.userId)
+      .eq("role", "admin");
+    if (error) throw error;
+    return { ok: true };
   });
 
 export const listAdmins = createServerFn({ method: "GET" })
@@ -135,12 +175,18 @@ export const listAdmins = createServerFn({ method: "GET" })
     if (error) throw error;
     const { data: users } = await supabaseAdmin.auth.admin.listUsers({ page: 1, perPage: 1000 });
     return {
-      admins: (roles ?? []).map((role) => ({
-        userId: role.user_id,
-        email: users?.users.find((user) => user.id === role.user_id)?.email ?? "unknown",
-      })),
+      currentUserId: context.userId,
+      admins: (roles ?? []).map((role) => {
+        const user = users?.users.find((item) => item.id === role.user_id);
+        return {
+          userId: role.user_id,
+          email: user?.email ?? "unknown",
+          pending: !user?.last_sign_in_at,
+        };
+      }),
     };
   });
+
 
 export const adminListCaseStudies = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
