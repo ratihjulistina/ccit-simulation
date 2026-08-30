@@ -162,14 +162,26 @@ function CaseStudyEditor() {
               <label htmlFor="category" className="text-sm font-semibold text-ink">
                 Category
               </label>
-              <input
+              <select
                 id="category"
-                maxLength={60}
-                placeholder="Wind Engineering"
                 value={category}
                 onChange={(event) => setCategory(event.target.value)}
                 className={inputClass}
-              />
+              >
+                <option value="">No category</option>
+                {categoryOptions.map((name) => (
+                  <option key={name} value={name}>
+                    {name}
+                  </option>
+                ))}
+              </select>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Add or rename categories on the{" "}
+                <Link to="/admin/categories" className="text-primary hover:underline">
+                  categories page
+                </Link>
+                .
+              </p>
             </div>
           </div>
 
