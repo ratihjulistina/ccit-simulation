@@ -46,7 +46,7 @@ export function RichTextEditor({ value, onChange }: Props) {
     if (!editor || !value) return;
     const current = JSON.stringify(editor.getJSON());
     if (current !== JSON.stringify(value)) {
-      editor.commands.setContent(value, { emitUpdate: false });
+      editor.commands.setContent(value as never, { emitUpdate: false });
     }
     // Only sync when the incoming document identity changes.
     // eslint-disable-next-line react-hooks/exhaustive-deps
