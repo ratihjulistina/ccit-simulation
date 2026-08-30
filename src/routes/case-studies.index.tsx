@@ -11,7 +11,7 @@ const description =
 
 const caseStudiesQuery = queryOptions({
   queryKey: ["case-studies"],
-  queryFn: () => getCaseStudies(),
+  queryFn: () => getPublishedCaseStudies(),
 });
 
 
