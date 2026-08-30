@@ -108,7 +108,7 @@ function CaseStudyDetail() {
           />
         )}
 
-        <div className="mt-6">{cs.body ? <RichText document={cs.body as Document} /> : null}</div>
+        <div className="mt-6">{cs.body ? <RichText document={cs.body} /> : null}</div>
 
         <div className="mt-10 border-t border-border pt-6">
           <ShareButtons
