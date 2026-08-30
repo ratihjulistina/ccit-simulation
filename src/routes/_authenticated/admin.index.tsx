@@ -10,6 +10,7 @@ import {
   getMyAdminStatus,
   claimFirstAdmin,
   grantAdminByEmail,
+  revokeAdmin,
   listAdmins,
 } from "@/lib/case-studies.functions";
 import { useState } from "react";
