@@ -30,7 +30,7 @@ export function RichTextEditor({ value, onChange }: Props) {
       StarterKit.configure({ heading: { levels: [2, 3] } }),
       Link.configure({ openOnClick: false, autolink: true }),
     ],
-    content: value ?? emptyDoc,
+    content: (value ?? emptyDoc) as never,
     editorProps: {
       attributes: {
         class:
