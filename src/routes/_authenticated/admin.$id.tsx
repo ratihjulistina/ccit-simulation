@@ -6,7 +6,11 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { PageHero } from "@/components/SectionHeading";
 import { RichTextEditor } from "@/components/RichTextEditor";
-import { adminGetCaseStudy, adminSaveCaseStudy } from "@/lib/case-studies.functions";
+import {
+  adminGetCaseStudy,
+  adminSaveCaseStudy,
+  adminListCategories,
+} from "@/lib/case-studies.functions";
 import { slugify, type RichTextDoc } from "@/lib/case-studies.types";
 
 export const Route = createFileRoute("/_authenticated/admin/$id")({
