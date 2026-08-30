@@ -1,14 +1,16 @@
+export type JsonValue = string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue };
+
 export type RichTextDoc = {
   type: string;
-  content?: RichTextNode[];
+  content?: RichTextNode[] | undefined;
 };
 
 export type RichTextNode = {
   type: string;
-  text?: string;
-  attrs?: Record<string, unknown> | null;
-  marks?: { type: string; attrs?: Record<string, unknown> | null }[];
-  content?: RichTextNode[];
+  text?: string | undefined;
+  attrs?: Record<string, JsonValue> | null | undefined;
+  marks?: { type: string; attrs?: Record<string, JsonValue> | null | undefined }[] | undefined;
+  content?: RichTextNode[] | undefined;
 };
 
 export type CaseStudy = {

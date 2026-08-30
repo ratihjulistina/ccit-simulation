@@ -11,7 +11,7 @@ const description =
 
 const caseStudiesQuery = queryOptions({
   queryKey: ["case-studies"],
-  queryFn: () => getCaseStudies(),
+  queryFn: () => getPublishedCaseStudies(),
 });
 
 
@@ -36,8 +36,8 @@ export const Route = createFileRoute("/case-studies/")({
 
 function CaseStudiesPage() {
   const { data } = useSuspenseQuery(caseStudiesQuery);
-  const items = data.items.length > 0 ? data.items : dummyCaseStudies;
-  const showDummyBanner = data.items.length === 0;
+  const items = data.items;
+  const showEmptyState = items.length === 0;
 
   return (
     <>
@@ -47,10 +47,10 @@ function CaseStudiesPage() {
         body="Each project below follows the same structure: the engineering challenge, how we modelled and validated it, the CFD results, and what the client did next."
       />
 
-      {showDummyBanner && (
+      {showEmptyState && (
         <section className="mx-auto max-w-7xl px-5 pt-16">
           <p className="rounded-2xl border border-dashed border-border bg-muted/60 px-6 py-4 text-center text-sm text-muted-foreground">
-            Contentful is temporarily unavailable, so these are dummy cards showing the layout.
+            {data.error ?? "New case studies are being prepared and will appear here soon."}
           </p>
         </section>
       )}
