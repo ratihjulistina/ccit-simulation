@@ -200,12 +200,29 @@ function AdminManager() {
   const [email, setEmail] = useState("");
   const admins = useQuery({ queryKey: ["admins"], queryFn: () => listAdmins() });
   const grant = useServerFn(grantAdminByEmail);
+  const revoke = useServerFn(revokeAdmin);
 
   const grantMutation = useMutation({
-    mutationFn: (value: string) => grant({ data: { email: value } }),
-    onSuccess: () => {
-      toast.success("Admin access granted.");
+    mutationFn: (value: string) =>
+      grant({
+        data: { email: value, redirectTo: `${window.location.origin}/set-password` },
+      }),
+    onSuccess: (result) => {
+      toast.success(
+        result.invited
+          ? "Invitation email sent. They can set a password from the link."
+          : "Admin access granted to the existing account.",
+      );
       setEmail("");
+      void queryClient.invalidateQueries({ queryKey: ["admins"] });
+    },
+    onError: (error: Error) => toast.error(error.message),
+  });
+
+  const revokeMutation = useMutation({
+    mutationFn: (userId: string) => revoke({ data: { userId } }),
+    onSuccess: () => {
+      toast.success("Admin access removed.");
       void queryClient.invalidateQueries({ queryKey: ["admins"] });
     },
     onError: (error: Error) => toast.error(error.message),
@@ -213,9 +230,10 @@ function AdminManager() {
 
   return (
     <div className="mt-8 rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-card)]">
-      <h2 className="text-lg font-bold text-ink">Team admins</h2>
+      <h2 className="text-lg font-bold text-ink">Invite an admin</h2>
       <p className="mt-1 text-sm text-muted-foreground">
-        Colleagues must create an account first, then you can grant them access here.
+        Enter a colleague's email. They receive an invitation email with a link to set their
+        password, then they can sign in here.
       </p>
       <form
         onSubmit={(event) => {
@@ -237,14 +255,37 @@ function AdminManager() {
           disabled={grantMutation.isPending}
           className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground disabled:opacity-60"
         >
-          Grant admin
+          {grantMutation.isPending ? "Sending…" : "Send invitation"}
         </button>
       </form>
-      <ul className="mt-4 space-y-1 text-sm text-muted-foreground">
+      <ul className="mt-5 divide-y divide-border">
         {(admins.data?.admins ?? []).map((admin) => (
-          <li key={admin.userId}>{admin.email}</li>
+          <li key={admin.userId} className="flex flex-wrap items-center gap-3 py-3">
+            <span className="min-w-0 flex-1 truncate text-sm text-ink">{admin.email}</span>
+            {admin.pending && (
+              <span className="rounded-full bg-muted px-2.5 py-1 text-[11px] font-semibold text-muted-foreground">
+                Invitation pending
+              </span>
+            )}
+            {admin.userId === admins.data?.currentUserId ? (
+              <span className="text-xs text-muted-foreground">You</span>
+            ) : (
+              <button
+                type="button"
+                onClick={() => {
+                  if (window.confirm(`Remove admin access for ${admin.email}?`)) {
+                    revokeMutation.mutate(admin.userId);
+                  }
+                }}
+                className="rounded-full border border-border px-4 py-1.5 text-xs font-semibold text-primary hover:bg-muted"
+              >
+                Remove
+              </button>
+            )}
+          </li>
         ))}
       </ul>
     </div>
   );
 }
+
