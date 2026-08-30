@@ -1,16 +1,15 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
-import type { Document } from "@contentful/rich-text-types";
 import { PageHero } from "@/components/SectionHeading";
 import { RichText } from "@/components/RichText";
 import { ShareButtons } from "@/components/ShareButtons";
 import { SITE_URL } from "@/lib/site-content";
-import { getCaseStudy } from "@/lib/case-studies.functions";
+import { getPublishedCaseStudy } from "@/lib/case-studies.functions";
 
 const caseStudyQuery = (slug: string) =>
   queryOptions({
     queryKey: ["case-study", slug],
-    queryFn: () => getCaseStudy({ data: { slug } }),
+    queryFn: () => getPublishedCaseStudy({ data: { slug } }),
   });
 
 export const Route = createFileRoute("/case-studies/$slug")({
@@ -33,7 +32,12 @@ export const Route = createFileRoute("/case-studies/$slug")({
     const title = `${loaderData.title} | CFD Case Study — CCIT Simulation`;
     const description =
       loaderData.excerpt || "A computational fluid dynamics project delivered by CCIT Simulation Indonesia.";
-    const image = loaderData.image ?? `${SITE_URL}/og-case-studies.jpg`;
+    const rawImage = loaderData.image;
+    const image = rawImage
+      ? rawImage.startsWith("http")
+        ? rawImage
+        : `${SITE_URL}${rawImage}`
+      : `${SITE_URL}/og-case-studies.jpg`;
     return {
       meta: [
         { title },
@@ -104,7 +108,7 @@ function CaseStudyDetail() {
           />
         )}
 
-        <div className="mt-6">{cs.body ? <RichText document={cs.body as Document} /> : null}</div>
+        <div className="mt-6">{cs.body ? <RichText document={cs.body} /> : null}</div>
 
         <div className="mt-10 border-t border-border pt-6">
           <ShareButtons

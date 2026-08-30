@@ -10,22 +10,36 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ProjectsTrainingRouteImport } from './routes/projects-training'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
+import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
+import { Route as AuthenticatedAdminIdRouteImport } from './routes/_authenticated/admin.$id'
+import { Route as ApiPublicCaseStudyImageSplatRouteImport } from './routes/api/public/case-study-image.$'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CaseStudiesRoute = CaseStudiesRouteImport.update({
@@ -58,76 +72,121 @@ const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => CaseStudiesRoute,
 } as any)
+const AuthenticatedAdminIndexRoute = AuthenticatedAdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedAdminIdRoute = AuthenticatedAdminIdRouteImport.update({
+  id: '/admin/$id',
+  path: '/admin/$id',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const ApiPublicCaseStudyImageSplatRoute =
+  ApiPublicCaseStudyImageSplatRouteImport.update({
+    id: '/api/public/case-study-image/$',
+    path: '/api/public/case-study-image/$',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
   '/projects-training': typeof ProjectsTrainingRoute
   '/services': typeof ServicesRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
+  '/admin/$id': typeof AuthenticatedAdminIdRoute
+  '/admin/': typeof AuthenticatedAdminIndexRoute
+  '/api/public/case-study-image/$': typeof ApiPublicCaseStudyImageSplatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
   '/projects-training': typeof ProjectsTrainingRoute
   '/services': typeof ServicesRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies': typeof CaseStudiesIndexRoute
+  '/admin/$id': typeof AuthenticatedAdminIdRoute
+  '/admin': typeof AuthenticatedAdminIndexRoute
+  '/api/public/case-study-image/$': typeof ApiPublicCaseStudyImageSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
   '/projects-training': typeof ProjectsTrainingRoute
   '/services': typeof ServicesRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
+  '/_authenticated/admin/$id': typeof AuthenticatedAdminIdRoute
+  '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
+  '/api/public/case-study-image/$': typeof ApiPublicCaseStudyImageSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
+    | '/auth'
     | '/case-studies'
     | '/contact'
     | '/projects-training'
     | '/services'
     | '/case-studies/$slug'
     | '/case-studies/'
+    | '/admin/$id'
+    | '/admin/'
+    | '/api/public/case-study-image/$'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/auth'
     | '/contact'
     | '/projects-training'
     | '/services'
     | '/case-studies/$slug'
     | '/case-studies'
+    | '/admin/$id'
+    | '/admin'
+    | '/api/public/case-study-image/$'
   id:
     | '__root__'
     | '/'
+    | '/_authenticated'
     | '/about'
+    | '/auth'
     | '/case-studies'
     | '/contact'
     | '/projects-training'
     | '/services'
     | '/case-studies/$slug'
     | '/case-studies/'
+    | '/_authenticated/admin/$id'
+    | '/_authenticated/admin/'
+    | '/api/public/case-study-image/$'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
+  AuthRoute: typeof AuthRoute
   CaseStudiesRoute: typeof CaseStudiesRouteWithChildren
   ContactRoute: typeof ContactRoute
   ProjectsTrainingRoute: typeof ProjectsTrainingRoute
   ServicesRoute: typeof ServicesRoute
+  ApiPublicCaseStudyImageSplatRoute: typeof ApiPublicCaseStudyImageSplatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -139,11 +198,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/case-studies': {
@@ -188,8 +261,42 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CaseStudiesSlugRouteImport
       parentRoute: typeof CaseStudiesRoute
     }
+    '/_authenticated/admin/': {
+      id: '/_authenticated/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AuthenticatedAdminIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/admin/$id': {
+      id: '/_authenticated/admin/$id'
+      path: '/admin/$id'
+      fullPath: '/admin/$id'
+      preLoaderRoute: typeof AuthenticatedAdminIdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/api/public/case-study-image/$': {
+      id: '/api/public/case-study-image/$'
+      path: '/api/public/case-study-image/$'
+      fullPath: '/api/public/case-study-image/$'
+      preLoaderRoute: typeof ApiPublicCaseStudyImageSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
+
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminIdRoute: typeof AuthenticatedAdminIdRoute
+  AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminIdRoute: AuthenticatedAdminIdRoute,
+  AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
 
 interface CaseStudiesRouteChildren {
   CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
@@ -207,11 +314,14 @@ const CaseStudiesRouteWithChildren = CaseStudiesRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AboutRoute: AboutRoute,
+  AuthRoute: AuthRoute,
   CaseStudiesRoute: CaseStudiesRouteWithChildren,
   ContactRoute: ContactRoute,
   ProjectsTrainingRoute: ProjectsTrainingRoute,
   ServicesRoute: ServicesRoute,
+  ApiPublicCaseStudyImageSplatRoute: ApiPublicCaseStudyImageSplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

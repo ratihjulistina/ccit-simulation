@@ -3,8 +3,7 @@ import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/SectionHeading";
 import { SITE_URL } from "@/lib/site-content";
-import { getCaseStudies } from "@/lib/case-studies.functions";
-import { dummyCaseStudies } from "@/lib/case-studies.dummy";
+import { getPublishedCaseStudies } from "@/lib/case-studies.functions";
 
 const title = "CFD Case Studies | CCIT Simulation Indonesia";
 const description =
