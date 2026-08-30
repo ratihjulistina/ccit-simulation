@@ -6,7 +6,11 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { PageHero } from "@/components/SectionHeading";
 import { RichTextEditor } from "@/components/RichTextEditor";
-import { adminGetCaseStudy, adminSaveCaseStudy } from "@/lib/case-studies.functions";
+import {
+  adminGetCaseStudy,
+  adminSaveCaseStudy,
+  adminListCategories,
+} from "@/lib/case-studies.functions";
 import { slugify, type RichTextDoc } from "@/lib/case-studies.types";
 
 export const Route = createFileRoute("/_authenticated/admin/$id")({
@@ -48,6 +52,18 @@ function CaseStudyEditor() {
     queryFn: () => adminGetCaseStudy({ data: { id } }),
     enabled: !isNew,
   });
+
+  const categories = useQuery({
+    queryKey: ["admin-categories"],
+    queryFn: () => adminListCategories(),
+  });
+
+  const categoryNames = (categories.data?.items ?? []).map((item) => item.name);
+  const categoryOptions =
+    category && !categoryNames.includes(category)
+      ? [...categoryNames, category].sort((a, b) => a.localeCompare(b))
+      : categoryNames;
+
 
   useEffect(() => {
     const item = existing.data?.item;
@@ -162,14 +178,26 @@ function CaseStudyEditor() {
               <label htmlFor="category" className="text-sm font-semibold text-ink">
                 Category
               </label>
-              <input
+              <select
                 id="category"
-                maxLength={60}
-                placeholder="Wind Engineering"
                 value={category}
                 onChange={(event) => setCategory(event.target.value)}
                 className={inputClass}
-              />
+              >
+                <option value="">No category</option>
+                {categoryOptions.map((name) => (
+                  <option key={name} value={name}>
+                    {name}
+                  </option>
+                ))}
+              </select>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Add or rename categories on the{" "}
+                <Link to="/admin/categories" className="text-primary hover:underline">
+                  categories page
+                </Link>
+                .
+              </p>
             </div>
           </div>
 

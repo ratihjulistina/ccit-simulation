@@ -211,3 +211,128 @@ export const adminDeleteCaseStudy = createServerFn({ method: "POST" })
     if (error) throw new Error(error.message);
     return { ok: true };
   });
+
+const categoryNameSchema = z.string().trim().min(1, "Name is required").max(60);
+
+async function assertAdmin(context: { supabase: any; userId: string }) {
+  const { data: isAdmin } = await context.supabase.rpc("has_role", {
+    _user_id: context.userId,
+    _role: "admin",
+  });
+  if (!isAdmin) throw new Error("Forbidden");
+}
+
+export const adminListCategories = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    await assertAdmin(context);
+    const { data: rows, error } = await context.supabase
+      .from("case_study_categories")
+      .select("id, name")
+      .order("name", { ascending: true });
+    if (error) throw new Error(error.message);
+
+    const { data: used, error: usedError } = await context.supabase
+      .from("case_studies")
+      .select("category");
+    if (usedError) throw new Error(usedError.message);
+
+    const counts = new Map<string, number>();
+    for (const row of used ?? []) {
+      const key = (row.category ?? "").trim().toLowerCase();
+      if (!key) continue;
+      counts.set(key, (counts.get(key) ?? 0) + 1);
+    }
+
+    return {
+      items: (rows ?? []).map((row) => ({
+        id: row.id as string,
+        name: row.name as string,
+        usageCount: counts.get(String(row.name).toLowerCase()) ?? 0,
+      })),
+    };
+  });
+
+export const adminCreateCategory = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => z.object({ name: categoryNameSchema }).parse(data))
+  .handler(async ({ data, context }) => {
+    await assertAdmin(context);
+    const { error } = await context.supabase
+      .from("case_study_categories")
+      .insert({ name: data.name });
+    if (error) {
+      throw new Error(
+        error.code === "23505" ? "That category already exists." : error.message,
+      );
+    }
+    return { ok: true };
+  });
+
+export const adminRenameCategory = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) =>
+    z.object({ id: z.string().uuid(), name: categoryNameSchema }).parse(data),
+  )
+  .handler(async ({ data, context }) => {
+    await assertAdmin(context);
+    const { data: current, error: readError } = await context.supabase
+      .from("case_study_categories")
+      .select("name")
+      .eq("id", data.id)
+      .maybeSingle();
+    if (readError) throw new Error(readError.message);
+    if (!current) throw new Error("Category not found.");
+
+    const { error } = await context.supabase
+      .from("case_study_categories")
+      .update({ name: data.name })
+      .eq("id", data.id);
+    if (error) {
+      throw new Error(
+        error.code === "23505" ? "Another category already uses that name." : error.message,
+      );
+    }
+
+    if (current.name !== data.name) {
+      const { error: cascadeError } = await context.supabase
+        .from("case_studies")
+        .update({ category: data.name })
+        .eq("category", current.name);
+      if (cascadeError) throw new Error(cascadeError.message);
+    }
+
+    return { ok: true };
+  });
+
+export const adminDeleteCategory = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => z.object({ id: z.string().uuid() }).parse(data))
+  .handler(async ({ data, context }) => {
+    await assertAdmin(context);
+    const { data: current, error: readError } = await context.supabase
+      .from("case_study_categories")
+      .select("name")
+      .eq("id", data.id)
+      .maybeSingle();
+    if (readError) throw new Error(readError.message);
+    if (!current) throw new Error("Category not found.");
+
+    const { count, error: countError } = await context.supabase
+      .from("case_studies")
+      .select("id", { count: "exact", head: true })
+      .eq("category", current.name);
+    if (countError) throw new Error(countError.message);
+    if ((count ?? 0) > 0) {
+      throw new Error(
+        `${count} case study${count === 1 ? "" : "s"} still use this category. Change them first.`,
+      );
+    }
+
+    const { error } = await context.supabase
+      .from("case_study_categories")
+      .delete()
+      .eq("id", data.id);
+    if (error) throw new Error(error.message);
+    return { ok: true };
+  });
