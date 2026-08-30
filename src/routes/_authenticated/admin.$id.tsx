@@ -53,6 +53,18 @@ function CaseStudyEditor() {
     enabled: !isNew,
   });
 
+  const categories = useQuery({
+    queryKey: ["admin-categories"],
+    queryFn: () => adminListCategories(),
+  });
+
+  const categoryNames = (categories.data?.items ?? []).map((item) => item.name);
+  const categoryOptions =
+    category && !categoryNames.includes(category)
+      ? [...categoryNames, category].sort((a, b) => a.localeCompare(b))
+      : categoryNames;
+
+
   useEffect(() => {
     const item = existing.data?.item;
     if (!item) return;
