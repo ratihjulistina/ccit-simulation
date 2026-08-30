@@ -3,9 +3,8 @@ import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { z } from "zod";
 import type { CaseStudy } from "./case-studies.types";
 
-const richTextSchema: z.ZodType<Record<string, unknown> | null> = z
-  .record(z.string(), z.unknown())
-  .nullable();
+// Tiptap JSON document; validated structurally by the editor, stored as jsonb.
+const richTextSchema = z.any();
 
 const inputSchema = z.object({
   id: z.string().uuid().nullable().optional(),
