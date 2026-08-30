@@ -1,16 +1,15 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
-import type { Document } from "@contentful/rich-text-types";
 import { PageHero } from "@/components/SectionHeading";
 import { RichText } from "@/components/RichText";
 import { ShareButtons } from "@/components/ShareButtons";
 import { SITE_URL } from "@/lib/site-content";
-import { getCaseStudy } from "@/lib/case-studies.functions";
+import { getPublishedCaseStudy } from "@/lib/case-studies.functions";
 
 const caseStudyQuery = (slug: string) =>
   queryOptions({
     queryKey: ["case-study", slug],
-    queryFn: () => getCaseStudy({ data: { slug } }),
+    queryFn: () => getPublishedCaseStudy({ data: { slug } }),
   });
 
 export const Route = createFileRoute("/case-studies/$slug")({
