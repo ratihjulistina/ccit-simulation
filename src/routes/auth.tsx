@@ -20,7 +20,6 @@ export const Route = createFileRoute("/auth")({
 
 function AuthPage() {
   const navigate = useNavigate();
-  const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [busy, setBusy] = useState(false);
@@ -35,20 +34,28 @@ function AuthPage() {
     event.preventDefault();
     setBusy(true);
     try {
-      if (mode === "signup") {
-        const { error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: { emailRedirectTo: `${window.location.origin}/admin` },
-        });
-        if (error) throw error;
-        toast.success("Account created. You can sign in now.");
-        setMode("signin");
-      } else {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) throw error;
-        navigate({ to: "/admin" });
-      }
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) throw error;
+      navigate({ to: "/admin" });
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Something went wrong");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function handleForgotPassword() {
+    if (!email) {
+      toast.error("Enter your email address first.");
+      return;
+    }
+    setBusy(true);
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/set-password`,
+      });
+      if (error) throw error;
+      toast.success("If that account exists, a reset link is on its way.");
     } catch (error) {
       toast.error(error instanceof Error ? error.message : "Something went wrong");
     } finally {
@@ -60,8 +67,8 @@ function AuthPage() {
     <>
       <PageHero
         eyebrow="Team access"
-        title={mode === "signin" ? "Sign in" : "Create an account"}
-        body="This area is for the CCIT Simulation team to publish and edit case studies."
+        title="Sign in"
+        body="This area is for the CCIT Simulation team. Accounts are created by invitation only."
       />
 
       <section className="mx-auto w-full max-w-md px-5 py-14">
@@ -92,7 +99,7 @@ function AuthPage() {
               type="password"
               required
               minLength={8}
-              autoComplete={mode === "signin" ? "current-password" : "new-password"}
+              autoComplete="current-password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
               className="mt-1 w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm outline-none focus:border-primary"
@@ -103,16 +110,15 @@ function AuthPage() {
             disabled={busy}
             className="w-full rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-red)] transition-transform hover:-translate-y-0.5 disabled:opacity-60"
           >
-            {busy ? "Please wait…" : mode === "signin" ? "Sign in" : "Create account"}
+            {busy ? "Please wait…" : "Sign in"}
           </button>
           <button
             type="button"
-            onClick={() => setMode(mode === "signin" ? "signup" : "signin")}
-            className="w-full text-center text-sm text-muted-foreground hover:text-primary"
+            onClick={handleForgotPassword}
+            disabled={busy}
+            className="w-full text-center text-sm text-muted-foreground hover:text-primary disabled:opacity-60"
           >
-            {mode === "signin"
-              ? "Don't have an account? Create one"
-              : "Already have an account? Sign in"}
+            Forgot password?
           </button>
         </form>
         <p className="mt-6 text-center text-sm">
@@ -124,3 +130,4 @@ function AuthPage() {
     </>
   );
 }
+

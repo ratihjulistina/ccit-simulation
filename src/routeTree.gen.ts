@@ -17,6 +17,7 @@ import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ProjectsTrainingRouteImport } from './routes/projects-training'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SetPasswordRouteImport } from './routes/set-password'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
@@ -63,6 +64,11 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SetPasswordRoute = SetPasswordRouteImport.update({
+  id: '/set-password',
+  path: '/set-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -104,6 +110,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/projects-training': typeof ProjectsTrainingRoute
   '/services': typeof ServicesRoute
+  '/set-password': typeof SetPasswordRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/admin/$id': typeof AuthenticatedAdminIdRoute
@@ -118,6 +125,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/projects-training': typeof ProjectsTrainingRoute
   '/services': typeof ServicesRoute
+  '/set-password': typeof SetPasswordRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies': typeof CaseStudiesIndexRoute
   '/admin/$id': typeof AuthenticatedAdminIdRoute
@@ -135,6 +143,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/projects-training': typeof ProjectsTrainingRoute
   '/services': typeof ServicesRoute
+  '/set-password': typeof SetPasswordRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/_authenticated/admin/$id': typeof AuthenticatedAdminIdRoute
@@ -152,6 +161,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/projects-training'
     | '/services'
+    | '/set-password'
     | '/case-studies/$slug'
     | '/case-studies/'
     | '/admin/$id'
@@ -166,6 +176,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/projects-training'
     | '/services'
+    | '/set-password'
     | '/case-studies/$slug'
     | '/case-studies'
     | '/admin/$id'
@@ -182,6 +193,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/projects-training'
     | '/services'
+    | '/set-password'
     | '/case-studies/$slug'
     | '/case-studies/'
     | '/_authenticated/admin/$id'
@@ -199,6 +211,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   ProjectsTrainingRoute: typeof ProjectsTrainingRoute
   ServicesRoute: typeof ServicesRoute
+  SetPasswordRoute: typeof SetPasswordRoute
   ApiPublicCaseStudyImageSplatRoute: typeof ApiPublicCaseStudyImageSplatRoute
 }
 
@@ -258,6 +271,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/set-password': {
+      id: '/set-password'
+      path: '/set-password'
+      fullPath: '/set-password'
+      preLoaderRoute: typeof SetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/case-studies/': {
@@ -343,6 +363,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   ProjectsTrainingRoute: ProjectsTrainingRoute,
   ServicesRoute: ServicesRoute,
+  SetPasswordRoute: SetPasswordRoute,
   ApiPublicCaseStudyImageSplatRoute: ApiPublicCaseStudyImageSplatRoute,
 }
 export const routeTree = rootRouteImport
