@@ -130,6 +130,7 @@ function RootComponent() {
         </main>
         <SiteFooter />
         <FloatingWhatsApp />
+        <Toaster />
       </div>
     </QueryClientProvider>
   );
