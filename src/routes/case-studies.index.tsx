@@ -36,8 +36,8 @@ export const Route = createFileRoute("/case-studies/")({
 
 function CaseStudiesPage() {
   const { data } = useSuspenseQuery(caseStudiesQuery);
-  const items = data.items.length > 0 ? data.items : dummyCaseStudies;
-  const showDummyBanner = data.items.length === 0;
+  const items = data.items;
+  const showEmptyState = items.length === 0;
 
   return (
     <>
