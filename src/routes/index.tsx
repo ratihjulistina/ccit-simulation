@@ -151,38 +151,35 @@ function Index() {
       </section>
 
       <section className="mx-auto max-w-7xl px-5 py-16 sm:py-20">
-
         <Reveal>
           <SectionHeading
             eyebrow="Services"
-            title="CFD expertise across the full flow spectrum"
-            body="Every study is scoped around a decision you need to make — not a pretty picture."
+            title="Engineering services backed by CFD"
+            body="Practical support across the project lifecycle — from early feasibility to independent review."
           />
         </Reveal>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {services.map((s, i) => (
-            <Reveal key={s.title} delay={i * 120} as="article"
-              className="group overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-[transform,box-shadow,opacity] duration-500 hover:-translate-y-1.5 hover:shadow-[var(--shadow-red)]"
-            >
-              <img
-                src={s.image}
-                width={900}
-                height={700}
-                loading="lazy"
-                alt={s.title}
-                className="h-44 w-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="flag-rule h-1 w-full" aria-hidden="true" />
-              <div className="p-6">
-                <h3 className="text-lg font-semibold text-ink">{s.title}</h3>
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {services.slice(0, 6).map((s, i) => {
+            const Icon = serviceIcons[i % serviceIcons.length];
+            return (
+              <Reveal
+                key={s.title}
+                delay={i * 80}
+                as="article"
+                className="group rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] transition-[transform,box-shadow,opacity] duration-500 hover:-translate-y-1.5 hover:shadow-[var(--shadow-red)]"
+              >
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-5 text-lg font-semibold text-ink">{s.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            );
+          })}
         </div>
         <Reveal className="mt-10">
           <Link to="/services" className="text-sm font-semibold text-primary hover:underline">
-            See all simulation services →
+            See all services →
           </Link>
         </Reveal>
       </section>
