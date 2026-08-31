@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/SectionHeading";
 import { industries, stats, SITE_URL } from "@/lib/site-content";
+import ccitLogoAsset from "@/assets/ccit-logo-original.png.asset.json";
 
 const title = "About CCIT Simulation | CFD Consultancy Indonesia";
 const description =
@@ -66,6 +67,21 @@ function AboutPage() {
               Our work sits between design intent and physical reality: we build the model, prove it
               against evidence, and hand back a clear answer your team can act on.
             </p>
+
+            <figure className="mt-8 flex flex-col items-start gap-4 rounded-2xl border border-border bg-card p-5 shadow-[var(--shadow-card)] sm:flex-row sm:items-center">
+              <img
+                src={ccitLogoAsset.url}
+                alt="Original CCIT logo — Computing for Excellence"
+                width={176}
+                height={62}
+                className="rounded-md bg-white object-contain"
+              />
+              <figcaption className="text-sm leading-relaxed text-muted-foreground">
+                <span className="block font-semibold text-ink">Where it started</span>
+                This logo represents the original CCIT identity — “Computing for Excellence” — the
+                same foundation that continues to drive our simulation and engineering work today.
+              </figcaption>
+            </figure>
           </Reveal>
           <Reveal delay={150} className="grid grid-cols-2 gap-6 self-start rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)]">
             {stats.map(([value, label]) => (
