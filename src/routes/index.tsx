@@ -4,11 +4,9 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 import { ClientLogos } from "@/components/ClientLogos";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
-import { ClipboardCheck, Search, Wrench, FileSearch, Lightbulb, BarChart3 } from "lucide-react";
+import { ServicesWheel } from "@/components/ServicesWheel";
 
-import { services, industries, stats, processSteps, successSecrets, SITE_URL } from "@/lib/site-content";
-
-const serviceIcons = [ClipboardCheck, Search, Wrench, FileSearch, Lightbulb, BarChart3];
+import { industries, stats, processSteps, successSecrets, SITE_URL } from "@/lib/site-content";
 
 const title = "CCIT Simulation | CFD & Engineering Simulation Consulting";
 const description =
