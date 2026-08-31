@@ -1,27 +1,41 @@
-import thermalImg from "@/assets/service-thermal.jpg";
-import windImg from "@/assets/service-wind.jpg";
-import multiphaseImg from "@/assets/service-multiphase.jpg";
-
 export const SITE_URL = "https://cfit-aero-indonesia.lovable.app";
 
 export const services = [
   {
-    title: "Aerodynamics & External Flow",
-    body: "Drag, lift, and wake analysis for vehicles, aircraft components, and wind-exposed structures using validated turbulence modelling.",
-    image: windImg,
-    tags: ["RANS / LES", "Wind loading", "Pedestrian comfort"],
+    title: "Engineering feasibility studies",
+    body: "Evaluate design concepts, process changes, and capital projects with CFD-backed technical and economic feasibility before committing resources.",
   },
   {
-    title: "Thermal & Heat Transfer",
-    body: "Conjugate heat transfer, electronics cooling, HVAC, furnace and heat exchanger performance with conduction–convection–radiation coupling.",
-    image: thermalImg,
-    tags: ["CHT", "Electronics cooling", "Heat exchangers"],
+    title: "Root-cause analysis",
+    body: "Identify the underlying flow, thermal, or structural mechanism behind recurring failures, inefficiencies, or off-spec performance.",
   },
   {
-    title: "Multiphase & Process Flow",
-    body: "Slug flow, mixing, cavitation, erosion and separator studies for oil & gas, chemical, and water treatment systems.",
-    image: multiphaseImg,
-    tags: ["VOF / Euler", "Erosion", "Mixing"],
+    title: "Troubleshooting",
+    body: "Rapid diagnostic simulations and engineering judgement to get distressed equipment or processes back inside operating envelopes.",
+  },
+  {
+    title: "Design review",
+    body: "Independent review of drawings, CFD setups, and design assumptions to close gaps before fabrication or procurement.",
+  },
+  {
+    title: "Engineering recommendations",
+    body: "Clear, actionable advice grounded in simulation results, field data, and Indonesian industry codes and standards.",
+  },
+  {
+    title: "CFD-based decision support",
+    body: "Quantified scenarios that help leadership choose between design alternatives, operating modes, or mitigation strategies.",
+  },
+  {
+    title: "Failure investigation",
+    body: "Reconstruct failure events digitally to determine root cause, responsibility, and prevention measures for insurance and engineering teams.",
+  },
+  {
+    title: "Performance assessment",
+    body: "Benchmark actual or proposed equipment performance against design intent, guarantees, and best-in-class references.",
+  },
+  {
+    title: "Independent engineering review",
+    body: "Third-party technical opinions for lenders, owners, and regulators on critical energy, mining, and infrastructure projects.",
   },
 ];
 
