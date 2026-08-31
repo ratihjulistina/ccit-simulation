@@ -239,8 +239,14 @@ function AdminManager() {
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          grantMutation.mutate(email);
+          const value = email.trim();
+          if (!value) {
+            toast.error("Please enter a valid email address.");
+            return;
+          }
+          grantMutation.mutate(value);
         }}
+
         className="mt-4 flex flex-wrap gap-2"
       >
         <input
