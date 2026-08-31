@@ -58,9 +58,9 @@ export const processSteps = [
 import oilGasImg from "@/assets/industries/oil-gas.jpg";
 import powerGenImg from "@/assets/industries/power-generation.jpg";
 import petrochemicalImg from "@/assets/industries/petrochemical.jpg";
-import marineImg from "@/assets/industries/marine-shipyard.jpg";
+import renewableImg from "@/assets/industries/renewable-energy.jpg";
 import hvacImg from "@/assets/industries/building-hvac.jpg";
-import automotiveImg from "@/assets/industries/automotive.jpg";
+import dataCenterImg from "@/assets/industries/data-center.jpg";
 import miningImg from "@/assets/industries/mining.jpg";
 import foodPharmaImg from "@/assets/industries/food-pharma.jpg";
 
@@ -68,9 +68,9 @@ export const industries: { name: string; image: string }[] = [
   { name: "Oil & Gas", image: oilGasImg },
   { name: "Power Generation", image: powerGenImg },
   { name: "Petrochemical", image: petrochemicalImg },
-  { name: "Marine & Shipyard", image: marineImg },
+  { name: "Renewable Energy", image: renewableImg },
   { name: "Building & HVAC", image: hvacImg },
-  { name: "Automotive", image: automotiveImg },
+  { name: "Data Center", image: dataCenterImg },
   { name: "Mining", image: miningImg },
   { name: "Food & Pharma", image: foodPharmaImg },
 ];
