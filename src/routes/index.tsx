@@ -192,9 +192,9 @@ function Index() {
                   height={512}
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent p-4 pt-10 text-sm font-semibold text-white">
+                <p className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent p-4 pt-10 text-sm font-semibold text-white">
                   {ind.name}
-                </figcaption>
+                </p>
               </Reveal>
             ))}
           </div>
