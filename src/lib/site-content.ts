@@ -55,9 +55,24 @@ export const processSteps = [
   { step: "04", title: "Report & Decide", body: "Clear visuals, quantified margins, and a concrete design recommendation you can act on." },
 ];
 
-export const industries = [
-  "Oil & Gas", "Power Generation", "Petrochemical", "Marine & Shipyard",
-  "Building & HVAC", "Automotive", "Mining", "Food & Pharma",
+import oilGasImg from "@/assets/industries/oil-gas.jpg";
+import powerGenImg from "@/assets/industries/power-generation.jpg";
+import petrochemicalImg from "@/assets/industries/petrochemical.jpg";
+import marineImg from "@/assets/industries/marine-shipyard.jpg";
+import hvacImg from "@/assets/industries/building-hvac.jpg";
+import automotiveImg from "@/assets/industries/automotive.jpg";
+import miningImg from "@/assets/industries/mining.jpg";
+import foodPharmaImg from "@/assets/industries/food-pharma.jpg";
+
+export const industries: { name: string; image: string }[] = [
+  { name: "Oil & Gas", image: oilGasImg },
+  { name: "Power Generation", image: powerGenImg },
+  { name: "Petrochemical", image: petrochemicalImg },
+  { name: "Marine & Shipyard", image: marineImg },
+  { name: "Building & HVAC", image: hvacImg },
+  { name: "Automotive", image: automotiveImg },
+  { name: "Mining", image: miningImg },
+  { name: "Food & Pharma", image: foodPharmaImg },
 ];
 
 import plnLogo from "@/assets/clients/pln.jpg.asset.json";
