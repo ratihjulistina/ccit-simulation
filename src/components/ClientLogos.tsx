@@ -34,7 +34,6 @@ export function ClientLogos() {
             ))}
           </ul>
         </div>
-        <p className="mt-3 text-center text-xs text-muted-foreground">Hover to pause</p>
       </div>
     </section>
   );
