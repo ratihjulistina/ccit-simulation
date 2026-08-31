@@ -70,9 +70,7 @@ function Index() {
               <span className="text-gradient-red">solved with confidence.</span>
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-white/70">
-              CCIT Simulation is an Indonesian engineering consultancy specialising in
-              computational fluid dynamics. Advancing global power, energy, mining, and HVAC with
-              presicion CFD services.
+              CCIT Simulation is an Indonesian engineering consultancy specialising in computational fluid dynamics, delivering high-precision simulation and engineering solutions for the global power, energy, mining, and HVAC industries.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link
