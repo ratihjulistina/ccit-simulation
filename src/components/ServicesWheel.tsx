@@ -82,7 +82,7 @@ export function ServicesWheel() {
               );
             })}
           </g>
-          {/* curved label on active segment (counter-rotated so text stays readable) */}
+          {/* service number labels on every slice */}
           <g
             style={{
               transform: `rotate(${rotation}deg)`,
@@ -92,41 +92,22 @@ export function ServicesWheel() {
             className="pointer-events-none"
           >
             {services.map((s, i) => {
-              if (i !== active) return null;
-              const start = i * segDeg + GAP / 2 + 3;
-              const end = (i + 1) * segDeg - GAP / 2 - 3;
-              // split title into two balanced lines so long names fit the slice
-              const words = s.title.toUpperCase().split(" ");
-              let line1 = "";
-              let line2 = "";
-              for (const w of words) {
-                if (line1.length <= line2.length) line1 = line1 ? `${line1} ${w}` : w;
-                else line2 = line2 ? `${line2} ${w}` : w;
-              }
-              const lines = line2 ? [line1, line2] : [line1];
+              const mid = (i + 0.5) * segDeg;
+              const [x, y] = polar(mid, R_LABEL);
               return (
-                <g key={s.title}>
-                  <defs>
-                    {lines.map((_, li) => (
-                      <path
-                        key={li}
-                        id={`label-arc-${i}-${li}`}
-                        d={labelArcPath(start, end, R_LABEL + (li - (lines.length - 1) / 2) * 26)}
-                      />
-                    ))}
-                  </defs>
-                  {lines.map((line, li) => (
-                    <text
-                      key={li}
-                      className="fill-primary-foreground text-[11px] font-semibold"
-                      style={{ letterSpacing: "0.18em" }}
-                    >
-                      <textPath href={`#label-arc-${i}-${li}`} startOffset="50%" textAnchor="middle">
-                        {line}
-                      </textPath>
-                    </text>
-                  ))}
-                </g>
+                <text
+                  key={s.title}
+                  x={x}
+                  y={y}
+                  textAnchor="middle"
+                  dominantBaseline="central"
+                  transform={`rotate(${mid} ${x} ${y})`}
+                  className={`text-[15px] font-bold transition-[fill] duration-300 ${
+                    i === active ? "fill-primary-foreground" : "fill-primary/60"
+                  }`}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </text>
               );
             })}
           </g>
