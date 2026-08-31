@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/SectionHeading";
 import { SITE_URL } from "@/lib/site-content";
+import trainingReinhardtAsset from "@/assets/training-reinhardt-2024.jpg.asset.json";
+import trainingClassAsset from "@/assets/training-class-2024.jpg.asset.json";
 
 const title = "Projects & Training | CCIT Simulation";
 const description =
@@ -295,6 +297,48 @@ function ProjectsTrainingPage() {
           >
             Request a training schedule
           </Link>
+        </div>
+      </section>
+
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-7xl px-5 py-20">
+          <Reveal as="span" className="block">
+            <h2 className="text-2xl font-bold text-ink sm:text-3xl">Recent training</h2>
+          </Reveal>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+            Hands-on sessions with engineering teams across Indonesia — from in-house workshops to
+            open classes.
+          </p>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            <Reveal delay={100} className="group overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)]">
+              <div className="aspect-[16/10] overflow-hidden">
+                <img
+                  src={trainingReinhardtAsset.url}
+                  alt="CCIT training session at Reinhardt"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-5">
+                <p className="text-sm font-semibold text-ink">In-house workshop</p>
+                <p className="mt-1 text-sm text-muted-foreground">Reinhardt · 2024</p>
+              </div>
+            </Reveal>
+            <Reveal delay={200} className="group overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)]">
+              <div className="aspect-[16/10] overflow-hidden">
+                <img
+                  src={trainingClassAsset.url}
+                  alt="CCIT training class group photo"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-5">
+                <p className="text-sm font-semibold text-ink">Open training class</p>
+                <p className="mt-1 text-sm text-muted-foreground">Jakarta · 2024</p>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
     </>
