@@ -108,7 +108,7 @@ export function SiteFooter() {
             </Link>
           </nav>
         </div>
-        <p>© {new Date().getFullYear()} PT CCIT Group Indonesia · Jl. KHM Usman No. 22A, Beji, Depok 16425, West Java · admin@ccit.co.id · +62 813-1523-9718</p>
+        <p>© {new Date().getFullYear()} PT CCIT Group Indonesia · Jl. KHM Usman, Beji, Depok 16425, West Java · admin@ccit.co.id ·</p>
       </div>
     </footer>
   );
