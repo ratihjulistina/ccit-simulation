@@ -162,7 +162,7 @@ function Index() {
         </Reveal>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.slice(0, 6).map((s, i) => {
-            const Icon = serviceIcons[i % serviceIcons.length];
+            const Icon = serviceIcons[i % serviceIcons.length]!;
             return (
               <Reveal
                 key={s.title}
