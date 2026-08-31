@@ -321,7 +321,7 @@ function ProjectsTrainingPage() {
               </div>
               <div className="p-5">
                 <p className="text-sm font-semibold text-ink">In-house workshop</p>
-                <p className="mt-1 text-sm text-muted-foreground">Reinhardt · 2024</p>
+                <p className="mt-1 text-sm text-muted-foreground">Meinhardt · 2024</p>
               </div>
             </Reveal>
             <Reveal delay={200} className="group overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)]">
@@ -335,7 +335,7 @@ function ProjectsTrainingPage() {
               </div>
               <div className="p-5">
                 <p className="text-sm font-semibold text-ink">Open training class</p>
-                <p className="mt-1 text-sm text-muted-foreground">Jakarta · 2024</p>
+                <p className="mt-1 text-sm text-muted-foreground">BRIN · 2024</p>
               </div>
             </Reveal>
           </div>
