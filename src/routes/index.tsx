@@ -6,7 +6,7 @@ import { ClientLogos } from "@/components/ClientLogos";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { ServicesWheel } from "@/components/ServicesWheel";
 
-import { industries, stats, processSteps, successSecrets, SITE_URL } from "@/lib/site-content";
+import { industries, stats, successSecrets, SITE_URL } from "@/lib/site-content";
 
 const title = "CCIT Simulation | CFD & Engineering Simulation Consulting";
 const description =
@@ -193,35 +193,6 @@ function Index() {
       </section>
 
 
-      <section id="process" className="border-t border-border bg-muted/60 scroll-mt-24">
-        <div className="mx-auto max-w-7xl px-5 py-20">
-          <Reveal>
-            <SectionHeading
-              eyebrow="How we work"
-              title="A transparent, validation-first workflow"
-              body="You see the assumptions, the mesh study, and the validation basis — every step of the way."
-            />
-          </Reveal>
-          <div className="mt-12 grid gap-6 md:grid-cols-4">
-            {processSteps.map((p, i) => (
-              <Reveal
-                key={p.step}
-                delay={i * 100}
-                className="rounded-2xl border border-border bg-card p-6"
-              >
-                <span className="font-display text-sm font-bold tracking-widest text-primary">{p.step}</span>
-                <h3 className="mt-3 text-base font-semibold text-ink">{p.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal className="mt-10">
-            <Link to="/contact" className="text-sm font-semibold text-primary hover:underline">
-              Discuss your project with us →
-            </Link>
-          </Reveal>
-        </div>
-      </section>
 
       <section id="testimonials" className="mx-auto max-w-7xl px-5 py-20 scroll-mt-24">
         <Reveal>
