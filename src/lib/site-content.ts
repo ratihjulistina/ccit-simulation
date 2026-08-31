@@ -68,7 +68,7 @@ export const stats: [string, string][] = [
   ["120+", "Simulation studies delivered"],
   ["5+", "Industrial sectors served"],
   ["22+", "YEARS OF EXPERIENCE"],
-  ["50+", "TRAINING CONDUCTED"],
+  ["50+", "TRAINING SESSIONS DELIVERED"],
 ];
 
 export const testimonials = [
