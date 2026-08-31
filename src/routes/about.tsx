@@ -44,7 +44,7 @@ function AboutPage() {
       <PageHero
         eyebrow="About us"
         title="An Indonesian simulation consultancy built by engineers"
-        body="CCIT Simulation helps plants, shipyards, and manufacturers understand exactly what the flow, heat, and loads are doing inside their equipment."
+        body="CCIT Simulation is an Indonesian engineering consultancy specialising in computational fluid dynamics, delivering high-precision simulation and engineering solutions for the global power, energy, mining, and HVAC industries."
       />
 
       <section className="mx-auto max-w-7xl px-5 py-20">
