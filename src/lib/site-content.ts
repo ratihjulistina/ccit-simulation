@@ -66,9 +66,9 @@ export const clients: { name: string; logo: string }[] = [
 
 export const stats: [string, string][] = [
   ["120+", "Simulation studies delivered"],
-  ["15+", "Industrial sectors served"],
-  ["40%", "Average prototyping cost saved"],
-  ["±5%", "Typical validation deviation"],
+  ["5+", "Industrial sectors served"],
+  ["22+", "YEARS OF EXPERIENCE"],
+  ["50+", "TRAINING CONDUCTED"],
 ];
 
 export const testimonials = [
