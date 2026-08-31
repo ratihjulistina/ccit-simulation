@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/SectionHeading";
 import { SITE_URL } from "@/lib/site-content";
+import trainingReinhardtAsset from "@/assets/training-reinhardt-2024.jpg.asset.json";
+import trainingClassAsset from "@/assets/training-class-2024.jpg.asset.json";
 
 const title = "Projects & Training | CCIT Simulation";
 const description =
