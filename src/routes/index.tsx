@@ -6,7 +6,7 @@ import { ClientLogos } from "@/components/ClientLogos";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { ClipboardCheck, Search, Wrench, FileSearch, Lightbulb, BarChart3 } from "lucide-react";
 
-import { services, industries, stats, capabilities, processSteps, successSecrets, SITE_URL } from "@/lib/site-content";
+import { services, industries, stats, processSteps, successSecrets, SITE_URL } from "@/lib/site-content";
 
 const serviceIcons = [ClipboardCheck, Search, Wrench, FileSearch, Lightbulb, BarChart3];
 
