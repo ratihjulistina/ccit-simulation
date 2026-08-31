@@ -3,10 +3,13 @@ import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { PageHero } from "@/components/SectionHeading";
 import { services, SITE_URL } from "@/lib/site-content";
+import { ClipboardCheck, Search, Wrench, FileSearch, Lightbulb, BarChart3, ShieldAlert, Gauge, Scale } from "lucide-react";
 
-const title = "CFD Simulation Services | CCIT Simulation Indonesia";
+const title = "Engineering Services | CCIT Simulation Indonesia";
 const description =
-  "Aerodynamics, thermal, and multiphase CFD simulation services for Indonesian energy, process, marine, and building projects.";
+  "Feasibility studies, root-cause analysis, troubleshooting, design review, and independent engineering reviews backed by CFD simulation.";
+
+const icons = [ClipboardCheck, Search, Wrench, FileSearch, Lightbulb, BarChart3, ShieldAlert, Gauge, Scale];
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -29,50 +32,35 @@ function ServicesPage() {
     <>
       <PageHero
         eyebrow="Services"
-        title="CFD expertise across the full flow spectrum"
-        body="Every study is scoped around a decision you need to make — not a pretty picture."
+        title="Engineering services backed by CFD"
+        body="Practical support across the project lifecycle — from early feasibility to independent review."
       />
       <section className="mx-auto max-w-7xl px-5 py-20">
         <Reveal>
-        <SectionHeading
-          eyebrow="What we solve"
-          title="Three core simulation practices"
-          body="Each engagement is delivered with a documented mesh study, validation basis, and an actionable recommendation."
-        />
+          <SectionHeading
+            eyebrow="What we solve"
+            title="Nine ways we help engineering teams decide"
+            body="Each engagement is scoped around a clear decision, delivered with documented analysis and actionable recommendations."
+          />
         </Reveal>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {services.map((s, i) => (
-            <Reveal
-              as="article"
-              key={s.title}
-              delay={i * 120}
-              className="group overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-[transform,box-shadow,opacity] duration-500 hover:-translate-y-1.5 hover:shadow-[var(--shadow-red)]"
-            >
-              <img
-                src={s.image}
-                width={900}
-                height={700}
-                loading="lazy"
-                alt={s.title}
-                className="h-44 w-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="flag-rule h-1 w-full" aria-hidden="true" />
-              <div className="p-6">
-                <h2 className="text-lg font-semibold text-ink">{s.title}</h2>
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((s, i) => {
+            const Icon = icons[i % icons.length];
+            return (
+              <Reveal
+                as="article"
+                key={s.title}
+                delay={i * 80}
+                className="group rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] transition-[transform,box-shadow,opacity] duration-500 hover:-translate-y-1.5 hover:shadow-[var(--shadow-red)]"
+              >
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h2 className="mt-5 text-lg font-semibold text-ink">{s.title}</h2>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
-                <ul className="mt-5 flex flex-wrap gap-2">
-                  {s.tags.map((t) => (
-                    <li
-                      key={t}
-                      className="rounded-full bg-accent px-2.5 py-1 text-[11px] font-semibold text-accent-foreground"
-                    >
-                      {t}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            );
+          })}
         </div>
       </section>
     </>
