@@ -136,7 +136,7 @@ export const grantAdminByEmail = createServerFn({ method: "POST" })
       const { error: resendError } = await supabaseAdmin.auth.resend({
         type: "signup",
         email,
-        options: data.redirectTo ? { emailRedirectTo: data.redirectTo } : undefined,
+        ...(data.redirectTo ? { options: { emailRedirectTo: data.redirectTo } } : {}),
       });
       if (resendError) throw resendError;
       status = "resent";
