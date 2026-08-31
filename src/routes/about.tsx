@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/SectionHeading";
 import { industries, stats, SITE_URL } from "@/lib/site-content";
+import ccitLogoAsset from "@/assets/ccit-logo-original.png.asset.json";
 
 const title = "About CCIT Simulation | CFD Consultancy Indonesia";
 const description =
