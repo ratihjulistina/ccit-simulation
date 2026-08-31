@@ -71,7 +71,7 @@ function Index() {
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-white/70">
               CCIT Simulation is an Indonesian engineering consultancy specialising in
-              computational fluid dynamics. Advancing global power, mining, and HVAC with
+              computational fluid dynamics. Advancing global power, energy, mining, and HVAC with
               presicion CFD services.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
