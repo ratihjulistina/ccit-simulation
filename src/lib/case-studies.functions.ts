@@ -120,7 +120,7 @@ export const grantAdminByEmail = createServerFn({ method: "POST" })
     if (listError) throw listError;
     const email = data.email.toLowerCase();
     let target = users.users.find((user) => user.email?.toLowerCase() === email) ?? null;
-    let invited = false;
+    let status: "invited" | "resent" | "existing" = "existing";
 
     if (!target) {
       const { data: invite, error: inviteError } = await supabaseAdmin.auth.admin.inviteUserByEmail(
@@ -129,7 +129,17 @@ export const grantAdminByEmail = createServerFn({ method: "POST" })
       );
       if (inviteError) throw inviteError;
       target = invite.user;
-      invited = true;
+      status = "invited";
+    } else if (!target.email_confirmed_at) {
+      // Account exists but never confirmed — the original email may have expired
+      // or never arrived. Resend the confirmation/invite email.
+      const { error: resendError } = await supabaseAdmin.auth.resend({
+        type: "signup",
+        email,
+        options: data.redirectTo ? { emailRedirectTo: data.redirectTo } : undefined,
+      });
+      if (resendError) throw resendError;
+      status = "resent";
     }
 
     if (!target) throw new Error("Could not create the invitation. Please try again.");
@@ -138,7 +148,7 @@ export const grantAdminByEmail = createServerFn({ method: "POST" })
       .from("user_roles")
       .upsert({ user_id: target.id, role: "admin" }, { onConflict: "user_id,role" });
     if (error) throw error;
-    return { ok: true, email: target.email, invited };
+    return { ok: true, email: target.email, status };
   });
 
 export const revokeAdmin = createServerFn({ method: "POST" })
