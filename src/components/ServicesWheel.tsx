@@ -29,11 +29,6 @@ function sectorPath(startDeg: number, endDeg: number, rOut: number, rIn: number)
   ].join(" ");
 }
 
-function labelArcPath(startDeg: number, endDeg: number, r: number): string {
-  const [x1, y1] = polar(startDeg, r);
-  const [x2, y2] = polar(endDeg, r);
-  return `M ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2}`;
-}
 
 export function ServicesWheel() {
   const [active, setActive] = useState(0);
