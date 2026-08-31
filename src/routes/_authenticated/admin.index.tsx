@@ -210,9 +210,11 @@ function AdminManager() {
       }),
     onSuccess: (result) => {
       toast.success(
-        result.invited
+        result.status === "invited"
           ? "Invitation email sent. They can set a password from the link."
-          : "Admin access granted to the existing account.",
+          : result.status === "resent"
+            ? "Invitation email resent. Ask them to check spam if it doesn't arrive."
+            : "Admin access granted to the existing account.",
       );
       setEmail("");
       void queryClient.invalidateQueries({ queryKey: ["admins"] });
@@ -270,9 +272,19 @@ function AdminManager() {
           <li key={admin.userId} className="flex flex-wrap items-center gap-3 py-3">
             <span className="min-w-0 flex-1 truncate text-sm text-ink">{admin.email}</span>
             {admin.pending && (
-              <span className="rounded-full bg-muted px-2.5 py-1 text-[11px] font-semibold text-muted-foreground">
-                Invitation pending
-              </span>
+              <>
+                <span className="rounded-full bg-muted px-2.5 py-1 text-[11px] font-semibold text-muted-foreground">
+                  Invitation pending
+                </span>
+                <button
+                  type="button"
+                  disabled={grantMutation.isPending}
+                  onClick={() => grantMutation.mutate(admin.email)}
+                  className="rounded-full border border-border px-4 py-1.5 text-xs font-semibold text-ink hover:bg-muted disabled:opacity-60"
+                >
+                  Resend invitation
+                </button>
+              </>
             )}
             {admin.userId === admins.data?.currentUserId ? (
               <span className="text-xs text-muted-foreground">You</span>
