@@ -181,7 +181,6 @@ function Index() {
             {industries.map((ind, idx) => (
               <Reveal
                 key={ind.name}
-                as="figure"
                 delay={idx * 60}
                 className="group relative h-48 overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)]"
               >
