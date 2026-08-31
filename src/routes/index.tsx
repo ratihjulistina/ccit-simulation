@@ -6,7 +6,7 @@ import { ClientLogos } from "@/components/ClientLogos";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { ClipboardCheck, Search, Wrench, FileSearch, Lightbulb, BarChart3 } from "lucide-react";
 
-import { services, industries, stats, capabilities, processSteps, successSecrets, SITE_URL } from "@/lib/site-content";
+import { services, industries, stats, processSteps, successSecrets, SITE_URL } from "@/lib/site-content";
 
 const serviceIcons = [ClipboardCheck, Search, Wrench, FileSearch, Lightbulb, BarChart3];
 
@@ -210,23 +210,6 @@ function Index() {
         </div>
       </section>
 
-      <section id="capabilities" className="mx-auto max-w-7xl px-5 py-20 scroll-mt-24">
-        <Reveal>
-          <SectionHeading
-            eyebrow="Capabilities"
-            title="Beyond flow: a complete simulation partner"
-            body="Fluids, heat, structures and optimisation under one roof, using ANSYS Fluent, CFX, OpenFOAM, and Mechanical."
-          />
-        </Reveal>
-        <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-          {capabilities.map((c, i) => (
-            <Reveal key={c.title} delay={i * 80} className="border-l-2 border-primary/70 pl-4">
-              <h3 className="text-base font-semibold text-ink">{c.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
-            </Reveal>
-          ))}
-        </div>
-      </section>
 
       <section id="process" className="border-t border-border bg-muted/60 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-5 py-20">
