@@ -177,15 +177,24 @@ function Index() {
               body="Oil & gas, power, marine, buildings and manufacturing — each with its own codes, constraints, and validation basis."
             />
           </Reveal>
-          <div className="mt-10 flex flex-wrap gap-3">
-            {industries.map((i, idx) => (
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {industries.map((ind, idx) => (
               <Reveal
-                key={i}
-                as="span"
+                key={ind.name}
                 delay={idx * 60}
-                className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-ink transition-transform duration-300 hover:-translate-y-0.5"
+                className="group relative h-48 overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)]"
               >
-                {i}
+                <img
+                  src={ind.image}
+                  alt={`${ind.name} industry`}
+                  loading="lazy"
+                  width={768}
+                  height={512}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <p className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent p-4 pt-10 text-sm font-semibold text-white">
+                  {ind.name}
+                </p>
               </Reveal>
             ))}
           </div>

@@ -98,11 +98,11 @@ function AboutPage() {
           {industries.map((i, idx) => (
             <Reveal
               as="span"
-              key={i}
+              key={i.name}
               delay={idx * 60}
               className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-ink"
             >
-              {i}
+              {i.name}
             </Reveal>
           ))}
         </ul>
