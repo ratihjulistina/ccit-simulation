@@ -95,16 +95,37 @@ export function ServicesWheel() {
               if (i !== active) return null;
               const start = i * segDeg + GAP / 2 + 3;
               const end = (i + 1) * segDeg - GAP / 2 - 3;
+              // split title into two balanced lines so long names fit the slice
+              const words = s.title.toUpperCase().split(" ");
+              let line1 = "";
+              let line2 = "";
+              for (const w of words) {
+                if (line1.length <= line2.length) line1 = line1 ? `${line1} ${w}` : w;
+                else line2 = line2 ? `${line2} ${w}` : w;
+              }
+              const lines = line2 ? [line1, line2] : [line1];
               return (
                 <g key={s.title}>
                   <defs>
-                    <path id={`label-arc-${i}`} d={labelArcPath(start, end, R_LABEL)} />
+                    {lines.map((_, li) => (
+                      <path
+                        key={li}
+                        id={`label-arc-${i}-${li}`}
+                        d={labelArcPath(start, end, R_LABEL + (li - (lines.length - 1) / 2) * 26)}
+                      />
+                    ))}
                   </defs>
-                  <text className="fill-primary-foreground text-[13px] font-semibold uppercase" style={{ letterSpacing: "0.22em" }}>
-                    <textPath href={`#label-arc-${i}`} startOffset="50%" textAnchor="middle">
-                      {s.title}
-                    </textPath>
-                  </text>
+                  {lines.map((line, li) => (
+                    <text
+                      key={li}
+                      className="fill-primary-foreground text-[11px] font-semibold"
+                      style={{ letterSpacing: "0.18em" }}
+                    >
+                      <textPath href={`#label-arc-${i}-${li}`} startOffset="50%" textAnchor="middle">
+                        {line}
+                      </textPath>
+                    </text>
+                  ))}
                 </g>
               );
             })}
