@@ -92,9 +92,19 @@ export const claimFirstAdmin = createServerFn({ method: "POST" })
 
 export const grantAdminByEmail = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((data: { email: string; redirectTo?: string }) =>
-    z.object({ email: z.string().email(), redirectTo: z.string().url().optional() }).parse(data),
-  )
+  .inputValidator((data: { email: string; redirectTo?: string }) => {
+    const parsed = z
+      .object({
+        email: z.string().trim().toLowerCase().email("Please enter a valid email address."),
+        redirectTo: z.string().url().optional(),
+      })
+      .safeParse(data);
+    if (!parsed.success) {
+      throw new Error(parsed.error.issues[0]?.message ?? "Invalid input.");
+    }
+    return parsed.data;
+  })
+
   .handler(async ({ data, context }) => {
     const { data: isAdmin } = await context.supabase.rpc("has_role", {
       _user_id: context.userId,
