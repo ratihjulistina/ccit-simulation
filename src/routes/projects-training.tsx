@@ -201,8 +201,8 @@ function ProjectsTrainingPage() {
     <>
       <PageHero
         eyebrow="Projects & Training"
-        title="Delivered projects, and the training to run them yourself"
-        body="We deliver simulation work for industry, and we teach engineering teams to build the same capability in-house."
+        title="Delivered Projects. Empowered Engineers."
+        body="From complex CFD engineering projects to hands-on training, we deliver practical solutions and equip your team with the knowledge and skills to apply them independently."
       />
 
       <section className="mx-auto max-w-7xl px-5 py-20">
