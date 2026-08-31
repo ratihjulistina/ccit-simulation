@@ -93,7 +93,7 @@ function Index() {
               src={heroImg}
               width={1600}
               height={1008}
-              alt="CFD velocity streamlines over a turbine stage and a car body"
+              alt="CFD results from CCIT projects: HRSG economizer tube force distribution, pipe elbow erosion, seawater intake sedimentation, and intake flow distribution"
               className="animate-float-soft w-full rounded-2xl border border-white/10 shadow-[var(--shadow-card)]"
             />
           </Reveal>
