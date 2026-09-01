@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { CalendarDays, ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/SectionHeading";
+import { ShareButtons } from "@/components/ShareButtons";
 import { SITE_URL } from "@/lib/site-content";
 import trainingReinhardtAsset from "@/assets/training-reinhardt-2024.jpg";
 import trainingClassAsset from "@/assets/training-class-2024.jpg";
