@@ -61,7 +61,7 @@ function Index() {
       <section className="surface-ink relative overflow-hidden">
         <div className="grid-mesh animate-mesh-drift absolute inset-0 opacity-60" aria-hidden="true" />
         <div className="relative mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:py-28">
-          <Reveal>
+          <div className="animate-hero-in">
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" /> CFD Consulting · Indonesia
             </span>
@@ -86,8 +86,8 @@ function Index() {
                 Explore services
               </Link>
             </div>
-          </Reveal>
-          <Reveal delay={150} className="relative">
+          </div>
+          <div className="animate-hero-in relative" style={{ animationDelay: "150ms" }}>
             <div className="flag-rule absolute -left-3 top-6 hidden h-40 w-1.5 rounded-full lg:block" aria-hidden="true" />
             <img
               src={heroImg}
@@ -95,16 +95,17 @@ function Index() {
               height={1008}
               alt="CFD results from CCIT projects: HRSG economizer tube force distribution, pipe elbow erosion, seawater intake sedimentation, and intake flow distribution"
               className="animate-float-soft w-full rounded-2xl border border-white/10 shadow-[var(--shadow-card)]"
+              fetchPriority="high"
             />
-          </Reveal>
+          </div>
         </div>
         <div className="relative border-t border-white/10">
           <dl className="mx-auto grid max-w-7xl grid-cols-2 gap-px px-5 py-8 sm:grid-cols-4">
             {stats.map(([value, label], i) => (
-              <Reveal key={label} delay={i * 100}>
+              <div key={label} className="animate-hero-in" style={{ animationDelay: `${200 + i * 100}ms` }}>
                 <dt className="font-display text-3xl font-bold text-primary">{value}</dt>
                 <dd className="mt-1 text-xs uppercase tracking-wider text-white/55">{label}</dd>
-              </Reveal>
+              </div>
             ))}
           </dl>
         </div>
