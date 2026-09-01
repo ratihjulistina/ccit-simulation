@@ -95,16 +95,17 @@ function Index() {
               height={1008}
               alt="CFD results from CCIT projects: HRSG economizer tube force distribution, pipe elbow erosion, seawater intake sedimentation, and intake flow distribution"
               className="animate-float-soft w-full rounded-2xl border border-white/10 shadow-[var(--shadow-card)]"
+              fetchPriority="high"
             />
-          </Reveal>
+          </div>
         </div>
         <div className="relative border-t border-white/10">
           <dl className="mx-auto grid max-w-7xl grid-cols-2 gap-px px-5 py-8 sm:grid-cols-4">
             {stats.map(([value, label], i) => (
-              <Reveal key={label} delay={i * 100}>
+              <div key={label} className="animate-hero-in" style={{ animationDelay: `${200 + i * 100}ms` }}>
                 <dt className="font-display text-3xl font-bold text-primary">{value}</dt>
                 <dd className="mt-1 text-xs uppercase tracking-wider text-white/55">{label}</dd>
-              </Reveal>
+              </div>
             ))}
           </dl>
         </div>
