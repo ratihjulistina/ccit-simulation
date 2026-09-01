@@ -11,6 +11,15 @@ const title = "Projects & Training | CCIT Simulation";
 const description =
   "Industrial simulation projects and hands-on CFD training programmes from CCIT Simulation — in-house workshops, mentoring, and capability building for Indonesian engineering teams.";
 
+const webinar = {
+  title: "Free Webinar: Introduction to OpenFOAM",
+  date: "28 September 2026",
+  body: "A free live session for engineers who want to get started with OpenFOAM — the open-source CFD toolbox. We cover installation, the case structure, running your first simulation, and how OpenFOAM fits real industrial workflows.",
+  // TODO: replace with the actual Google Form link
+  formUrl: "https://forms.gle/your-openfoam-webinar-form",
+  shareUrl: `${SITE_URL}/projects-training#webinar-openfoam`,
+};
+
 const programmes = [
   {
     name: "CFD Fundamentals",
