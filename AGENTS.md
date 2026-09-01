@@ -1,10 +1,6 @@
-<!-- LOVABLE:BEGIN -->
-> [!IMPORTANT]
-> This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
-> published git history — force pushing, or rebasing/amending/squashing commits
-> that are already pushed — as it rewrites history on Lovable's side and the
-> user will likely lose their project history.
->
-> Commits you push to the connected branch sync back to Lovable and show up in
-> the editor, so keep the branch in a working state.
-<!-- LOVABLE:END -->
+# Contributor notes
+
+- Keep TanStack Start conventions: routes live in `src/routes/`, shared layouts in `src/routes/__root.tsx`, and server-only logic in `createServerFn` handlers or `*.server.ts` modules.
+- Use the existing Supabase backend for auth and data. Do not expose service-role keys to the client.
+- Follow the Indonesian red/white design system in `src/styles.css`; avoid hard-coded colors in components.
+- Run `bun run build` before finishing non-trivial changes to catch SSR and bundling issues.
