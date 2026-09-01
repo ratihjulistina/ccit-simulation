@@ -61,7 +61,7 @@ function Index() {
       <section className="surface-ink relative overflow-hidden">
         <div className="grid-mesh animate-mesh-drift absolute inset-0 opacity-60" aria-hidden="true" />
         <div className="relative mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:py-28">
-          <Reveal>
+          <div className="animate-hero-in">
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" /> CFD Consulting · Indonesia
             </span>
@@ -86,8 +86,8 @@ function Index() {
                 Explore services
               </Link>
             </div>
-          </Reveal>
-          <Reveal delay={150} className="relative">
+          </div>
+          <div className="animate-hero-in relative" style={{ animationDelay: "150ms" }}>
             <div className="flag-rule absolute -left-3 top-6 hidden h-40 w-1.5 rounded-full lg:block" aria-hidden="true" />
             <img
               src={heroImg}
