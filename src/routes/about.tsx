@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/SectionHeading";
 import { industries, stats, SITE_URL } from "@/lib/site-content";
-import ccitLogoAsset from "@/assets/ccit-logo-original.png.asset.json";
+import ccitLogoAsset from "@/assets/ccit-logo-original.png";
 
 const title = "About CCIT Simulation | CFD Consultancy Indonesia";
 const description =
@@ -70,7 +70,7 @@ function AboutPage() {
 
             <figure className="mt-8 flex flex-col items-start gap-4 rounded-2xl border border-border bg-card p-5 shadow-[var(--shadow-card)] sm:flex-row sm:items-center">
               <img
-                src={ccitLogoAsset.url}
+                src={ccitLogoAsset}
                 alt="Original CCIT logo — Computing for Excellence"
                 width={176}
                 height={62}

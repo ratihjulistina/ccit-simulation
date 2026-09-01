@@ -76,9 +76,9 @@ export const industries: { name: string; image: string }[] = [
 ];
 
 import plnLogo from "@/assets/clients/pln.svg";
-import plnEnjiniringLogo from "@/assets/clients/pln-enjiniring.jpg.asset.json";
+import plnEnjiniringLogo from "@/assets/clients/pln-enjiniring.jpg";
 import pertaminaLogo from "@/assets/clients/pertamina.svg";
-import pupukLogo from "@/assets/clients/pupuk-iskandar-muda.jpg.asset.json";
+import pupukLogo from "@/assets/clients/pupuk-iskandar-muda.jpg";
 import esdmLogo from "@/assets/clients/kementerian-esdm.svg";
 import rekindLogo from "@/assets/clients/rekind-hd.jpg";
 import pjbLogo from "@/assets/clients/pjb.png";
@@ -86,9 +86,9 @@ import lemtekUiLogo from "@/assets/clients/lemtek-ui.svg";
 
 export const clients: { name: string; logo: string }[] = [
   { name: "PLN", logo: plnLogo },
-  { name: "PLN Enjiniring", logo: plnEnjiniringLogo.url },
+  { name: "PLN Enjiniring", logo: plnEnjiniringLogo },
   { name: "Pertamina", logo: pertaminaLogo },
-  { name: "PT Pupuk Iskandar Muda", logo: pupukLogo.url },
+  { name: "PT Pupuk Iskandar Muda", logo: pupukLogo },
   { name: "Kementerian ESDM", logo: esdmLogo },
   { name: "Rekind (PT Rekayasa Industri)", logo: rekindLogo },
   { name: "PT PJB", logo: pjbLogo },

@@ -2,8 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/SectionHeading";
 import { SITE_URL } from "@/lib/site-content";
-import trainingReinhardtAsset from "@/assets/training-reinhardt-2024.jpg.asset.json";
-import trainingClassAsset from "@/assets/training-class-2024.jpg.asset.json";
+import trainingReinhardtAsset from "@/assets/training-reinhardt-2024.jpg";
+import trainingClassAsset from "@/assets/training-class-2024.jpg";
 
 const title = "Projects & Training | CCIT Simulation";
 const description =
@@ -313,7 +313,7 @@ function ProjectsTrainingPage() {
             <Reveal delay={100} className="group overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)]">
               <div className="aspect-[16/10] overflow-hidden">
                 <img
-                  src={trainingReinhardtAsset.url}
+                  src={trainingReinhardtAsset}
                   alt="CCIT training session at Reinhardt"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
@@ -327,7 +327,7 @@ function ProjectsTrainingPage() {
             <Reveal delay={200} className="group overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)]">
               <div className="aspect-[16/10] overflow-hidden">
                 <img
-                  src={trainingClassAsset.url}
+                  src={trainingClassAsset}
                   alt="CCIT training class group photo"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
