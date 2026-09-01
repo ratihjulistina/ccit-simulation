@@ -292,6 +292,7 @@
     .animate-float-soft {
       animation: none !important;
       transition: none !important;
+      animation: none !important;
       opacity: 1;
       transform: none;
     }
