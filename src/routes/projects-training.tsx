@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { CalendarDays, ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/SectionHeading";
+import { ShareButtons } from "@/components/ShareButtons";
 import { SITE_URL } from "@/lib/site-content";
 import trainingReinhardtAsset from "@/assets/training-reinhardt-2024.jpg";
 import trainingClassAsset from "@/assets/training-class-2024.jpg";
@@ -8,6 +10,15 @@ import trainingClassAsset from "@/assets/training-class-2024.jpg";
 const title = "Projects & Training | CCIT Simulation";
 const description =
   "Industrial simulation projects and hands-on CFD training programmes from CCIT Simulation — in-house workshops, mentoring, and capability building for Indonesian engineering teams.";
+
+const webinar = {
+  title: "Free Webinar: Introduction to OpenFOAM",
+  date: "28 September 2026",
+  body: "A free live session for engineers who want to get started with OpenFOAM — the open-source CFD toolbox. We cover installation, the case structure, running your first simulation, and how OpenFOAM fits real industrial workflows.",
+  // TODO: replace with the actual Google Form link
+  formUrl: "https://forms.gle/your-openfoam-webinar-form",
+  shareUrl: `${SITE_URL}/projects-training#webinar-openfoam`,
+};
 
 const programmes = [
   {
@@ -297,6 +308,46 @@ function ProjectsTrainingPage() {
           >
             Request a training schedule
           </Link>
+        </div>
+      </section>
+
+      <section id="webinar-openfoam" className="border-t border-border scroll-mt-24">
+        <div className="mx-auto max-w-7xl px-5 py-20">
+          <Reveal as="span" className="block">
+            <h2 className="text-2xl font-bold text-ink sm:text-3xl">Upcoming event</h2>
+          </Reveal>
+          <Reveal
+            delay={100}
+            className="mt-10 overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)]"
+          >
+            <div className="border-l-4 border-primary p-6 sm:p-8">
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
+                  Free webinar
+                </span>
+                <span className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground">
+                  <CalendarDays className="h-4 w-4 text-primary" aria-hidden="true" />
+                  {webinar.date}
+                </span>
+              </div>
+              <h3 className="mt-4 text-xl font-bold text-ink sm:text-2xl">{webinar.title}</h3>
+              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+                {webinar.body}
+              </p>
+              <div className="mt-6 flex flex-wrap items-center gap-6">
+                <a
+                  href={webinar.formUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-red)] transition-transform hover:-translate-y-0.5"
+                >
+                  Join the webinar
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+                <ShareButtons url={webinar.shareUrl} title={webinar.title} />
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
