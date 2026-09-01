@@ -1,4 +1,4 @@
-export const SITE_URL = "https://ccitcfd.app";
+export const SITE_URL = "https://cfit-aero-indonesia.lovable.app";
 
 export const services = [
   {

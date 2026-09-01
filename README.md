@@ -1,43 +1,29 @@
-# CCIT Simulation
+# Welcome to your Lovable project
 
-A marketing and case-study website for **PT CCIT Group Indonesia**, an engineering consulting firm specializing in Computational Fluid Dynamics (CFD) and thermal-fluid simulation.
+This project was built with [Lovable](https://lovable.dev).
 
-## Tech stack
+## Build with Lovable
 
-- [TanStack Start](https://tanstack.com/start) – full-stack React framework
-- [React](https://react.dev/) 19 + [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/) 4
-- [Supabase](https://supabase.com/) – auth, database, and storage
+Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+
+- **Ship faster**: describe what you want to build and Lovable handles the code.
+- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
+- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
-Requires [Bun](https://bun.sh/) (or Node.js with npm).
+Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
 ```sh
-bun install
-bun run dev
+git clone <this-repository-url>
+cd <repository-name>
+npm i
+npm run dev
 ```
 
-The dev server starts on `http://localhost:8080` by default.
+## Built with
 
-## Build
-
-```sh
-bun run build
-```
-
-## Environment variables
-
-Server-side variables (do not prefix with `VITE_`):
-
-- `SUPABASE_URL`
-- `SUPABASE_PUBLISHABLE_KEY`
-- `SUPABASE_SERVICE_ROLE_KEY`
-- `CRON_SECRET` (optional, for cron/auth endpoints)
-- `CRON_SECRET_PREVIOUS` (optional, for secret rotation)
-
-Client-side variables must use the `VITE_` prefix.
-
-## Deployment
-
-This project is configured for a standard TanStack Start build. The default Nitro target is a Cloudflare Worker-compatible runtime; adjust the Nitro preset in `vite.config.ts` or your host's build settings if you deploy to Node.js, Vercel, or another platform.
+- TanStack Start
+- TypeScript
+- React
+- Tailwind CSS
