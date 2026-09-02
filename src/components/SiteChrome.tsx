@@ -9,6 +9,7 @@ const nav = [
   { to: "/case-studies", label: "Case studies", exact: false },
   { to: "/projects-training", label: "Projects & Training", exact: false },
   { to: "/about", label: "About", exact: false },
+  { to: "/our-team", label: "Our team", exact: false },
 ] as const;
 
 export function SiteHeader() {
