@@ -32,7 +32,7 @@ function OurTeamPage() {
           <SectionHeading
             eyebrow="Our people"
             title="Meet the team"
-            subtitle="The engineers, researchers, and simulation specialists powering CCIT Simulation."
+            body="The engineers, researchers, and simulation specialists powering CCIT Simulation."
           />
         </Reveal>
 
