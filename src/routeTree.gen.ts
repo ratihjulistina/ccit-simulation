@@ -15,6 +15,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as OurTeamRouteImport } from './routes/our-team'
 import { Route as ProjectsTrainingRouteImport } from './routes/projects-training'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SetPasswordRouteImport } from './routes/set-password'
@@ -52,6 +53,11 @@ const CaseStudiesRoute = CaseStudiesRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OurTeamRoute = OurTeamRouteImport.update({
+  id: '/our-team',
+  path: '/our-team',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsTrainingRoute = ProjectsTrainingRouteImport.update({
@@ -108,6 +114,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
+  '/our-team': typeof OurTeamRoute
   '/projects-training': typeof ProjectsTrainingRoute
   '/services': typeof ServicesRoute
   '/set-password': typeof SetPasswordRoute
@@ -123,6 +130,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
+  '/our-team': typeof OurTeamRoute
   '/projects-training': typeof ProjectsTrainingRoute
   '/services': typeof ServicesRoute
   '/set-password': typeof SetPasswordRoute
@@ -141,6 +149,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
+  '/our-team': typeof OurTeamRoute
   '/projects-training': typeof ProjectsTrainingRoute
   '/services': typeof ServicesRoute
   '/set-password': typeof SetPasswordRoute
@@ -159,6 +168,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/case-studies'
     | '/contact'
+    | '/our-team'
     | '/projects-training'
     | '/services'
     | '/set-password'
@@ -174,6 +184,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/auth'
     | '/contact'
+    | '/our-team'
     | '/projects-training'
     | '/services'
     | '/set-password'
@@ -191,6 +202,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/case-studies'
     | '/contact'
+    | '/our-team'
     | '/projects-training'
     | '/services'
     | '/set-password'
@@ -209,6 +221,7 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   CaseStudiesRoute: typeof CaseStudiesRouteWithChildren
   ContactRoute: typeof ContactRoute
+  OurTeamRoute: typeof OurTeamRoute
   ProjectsTrainingRoute: typeof ProjectsTrainingRoute
   ServicesRoute: typeof ServicesRoute
   SetPasswordRoute: typeof SetPasswordRoute
@@ -257,6 +270,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/our-team': {
+      id: '/our-team'
+      path: '/our-team'
+      fullPath: '/our-team'
+      preLoaderRoute: typeof OurTeamRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/projects-training': {
@@ -361,6 +381,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   CaseStudiesRoute: CaseStudiesRouteWithChildren,
   ContactRoute: ContactRoute,
+  OurTeamRoute: OurTeamRoute,
   ProjectsTrainingRoute: ProjectsTrainingRoute,
   ServicesRoute: ServicesRoute,
   SetPasswordRoute: SetPasswordRoute,
