@@ -157,7 +157,7 @@ export const successSecrets = {
   points: [
     {
       title: "The Power of Ownership: CFDSOF",
-      body: "Most consultancy firms are users of technology; we are creators of it. The heart of our success is CFDSOF. By developing our own proprietary CFD code, we have stripped away the barriers of commercial solvers. We don’t wait for a software update to solve a unique multiphase flow problem in a Natuna Sea pipeline or a combustion instability in a Java power plant—we write the physics ourselves.",
+      body: "The heart of our success is CFDSOF. By developing our own proprietary CFD code, we have stripped away the barriers of commercial solvers. We don’t wait for a software update to solve a unique multiphase flow problem in a Natuna Sea pipeline or a combustion instability in a Java power plant—we write the physics ourselves.",
     },
     {
       title: "Bridging the Academic-Industrial Divide",
@@ -165,7 +165,7 @@ export const successSecrets = {
     },
     {
       title: "Precision in the “Grey Areas”",
-      body: "Where others see a “general fluid,” we see the nuance of non-Newtonian drilling muds, the chaotic turbulence of a cooling tower plume, or the delicate thermal balance of a green building. Our secret is specialization. We focus on the high-energy, high-risk sectors—Power, Oil & Gas, and Mining—where the cost of error is highest and the demand for precision is absolute.",
+      body: "We see the nuance of non-Newtonian drilling muds, the chaotic turbulence of a cooling tower plume, or the delicate thermal balance of a green building. Our secret is specialization. We focus on the high-energy, high-risk sectors—Power, Oil & Gas, and Mining—where the cost of error is highest and the demand for precision is absolute.",
     },
     {
       title: "The “Engineering First” Philosophy",
