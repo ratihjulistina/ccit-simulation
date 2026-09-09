@@ -88,7 +88,7 @@ function Index() {
             </div>
           </div>
           <div className="animate-hero-in relative" style={{ animationDelay: "150ms" }}>
-            <div className="flag-rule absolute -left-3 top-6 hidden h-40 w-1.5 rounded-full lg:block" aria-hidden="true" />
+            
             <img
               src={heroImg}
               width={1600}
