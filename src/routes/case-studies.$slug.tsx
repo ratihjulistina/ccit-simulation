@@ -1,25 +1,18 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { PageHero } from "@/components/SectionHeading";
 import { RichText } from "@/components/RichText";
 import { ShareButtons } from "@/components/ShareButtons";
 import { SITE_URL } from "@/lib/site-content";
-import { getPublishedCaseStudy } from "@/lib/case-studies.functions";
-
-const caseStudyQuery = (slug: string) =>
-  queryOptions({
-    queryKey: ["case-study", slug],
-    queryFn: () => getPublishedCaseStudy({ data: { slug } }),
-  });
+import { findPublishedCaseStudy } from "@/lib/case-studies.static";
 
 export const Route = createFileRoute("/case-studies/$slug")({
-  loader: async ({ context, params }) => {
-    const result = await context.queryClient.ensureQueryData(caseStudyQuery(params.slug));
-    if (!result.item && !result.error) throw notFound();
+  loader: ({ params }) => {
+    const item = findPublishedCaseStudy(params.slug);
+    if (!item) throw notFound();
     return {
-      title: result.item?.title ?? "Case study",
-      excerpt: result.item?.excerpt ?? "",
-      image: result.item?.image ?? null,
+      title: item.title,
+      excerpt: item.excerpt,
+      image: item.image,
       slug: params.slug,
     };
   },
@@ -73,15 +66,12 @@ function CaseStudyNotFound() {
 
 function CaseStudyDetail() {
   const { slug } = Route.useParams();
-  const { data } = useSuspenseQuery(caseStudyQuery(slug));
-  const cs = data.item;
+  const cs = findPublishedCaseStudy(slug);
 
   if (!cs) {
     return (
       <section className="mx-auto max-w-3xl px-5 py-24 text-center">
-        <p className="text-sm text-muted-foreground">
-          {data.error ?? "This case study is unavailable right now."}
-        </p>
+        <p className="text-sm text-muted-foreground">This case study is unavailable right now.</p>
         <Link to="/case-studies" className="mt-6 inline-flex text-sm font-semibold text-primary">
           ← Back to all case studies
         </Link>
