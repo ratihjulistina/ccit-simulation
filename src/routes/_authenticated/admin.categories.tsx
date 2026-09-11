@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import { toast } from "sonner";
 import { PageHero } from "@/components/SectionHeading";
@@ -9,7 +8,7 @@ import {
   adminCreateCategory,
   adminRenameCategory,
   adminDeleteCategory,
-} from "@/lib/case-studies.functions";
+} from "@/lib/case-studies.data";
 
 export const Route = createFileRoute("/_authenticated/admin/categories")({
   head: () => ({
@@ -41,9 +40,6 @@ function CategoriesPage() {
   const [editingName, setEditingName] = useState("");
 
   const list = useQuery({ queryKey: ["admin-categories"], queryFn: () => adminListCategories() });
-  const create = useServerFn(adminCreateCategory);
-  const rename = useServerFn(adminRenameCategory);
-  const remove = useServerFn(adminDeleteCategory);
 
   function refresh() {
     void queryClient.invalidateQueries({ queryKey: ["admin-categories"] });
@@ -51,7 +47,7 @@ function CategoriesPage() {
   }
 
   const createMutation = useMutation({
-    mutationFn: (name: string) => create({ data: { name } }),
+    mutationFn: (name: string) => adminCreateCategory(name),
     onSuccess: () => {
       toast.success("Category added.");
       setNewName("");
@@ -61,7 +57,7 @@ function CategoriesPage() {
   });
 
   const renameMutation = useMutation({
-    mutationFn: (vars: { id: string; name: string }) => rename({ data: vars }),
+    mutationFn: (vars: { id: string; name: string }) => adminRenameCategory(vars.id, vars.name),
     onSuccess: () => {
       toast.success("Category renamed.");
       setEditingId(null);
@@ -71,7 +67,7 @@ function CategoriesPage() {
   });
 
   const deleteMutation = useMutation({
-    mutationFn: (id: string) => remove({ data: { id } }),
+    mutationFn: (id: string) => adminDeleteCategory(id),
     onSuccess: () => {
       toast.success("Category deleted.");
       refresh();

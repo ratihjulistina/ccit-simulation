@@ -1,16 +1,16 @@
 import { createFileRoute, Link, useNavigate, useParams } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
 import { PageHero } from "@/components/SectionHeading";
 import { RichTextEditor } from "@/components/RichTextEditor";
 import {
   adminGetCaseStudy,
   adminSaveCaseStudy,
   adminListCategories,
-} from "@/lib/case-studies.functions";
+  uploadCaseStudyImage,
+  previewImageUrl,
+} from "@/lib/case-studies.data";
 import { slugify, type RichTextDoc } from "@/lib/case-studies.types";
 
 export const Route = createFileRoute("/_authenticated/admin/$id")({
@@ -42,6 +42,7 @@ function CaseStudyEditor() {
   const [category, setCategory] = useState("");
   const [excerpt, setExcerpt] = useState("");
   const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [imageAlt, setImageAlt] = useState("");
   const [published, setPublished] = useState(false);
   const [body, setBody] = useState<RichTextDoc | null>(null);
@@ -49,7 +50,7 @@ function CaseStudyEditor() {
 
   const existing = useQuery({
     queryKey: ["admin-case-study", id],
-    queryFn: () => adminGetCaseStudy({ data: { id } }),
+    queryFn: () => adminGetCaseStudy(id),
     enabled: !isNew,
   });
 
@@ -63,7 +64,6 @@ function CaseStudyEditor() {
     category && !categoryNames.includes(category)
       ? [...categoryNames, category].sort((a, b) => a.localeCompare(b))
       : categoryNames;
-
 
   useEffect(() => {
     const item = existing.data?.item;
@@ -79,21 +79,28 @@ function CaseStudyEditor() {
     setBody(item.body);
   }, [existing.data]);
 
-  const save = useServerFn(adminSaveCaseStudy);
+  useEffect(() => {
+    let active = true;
+    previewImageUrl(imageUrl).then((url) => {
+      if (active) setImagePreview(url);
+    });
+    return () => {
+      active = false;
+    };
+  }, [imageUrl]);
+
   const saveMutation = useMutation({
     mutationFn: () =>
-      save({
-        data: {
-          id: isNew ? null : id,
-          slug: slug || slugify(title),
-          title,
-          category,
-          excerpt,
-          body,
-          imageUrl,
-          imageAlt,
-          published,
-        },
+      adminSaveCaseStudy({
+        id: isNew ? null : id,
+        slug: slug || slugify(title),
+        title,
+        category,
+        excerpt,
+        body,
+        imageUrl,
+        imageAlt,
+        published,
       }),
     onSuccess: () => {
       toast.success("Saved.");
@@ -106,13 +113,8 @@ function CaseStudyEditor() {
   async function handleUpload(file: File) {
     setUploading(true);
     try {
-      const extension = file.name.split(".").pop()?.toLowerCase() ?? "jpg";
-      const path = `${crypto.randomUUID()}.${extension}`;
-      const { error } = await supabase.storage
-        .from("case-study-images")
-        .upload(path, file, { contentType: file.type, upsert: false });
-      if (error) throw error;
-      setImageUrl(`/api/public/case-study-image/${path}`);
+      const path = await uploadCaseStudyImage(file);
+      setImageUrl(path);
       toast.success("Image uploaded.");
     } catch (error) {
       toast.error(error instanceof Error ? error.message : "Upload failed");
@@ -218,9 +220,9 @@ function CaseStudyEditor() {
           <div>
             <span className="text-sm font-semibold text-ink">Cover image</span>
             <div className="mt-2 flex flex-wrap items-center gap-4">
-              {imageUrl && (
+              {imagePreview && (
                 <img
-                  src={imageUrl}
+                  src={imagePreview}
                   alt={imageAlt || "Case study cover"}
                   className="h-24 w-36 rounded-xl object-cover"
                 />
@@ -268,7 +270,7 @@ function CaseStudyEditor() {
               onChange={(event) => setPublished(event.target.checked)}
               className="h-4 w-4 accent-[hsl(var(--primary))]"
             />
-            Published (visible on the public website)
+            Published (visible on the public website after next build)
           </label>
 
           <button
