@@ -1,22 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { Reveal } from "@/components/Reveal";
 import { PageHero } from "@/components/SectionHeading";
 import { SITE_URL } from "@/lib/site-content";
-import { getPublishedCaseStudies } from "@/lib/case-studies.functions";
+import { publishedCaseStudies } from "@/lib/case-studies.static";
 
 const title = "CFD Case Studies | CCIT Simulation Indonesia";
 const description =
   "Selected computational fluid dynamics projects by CCIT Simulation — the engineering challenge, the simulation approach, the CFD results, and the client outcome.";
 
-const caseStudiesQuery = queryOptions({
-  queryKey: ["case-studies"],
-  queryFn: () => getPublishedCaseStudies(),
-});
-
-
 export const Route = createFileRoute("/case-studies/")({
-  loader: ({ context }) => context.queryClient.ensureQueryData(caseStudiesQuery),
   head: () => ({
     meta: [
       { title },
@@ -35,8 +27,7 @@ export const Route = createFileRoute("/case-studies/")({
 });
 
 function CaseStudiesPage() {
-  const { data } = useSuspenseQuery(caseStudiesQuery);
-  const items = data.items;
+  const items = publishedCaseStudies;
   const showEmptyState = items.length === 0;
 
   return (
@@ -50,7 +41,7 @@ function CaseStudiesPage() {
       {showEmptyState && (
         <section className="mx-auto max-w-7xl px-5 pt-16">
           <p className="rounded-2xl border border-dashed border-border bg-muted/60 px-6 py-4 text-center text-sm text-muted-foreground">
-            {data.error ?? "New case studies are being prepared and will appear here soon."}
+            New case studies are being prepared and will appear here soon.
           </p>
         </section>
       )}
@@ -58,37 +49,37 @@ function CaseStudiesPage() {
       <section className="mx-auto grid max-w-7xl gap-6 px-5 py-14 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((cs, i) => (
           <Reveal key={cs.id} delay={i * 100} className="flex">
-          <Link
-            to="/case-studies/$slug"
-            params={{ slug: cs.slug }}
-            className="group flex w-full flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)] transition-[transform,box-shadow] duration-500 hover:-translate-y-1.5 hover:shadow-[var(--shadow-red)]"
-          >
-            <div className="flag-rule h-1.5 w-full" aria-hidden="true" />
-            {cs.image && (
-              <img
-                src={cs.image}
-                width={800}
-                height={520}
-                loading="lazy"
-                alt={cs.imageAlt}
-                className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            )}
-            <div className="flex flex-1 flex-col p-6">
-              {cs.category && (
-                <span className="w-fit rounded-full bg-accent px-2.5 py-1 text-[11px] font-semibold text-accent-foreground">
-                  {cs.category}
-                </span>
+            <Link
+              to="/case-studies/$slug"
+              params={{ slug: cs.slug }}
+              className="group flex w-full flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)] transition-[transform,box-shadow] duration-500 hover:-translate-y-1.5 hover:shadow-[var(--shadow-red)]"
+            >
+              <div className="flag-rule h-1.5 w-full" aria-hidden="true" />
+              {cs.image && (
+                <img
+                  src={cs.image}
+                  width={800}
+                  height={520}
+                  loading="lazy"
+                  alt={cs.imageAlt}
+                  className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
               )}
-              <h2 className="mt-3 text-lg font-bold text-ink">{cs.title}</h2>
-              {cs.excerpt && (
-                <p className="mt-3 line-clamp-4 text-sm leading-relaxed text-muted-foreground">
-                  {cs.excerpt}
-                </p>
-              )}
-              <span className="mt-5 text-sm font-semibold text-primary">Read full case study →</span>
-            </div>
-          </Link>
+              <div className="flex flex-1 flex-col p-6">
+                {cs.category && (
+                  <span className="w-fit rounded-full bg-accent px-2.5 py-1 text-[11px] font-semibold text-accent-foreground">
+                    {cs.category}
+                  </span>
+                )}
+                <h2 className="mt-3 text-lg font-bold text-ink">{cs.title}</h2>
+                {cs.excerpt && (
+                  <p className="mt-3 line-clamp-4 text-sm leading-relaxed text-muted-foreground">
+                    {cs.excerpt}
+                  </p>
+                )}
+                <span className="mt-5 text-sm font-semibold text-primary">Read full case study →</span>
+              </div>
+            </Link>
           </Reveal>
         ))}
       </section>
