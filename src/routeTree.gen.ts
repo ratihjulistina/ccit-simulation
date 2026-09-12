@@ -24,7 +24,6 @@ import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
 import { Route as AuthenticatedAdminIdRouteImport } from './routes/_authenticated/admin.$id'
 import { Route as AuthenticatedAdminCategoriesRouteImport } from './routes/_authenticated/admin.categories'
-import { Route as ApiPublicCaseStudyImageSplatRouteImport } from './routes/api/public/case-study-image.$'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -101,12 +100,6 @@ const AuthenticatedAdminCategoriesRoute =
     path: '/admin/categories',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
-const ApiPublicCaseStudyImageSplatRoute =
-  ApiPublicCaseStudyImageSplatRouteImport.update({
-    id: '/api/public/case-study-image/$',
-    path: '/api/public/case-study-image/$',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -123,7 +116,6 @@ export interface FileRoutesByFullPath {
   '/admin/$id': typeof AuthenticatedAdminIdRoute
   '/admin/categories': typeof AuthenticatedAdminCategoriesRoute
   '/admin/': typeof AuthenticatedAdminIndexRoute
-  '/api/public/case-study-image/$': typeof ApiPublicCaseStudyImageSplatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -139,7 +131,6 @@ export interface FileRoutesByTo {
   '/admin/$id': typeof AuthenticatedAdminIdRoute
   '/admin/categories': typeof AuthenticatedAdminCategoriesRoute
   '/admin': typeof AuthenticatedAdminIndexRoute
-  '/api/public/case-study-image/$': typeof ApiPublicCaseStudyImageSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -158,7 +149,6 @@ export interface FileRoutesById {
   '/_authenticated/admin/$id': typeof AuthenticatedAdminIdRoute
   '/_authenticated/admin/categories': typeof AuthenticatedAdminCategoriesRoute
   '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
-  '/api/public/case-study-image/$': typeof ApiPublicCaseStudyImageSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -177,7 +167,6 @@ export interface FileRouteTypes {
     | '/admin/$id'
     | '/admin/categories'
     | '/admin/'
-    | '/api/public/case-study-image/$'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -193,7 +182,6 @@ export interface FileRouteTypes {
     | '/admin/$id'
     | '/admin/categories'
     | '/admin'
-    | '/api/public/case-study-image/$'
   id:
     | '__root__'
     | '/'
@@ -211,7 +199,6 @@ export interface FileRouteTypes {
     | '/_authenticated/admin/$id'
     | '/_authenticated/admin/categories'
     | '/_authenticated/admin/'
-    | '/api/public/case-study-image/$'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -225,7 +212,6 @@ export interface RootRouteChildren {
   ProjectsTrainingRoute: typeof ProjectsTrainingRoute
   ServicesRoute: typeof ServicesRoute
   SetPasswordRoute: typeof SetPasswordRoute
-  ApiPublicCaseStudyImageSplatRoute: typeof ApiPublicCaseStudyImageSplatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -335,13 +321,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminCategoriesRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/api/public/case-study-image/$': {
-      id: '/api/public/case-study-image/$'
-      path: '/api/public/case-study-image/$'
-      fullPath: '/api/public/case-study-image/$'
-      preLoaderRoute: typeof ApiPublicCaseStudyImageSplatRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
@@ -385,7 +364,6 @@ const rootRouteChildren: RootRouteChildren = {
   ProjectsTrainingRoute: ProjectsTrainingRoute,
   ServicesRoute: ServicesRoute,
   SetPasswordRoute: SetPasswordRoute,
-  ApiPublicCaseStudyImageSplatRoute: ApiPublicCaseStudyImageSplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

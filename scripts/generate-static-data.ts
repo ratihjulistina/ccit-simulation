@@ -15,6 +15,7 @@ const BUCKET = "case-study-images";
 const ROOT = join(dirname(new URL(import.meta.url).pathname), "..");
 const IMAGE_DIR = join(ROOT, "public", "case-study-images");
 const DATA_FILE = join(ROOT, "src", "data", "case-studies.generated.json");
+const PAGES_FILE = join(ROOT, "src", "data", "prerender-pages.json");
 
 const url = process.env["VITE_SUPABASE_URL"] ?? process.env["SUPABASE_URL"];
 const key =
@@ -99,6 +100,19 @@ async function main() {
 
   await writeFile(DATA_FILE, `${JSON.stringify({ items }, null, 2)}\n`);
   console.log(`\nExported ${items.length} published case studies to src/data/case-studies.generated.json`);
+
+  const pages = [
+    "/",
+    "/services",
+    "/case-studies",
+    "/projects-training",
+    "/our-team",
+    "/about",
+    "/contact",
+    ...items.map((item) => `/case-studies/${item.slug}`),
+  ];
+  await writeFile(PAGES_FILE, `${JSON.stringify(pages, null, 2)}\n`);
+  console.log(`Wrote ${pages.length} prerender paths to src/data/prerender-pages.json`);
 }
 
 await main();
