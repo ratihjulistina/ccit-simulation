@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
+    "build:cpanel": "vite build && echo \"\" && echo \"Build done. Upload EVERYTHING INSIDE dist/client/ to public_html/ on cPanel (ignore dist/server/).\" && ls dist/client",
     "build:dev": "bun run scripts/generate-static-data.ts && vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
