@@ -1,0 +1,1093 @@
+{
+  "items": [
+    {
+      "id": "cf3f946f-8a6a-4855-b918-aeb9618645c5",
+      "slug": "thermal-dispersion-power-plant-outfall",
+      "title": "Thermal Dispersion of Power Plant Outfall",
+      "category": "Power Generation",
+      "excerpt": "CFD modeling of thermal dispersion around the outfall and intake of PLTU Sulut-1 2x50 MW, verifying the intake stays free of hot-water recirculation.",
+      "body": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Client",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "PP Construction and Investment — PLTU Sulut-1 2x50 MW.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Challenge",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "The outfall of a coastal thermal power plant discharges heated cooling water close to the seawater intake. Without a quantitative study there was no assurance that hot water would not recirculate back into the intake and degrade condenser performance.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Approach",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "CFD modeling and simulation of the surrounding sea domain were conducted to analyse thermal dispersion around the plant outfall and intake, using temperature contour slices at sea depth -7 m, an outfall normal-direction slice and an intake y-direction slice.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Result",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "The temperature field showed how the thermal plume spreads and decays between outfall and intake, allowing the outfall and intake configuration to be evaluated against the permitted temperature rise.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Client outcome",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "The study confirmed the intake is safe from hot-water recirculation coming from the outfall, supporting the selected layout with defensible engineering evidence.",
+                "type": "text"
+              }
+            ]
+          }
+        ]
+      },
+      "image": "/case-study-images/thermal-dispersion-power-plant-outfall.jpg",
+      "imageAlt": "CFD simulation result for Thermal Dispersion of Power Plant Outfall",
+      "published": true,
+      "updatedAt": "2026-08-31T06:27:35.500471+00:00"
+    },
+    {
+      "id": "863276b7-be40-4d5c-982a-f531dddafdb4",
+      "slug": "distillation-column-feed-heater-pipe-leak",
+      "title": "Distillation Column Feed Heater Pipe Leak Analysis",
+      "category": "Petrochemical",
+      "excerpt": "Multiphase Lagrangian CFD used as scientific reference data to find the root cause of repeated 90-degree elbow leaks at a radiant outlet piping section.",
+      "body": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Client",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Trans Pacific Petrochemical Indotama.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Challenge",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "A number of leaks were found on 90-degree elbows at the radiant outlet piping section of the distillation column feed heater, with no confirmed mechanism behind the repeated failures.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Approach",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "CFD simulations with a multiphase Lagrangian model were performed to track particle trajectories and compute the eroded material distribution along the affected elbows.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Result",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "The erosion contours reproduced the observed damage locations on Elbow 1 and Elbow 2, matching the leak points recorded during inspection of Outlet Pass #4.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Client outcome",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "The simulation served as scientific reference data for the overall troubleshooting process, giving the plant an evidence-based root cause for the elbow leaks.",
+                "type": "text"
+              }
+            ]
+          }
+        ]
+      },
+      "image": "/case-study-images/distillation-column-feed-heater-pipe-leak.jpg",
+      "imageAlt": "CFD simulation result for Distillation Column Feed Heater Pipe Leak Analysis",
+      "published": true,
+      "updatedAt": "2026-08-31T06:27:35.500471+00:00"
+    },
+    {
+      "id": "09306930-cbfe-4ab5-86d4-8567331cc182",
+      "slug": "hrsg-economizer-tube-leak",
+      "title": "HRSG Economizer Tube Leak Analysis",
+      "category": "Petrochemical",
+      "excerpt": "Flow field and force distribution inside an HRSG economizer tube bundle, providing scientific reference data for root cause analysis of tube leaks.",
+      "body": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Client",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Trans Pacific Petrochemical Indotama.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Challenge",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Tube leaks recurred inside an HRSG economizer without a clear explanation of the internal flow and loading conditions driving them.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Approach",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "CFD modeling and simulation were conducted to analyse the flow field — velocity and pressure distribution — inside the economizer tube bundle and to extract the resulting force magnitude on each tube.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Result",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "High-force regions were identified around the bundle headers and bends, with a peak force magnitude of roughly 6.08e+05 N coinciding with the recorded leak points.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Client outcome",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "The results provided scientific reference data for root cause analysis of the tube leaks and for prioritising inspection of the highest-loaded regions.",
+                "type": "text"
+              }
+            ]
+          }
+        ]
+      },
+      "image": "/case-study-images/hrsg-economizer-tube-leak.jpg",
+      "imageAlt": "CFD simulation result for HRSG Economizer Tube Leak Analysis",
+      "published": true,
+      "updatedAt": "2026-08-31T06:27:35.500471+00:00"
+    },
+    {
+      "id": "c1559520-a5d2-4a0b-a9d5-3ee0a85c72ea",
+      "slug": "chamber-circulation-pump-suction-piping",
+      "title": "Analysis of Chamber Circulation Pump Suction Piping",
+      "category": "Petrochemical",
+      "excerpt": "CFD study of velocity distribution in three suction lines to explain jamming of the chamber circulation pumps.",
+      "body": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Client",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Trans Pacific Petrochemical Indotama.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Challenge",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "The chamber circulation pumps in a piping system experienced jamming so that they did not work properly, and the flow condition upstream of the pumps was unknown.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Approach",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "CFD simulations were conducted for suction lines A, B and C to obtain the flow field behaviour in the suction pipe before the fluid enters the pumps, resolving velocity magnitude and streamline patterns up to about 7 m/s.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Result",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "The comparison between the three suction branches exposed the difference in velocity distribution and flow uniformity delivered to each pump.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Client outcome",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "The client obtained a clear understanding of suction-side flow behaviour as the basis for troubleshooting and improving pump operation.",
+                "type": "text"
+              }
+            ]
+          }
+        ]
+      },
+      "image": "/case-study-images/chamber-circulation-pump-suction-piping.jpg",
+      "imageAlt": "CFD simulation result for Analysis of Chamber Circulation Pump Suction Piping",
+      "published": true,
+      "updatedAt": "2026-08-31T06:27:35.500471+00:00"
+    },
+    {
+      "id": "39234374-33a6-4e4e-ab66-61fee1de9bbe",
+      "slug": "economizer-hopper-design-evaluation",
+      "title": "Economizer Hopper Design Evaluation",
+      "category": "Power Generation",
+      "excerpt": "Gas and fly ash particle flow simulation inside the economizer flue gas ducting, comparing hopper design options for ash capture efficiency.",
+      "body": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Client",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "PLTU PJB Indramayu 3 x 330 MW.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Challenge",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Fly ash leaving the boiler had to be captured effectively by the economizer hopper, and the capture efficiency of the existing design was unproven.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Approach",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Gas and particle flow inside the economizer flue gas ducting was simulated with and without hopper geometry, and several design options were tested using CFD.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Result",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Particle tracks showed where fly ash settles and where it is carried through the ducting, quantifying the capture efficiency of each hopper option.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Client outcome",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "CCIT provided a recommendation on the optimum economizer hopper design, backed by comparative simulation results.",
+                "type": "text"
+              }
+            ]
+          }
+        ]
+      },
+      "image": "/case-study-images/economizer-hopper-design-evaluation.jpg",
+      "imageAlt": "CFD simulation result for Economizer Hopper Design Evaluation",
+      "published": true,
+      "updatedAt": "2026-08-31T06:27:35.500471+00:00"
+    },
+    {
+      "id": "6eca2cb8-1711-4d68-8571-e71a21df1b79",
+      "slug": "fly-ash-pneumatic-conveying-system",
+      "title": "Fly Ash Pneumatic Conveying System",
+      "category": "Power Generation",
+      "excerpt": "CFD sizing of a fly ash pneumatic conveying line: minimum conveying air velocity, pipe diameter, pressure drop and required pump capacity.",
+      "body": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Client",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "PLTU PJB Indramayu 3 x 330 MW.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Challenge",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Fly ash collected from the economizer hopper needed to be transported reliably through a pneumatic conveying line without settling or blockage.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Approach",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "The pneumatic conveying system piping was analysed with CFD across several operating cases to determine the minimum conveying air velocity, pipe diameter, pressure drop and required pump capacity.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Result",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "The simulations showed the ash deposition pattern along the horizontal runs for each velocity case and identified the threshold at which the line stays self-cleaning.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Client outcome",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "The client received the conveying parameters needed to specify the piping and the pump for stable fly ash transport.",
+                "type": "text"
+              }
+            ]
+          }
+        ]
+      },
+      "image": "/case-study-images/fly-ash-pneumatic-conveying-system.jpg",
+      "imageAlt": "CFD simulation result for Fly Ash Pneumatic Conveying System",
+      "published": true,
+      "updatedAt": "2026-08-31T06:27:35.500471+00:00"
+    },
+    {
+      "id": "461f1d13-3b6c-457f-826f-8ded9b95f991",
+      "slug": "separator-vessel-wall-thinning",
+      "title": "Analysis of Wall Thickness Thinning in Separator Vessel",
+      "category": "Oil & Gas",
+      "excerpt": "Two-phase flow CFD of a separator vessel to explain accelerated wall thinning through corrosion rate and wall shear stress.",
+      "body": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Client",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Star Energy.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Challenge",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Wall thickness thinning occurred noticeably faster in one separator unit than in its sister units, and the reason was not identifiable from inspection data alone.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Approach",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "CFD modeling and simulation of the two-phase flow separator were conducted, with corrosion rate and wall shear stress as the variables of interest, based on the as-built geometry of the vessel.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Result",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "The simulation localised the high wall shear stress zones inside the vessel and correlated them with the areas showing the fastest measured thinning.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Client outcome",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "The client obtained a physics-based root cause for the accelerated thinning to guide inspection intervals and remedial action.",
+                "type": "text"
+              }
+            ]
+          }
+        ]
+      },
+      "image": "/case-study-images/separator-vessel-wall-thinning.jpg",
+      "imageAlt": "CFD simulation result for Analysis of Wall Thickness Thinning in Separator Vessel",
+      "published": true,
+      "updatedAt": "2026-08-31T06:27:35.500471+00:00"
+    },
+    {
+      "id": "2558cac0-5358-4332-b75e-4e1f537bfbb1",
+      "slug": "thermal-power-plant-seawater-intake",
+      "title": "Thermal Power Plant Seawater Intake",
+      "category": "Water & Marine",
+      "excerpt": "CFD assessment of a seawater intake design based on the uniformity of water flow distribution across the pump bays.",
+      "body": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Client",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "JGo Engineering.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Challenge",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "A seawater intake structure had to supply the cooling water pumps evenly; uneven distribution risks vortices, cavitation and reduced pump reliability.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Approach",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "A CFD simulation of water flow inside the seawater intake was completed to assess the design by evaluating the water flow distribution uniformity through the screens and pump bays.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Result",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "The flow field revealed how the incoming stream splits between bays and where recirculation and dead zones form inside the structure.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Client outcome",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "The design was assessed against uniform-distribution criteria, giving the engineering team a basis to confirm or refine the intake layout.",
+                "type": "text"
+              }
+            ]
+          }
+        ]
+      },
+      "image": "/case-study-images/thermal-power-plant-seawater-intake.jpg",
+      "imageAlt": "CFD simulation result for Thermal Power Plant Seawater Intake",
+      "published": true,
+      "updatedAt": "2026-08-31T06:27:35.500471+00:00"
+    },
+    {
+      "id": "85d67c1b-9a40-4294-8d10-a89918afa97b",
+      "slug": "seawater-intake-sedimentation-analysis",
+      "title": "Sedimentation Analysis in Seawater Intake Facility",
+      "category": "Water & Marine",
+      "excerpt": "Sediment transport modeling of the PLTU Jawa 9 & 10 seawater intake to predict sediment distribution and the sedimentation rate.",
+      "body": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Client",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Hutama Karya — PLTU Jawa 9 & 10 2x1000 MW.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Challenge",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Suspended sediment entering the seawater intake facility accumulates over time, driving dredging cost and threatening cooling water availability.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Approach",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "CFD modeling and simulation of seawater with a sediment transport model were performed, using a total suspended solid of 0.123 mg/L, the lowest low water level of -0.913 m, 4 operating ACWP at 5,430 m3/hour each and 5 operating CWP at 101,600 m3/hour each.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Result",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Sand volume fraction contours showed the sediment distribution inside the facility and where deposits concentrate along the basin floor.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Client outcome",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "The sedimentation rate inside the seawater intake facility was calculated, allowing dredging planning and intake operation to be based on quantified figures.",
+                "type": "text"
+              }
+            ]
+          }
+        ]
+      },
+      "image": "/case-study-images/seawater-intake-sedimentation-analysis.jpg",
+      "imageAlt": "CFD simulation result for Sedimentation Analysis in Seawater Intake Facility",
+      "published": true,
+      "updatedAt": "2026-08-31T06:27:35.500471+00:00"
+    }
+  ]
+}
