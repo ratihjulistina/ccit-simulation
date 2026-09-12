@@ -15,6 +15,7 @@ const BUCKET = "case-study-images";
 const ROOT = join(dirname(new URL(import.meta.url).pathname), "..");
 const IMAGE_DIR = join(ROOT, "public", "case-study-images");
 const DATA_FILE = join(ROOT, "src", "data", "case-studies.generated.json");
+const PAGES_FILE = join(ROOT, "src", "data", "prerender-pages.json");
 
 const url = process.env["VITE_SUPABASE_URL"] ?? process.env["SUPABASE_URL"];
 const key =
